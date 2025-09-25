@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<groups>
+<groups><!--actualizado-->
   <group id="1" name="player" flags="0" maxdepotitems="0" maxvipentries="0" access="0" />
   <group id="2" name="gamemaster" flags="412316860415" maxdeoptitems="0" maxvipentries="0" access="1" />
   <group id="6" name="god" flags="547608305658" maxdepotitems="0" maxvipentries="0" access="1" />
