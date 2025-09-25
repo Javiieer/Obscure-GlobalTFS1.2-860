@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(32) NOT NULL,
   `password` char(40) NOT NULL,
-  `salt` varchar(40) NOT NULL DEFAULT '',
+  `salt_disabled` varchar(40) NOT NULL DEFAULT '',
   `secret` char(16) DEFAULT NULL,
   `type` int(11) NOT NULL DEFAULT '1',
   `premdays` int(11) NOT NULL DEFAULT '0',
@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `accounts` (
 -- Dumping data for table `accounts`
 --
 
-INSERT INTO `accounts` (`id`, `name`, `password`, `salt`, `secret`, `type`, `premdays`, `coins`, `lastday`, `email`, `creation`, `vote`, `key`, `email_new`, `email_new_time`, `rlname`, `location`, `page_access`, `email_code`, `next_email`, `premium_points`, `create_date`, `create_ip`, `last_post`, `flag`, `vip_time`, `guild_points`, `guild_points_stats`, `passed`, `block`, `refresh`, `birth_date`, `gender`, `loyalty_points`, `authToken`, `backup_points`) VALUES
+INSERT INTO `accounts` (`id`, `name`, `password`, `salt_disabled`, `secret`, `type`, `premdays`, `coins`, `lastday`, `email`, `creation`, `vote`, `key`, `email_new`, `email_new_time`, `rlname`, `location`, `page_access`, `email_code`, `next_email`, `premium_points`, `create_date`, `create_ip`, `last_post`, `flag`, `vip_time`, `guild_points`, `guild_points_stats`, `passed`, `block`, `refresh`, `birth_date`, `gender`, `loyalty_points`, `authToken`, `backup_points`) VALUES
 (1, 'asd84as894das4d89as4d894', 'g1a9s8d4g98s4dg891s894g79f781g9fd878fd47', '', NULL, 1, 0, 0, 0, '', 0, 0, '0', '', 0, '', '', 9999, '', 0, 0, 0, 0, 0, 'unknown', 0, 0, 0, 0, 0, 0, '', '', 0, '', 0),
 (2, 'god', '21298df8a3277357ee55b01df9530b535cf08ec1', '', NULL, 5, 0, 227, 0, 'gamemaster@tibia.com', 1507160060, 0, '6UDY-5E2O-DOMO-WATY', '', 0, 'Julio', 'Arahiatons', 5, '', 0, 0, 0, 0, 1588305679, '', 0, 0, 0, 0, 0, 0, '11/1/1996', 'male', 0, '', 0);
 
@@ -3863,6 +3863,36 @@ CREATE TABLE IF NOT EXISTS `player_statements` (
   KEY `channel_id` (`channel_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `player_skills`
+-- 
+
+CREATE TABLE IF NOT EXISTS `player_skills` (
+  `player_id` INT NOT NULL,
+  `skillid` TINYINT UNSIGNED NOT NULL,
+  `value` INT UNSIGNED NOT NULL DEFAULT 10,
+  `count` INT UNSIGNED NOT NULL DEFAULT 0,
+  PRIMARY KEY (`player_id`, `skillid`),
+  CONSTRAINT `fk_player_skills_player`
+    FOREIGN KEY (`player_id`) REFERENCES `players`(`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Seed das 7 skills para todos os players já existentes (idempotente)
+INSERT IGNORE INTO `player_skills` (`player_id`, `skillid`, `value`, `count`)
+SELECT p.id, s.skillid, 10, 0
+FROM `players` p
+JOIN (
+  SELECT 0 AS skillid UNION ALL SELECT 1 UNION ALL SELECT 2
+  UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5
+  UNION ALL SELECT 6
+) AS s
+LEFT JOIN `player_skills` ps
+  ON ps.player_id = p.id AND ps.skillid = s.skillid
+WHERE ps.player_id IS NULL;
 -- --------------------------------------------------------
 
 --
