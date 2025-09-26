@@ -40,7 +40,7 @@ GlobalEvents::~GlobalEvents()
 
 void GlobalEvents::clearMap(GlobalEventMap& map)
 {
-	#pragma omp parallel for
+	
 for (const auto& it : map) {
 		delete it.second;
 	}
@@ -183,7 +183,7 @@ void GlobalEvents::think()
 
 	std::vector<GlobalEvent*> eventsToExecute;
 
-	#pragma omp parallel for
+	
 	for (const auto& it : thinkMap) {
 		GlobalEvent* globalEvent = it.second;
 
@@ -193,7 +193,7 @@ void GlobalEvents::think()
 			nextExecutionTime = globalEvent->getInterval();
 		}
 
-		#pragma omp critical
+		
 		{
 			if (nextExecutionTime < nextScheduledTime) {
 				nextScheduledTime = nextExecutionTime;
@@ -207,7 +207,7 @@ void GlobalEvents::think()
 		}
 
 		int64_t nextExecutionTime = globalEvent->getInterval();
-		#pragma omp critical
+		
 		{
 			if (nextExecutionTime < nextScheduledTime) {
 				nextScheduledTime = nextExecutionTime;
@@ -223,7 +223,7 @@ void GlobalEvents::think()
 
 void GlobalEvents::execute(GlobalEvent_t type) const
 {
-	#pragma omp parallel for
+	
 for (const auto& it : serverMap) {
 		GlobalEvent* globalEvent = it.second;
 		if (globalEvent->getEventType() == type) {
@@ -241,7 +241,7 @@ GlobalEventMap GlobalEvents::getEventMap(GlobalEvent_t type)
 		case GLOBALEVENT_SHUTDOWN:
 		case GLOBALEVENT_RECORD: {
 			GlobalEventMap retMap;
-			#pragma omp parallel for
+			
 for (const auto& it : serverMap) {
 				if (it.second->getEventType() == type) {
 					retMap[it.first] = it.second;

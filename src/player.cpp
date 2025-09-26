@@ -68,7 +68,7 @@ Player::~Player()
 		it.second->decrementReferenceCounter();
 	}
 
-	#pragma omp parallel for
+	
 for (const auto& it : rewardMap) {
 		it.second->decrementReferenceCounter();
 	}
@@ -3390,7 +3390,7 @@ LightInfo Player::getCreatureLight() const
 void Player::updateItemsLight(bool internal /*=false*/)
 {
 	LightInfo maxLight;
-	#pragma omp for
+	
 	for (int32_t i = CONST_SLOT_FIRST; i <= CONST_SLOT_LAST; ++i) {
 		Item* item = inventory[i];
 		if (item) {

@@ -47,16 +47,14 @@ Actions::~Actions()
 void Actions::clearMap(ActionUseMap& map)
 {
 	// Filter out duplicates to avoid double-free
-	std::unordered_set<Action*> set;
-	#pragma omp for
-for (const auto& it : map) {
-		set.insert(it.second);
-	}
-	map.clear();
-
-	for (Action* action : set) {
-		delete action;
-	}
+		std::unordered_set<Action*> set;
+		for (const auto& it : map) {
+			set.insert(it.second);
+		}
+		map.clear();
+		for (Action* action : set) {
+			delete action;
+		}
 }
 
 void Actions::clear()
@@ -210,8 +208,7 @@ bool Actions::registerLuaEvent(Action* event)
 			return result.second;
 		} else {
 			auto v = action->getItemIdRange();
-			#pragma omp for
-for (auto i = v.begin(); i != v.end(); i++) {
+			   for (auto i = v.begin(); i != v.end(); i++) {
 				auto result = useItemMap.emplace(*i, std::move(action));
 				if (!result.second) {
 					std::cout << "[Warning - Actions::registerLuaEvent] Duplicate registered item with id: " << *i << " in range from id: " << v.at(0) << ", to id: " << v.at(v.size() - 1) << std::endl;
@@ -229,8 +226,7 @@ for (auto i = v.begin(); i != v.end(); i++) {
 			return result.second;
 		} else {
 			auto v = action->getUniqueIdRange();
-			#pragma omp for
-for (auto i = v.begin(); i != v.end(); i++) {
+			   for (auto i = v.begin(); i != v.end(); i++) {
 				auto result = uniqueItemMap.emplace(*i, std::move(action));
 				if (!result.second) {
 					std::cout << "[Warning - Actions::registerLuaEvent] Duplicate registered item with uid: " << *i << " in range from uid: " << v.at(0) << ", to uid: " << v.at(v.size() - 1) << std::endl;
@@ -248,8 +244,7 @@ for (auto i = v.begin(); i != v.end(); i++) {
 			return result.second;
 		} else {
 			auto v = action->getActionIdRange();
-			#pragma omp for
-for (auto i = v.begin(); i != v.end(); i++) {
+			   for (auto i = v.begin(); i != v.end(); i++) {
 				auto result = actionItemMap.emplace(*i, std::move(action));
 				if (!result.second) {
 					std::cout << "[Warning - Actions::registerLuaEvent] Duplicate registered item with aid: " << *i << " in range from aid: " << v.at(0) << ", to aid: " << v.at(v.size() - 1) << std::endl;
@@ -390,8 +385,7 @@ ReturnValue Actions::internalUseItem(Player* player, const Position& pos, uint8_
 			}
 
 			myRewardChest->setParent(container->getParent()->getTile());
-			#pragma omp for
-for (auto& it : player->rewardMap) {
+			   for (auto& it : player->rewardMap) {
 				it.second->setParent(myRewardChest);
 			}
 

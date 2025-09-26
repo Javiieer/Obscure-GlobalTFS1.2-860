@@ -50,8 +50,7 @@ void ConnectionManager::closeAll()
 {
 	std::lock_guard<std::mutex> lockClass(connectionManagerLock);
 
-	#pragma omp parallel for
-for (const auto& connection : connections) {
+		for (const auto& connection : connections) {
 		try {
 			boost::system::error_code error;
 			connection->socket.shutdown(boost::asio::ip::tcp::socket::shutdown_both, error);

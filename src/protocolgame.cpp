@@ -54,7 +54,7 @@ void ProtocolGame::insertCaster() {
 }
 
 void ProtocolGame::removeCaster() {
-	#pragma omp parallel for
+	
 for (const auto& it : getLiveCasts()) {
 		if (it.first == player) {
 			liveCasts.erase(player);
@@ -802,7 +802,7 @@ void ProtocolGame::parseAutoWalk(NetworkMessage& msg)
 	msg.skipBytes(numdirs);
 
 	std::forward_list<Direction> path;
-	#pragma omp for
+	
 for (uint8_t i = 0; i < numdirs; ++i) {
 		uint8_t rawdir = msg.getPreviousByte();
 		switch (rawdir) {
@@ -1193,7 +1193,7 @@ void ProtocolGame::sendMarketEnter()
 
 	std::map<uint16_t, uint32_t> depotItems;
 	std::forward_list<Container*> containerList{ player->getInbox()};
-#pragma omp parallel for
+
 for (const auto& chest : player->depotChests) {
 		if (!chest.second->empty()) {
 			containerList.push_front(chest.second);
@@ -1203,7 +1203,7 @@ for (const auto& chest : player->depotChests) {
 		Container* container = containerList.front();
 		containerList.pop_front();
 
-		#pragma omp parallel for
+		
 for (Item* item : container->getItemList()) {
 			Container* c = item->getContainer();
 			if (c && !c->empty()) {
@@ -1232,7 +1232,7 @@ for (Item* item : container->getItemList()) {
 	msg.add<uint16_t>(itemsToSend);
 
 	uint16_t i = 0;
-	#pragma omp parallel for
+	
 for (std::map<uint16_t, uint32_t>::const_iterator it = depotItems.begin(); i < itemsToSend; ++it, ++i) {
 		msg.add<uint16_t>(it->first);
 		msg.add<uint16_t>(std::min<uint32_t>(0xFFFF, it->second));
@@ -1256,7 +1256,7 @@ void ProtocolGame::sendMarketBrowseItem(uint16_t itemId, const MarketOfferList& 
 	msg.addItemId(itemId);
 
 	msg.add<uint32_t>(buyOffers.size());
-	#pragma omp parallel for
+	
 for (const MarketOffer& offer : buyOffers) {
 		msg.add<uint32_t>(offer.timestamp);
 		msg.add<uint16_t>(offer.counter);
@@ -1266,7 +1266,7 @@ for (const MarketOffer& offer : buyOffers) {
 	}
 
 	msg.add<uint32_t>(sellOffers.size());
-	#pragma omp parallel for
+	
 for (const MarketOffer& offer : sellOffers) {
 		msg.add<uint32_t>(offer.timestamp);
 		msg.add<uint16_t>(offer.counter);
@@ -1312,7 +1312,7 @@ void ProtocolGame::sendMarketBrowseOwnOffers(const MarketOfferList& buyOffers, c
 	msg.add<uint16_t>(MARKETREQUEST_OWN_OFFERS);
 
 	msg.add<uint32_t>(buyOffers.size());
-	#pragma omp parallel for
+	
 for (const MarketOffer& offer : buyOffers) {
 		msg.add<uint32_t>(offer.timestamp);
 		msg.add<uint16_t>(offer.counter);
@@ -1322,7 +1322,7 @@ for (const MarketOffer& offer : buyOffers) {
 	}
 
 	msg.add<uint32_t>(sellOffers.size());
-	#pragma omp parallel for
+	
 for (const MarketOffer& offer : sellOffers) {
 		msg.add<uint32_t>(offer.timestamp);
 		msg.add<uint16_t>(offer.counter);
@@ -1373,7 +1373,7 @@ void ProtocolGame::sendMarketBrowseOwnHistory(const HistoryMarketOfferList& buyO
 	msg.add<uint16_t>(MARKETREQUEST_OWN_HISTORY);
 
 	msg.add<uint32_t>(buyOffersToSend);
-	#pragma omp parallel for
+	
 for (HistoryMarketOfferList::const_iterator it = buyOffers.begin(); i < buyOffersToSend; ++it, ++i) {
 		msg.add<uint32_t>(it->timestamp);
 		msg.add<uint16_t>(counterMap[it->timestamp]++);
@@ -1387,7 +1387,7 @@ for (HistoryMarketOfferList::const_iterator it = buyOffers.begin(); i < buyOffer
 	i = 0;
 
 	msg.add<uint32_t>(sellOffersToSend);
-	#pragma omp parallel for
+	
 for (HistoryMarketOfferList::const_iterator it = sellOffers.begin(); i < sellOffersToSend; ++it, ++i) {
 		msg.add<uint32_t>(it->timestamp);
 		msg.add<uint16_t>(counterMap[it->timestamp]++);
@@ -1829,7 +1829,7 @@ void ProtocolGame::sendShop(const ShopInfoList& itemList)
 	msg.addByte(itemsToSend);
 
 	uint16_t i = 0;
-	#pragma omp parallel for
+	
 for (auto it = itemList.begin(); i < itemsToSend; ++it, ++i) {
 		AddShopItem(msg, *it);
 	}
@@ -1854,7 +1854,7 @@ void ProtocolGame::sendSaleItemList(const std::list<ShopInfo>& shop)
 
 	if (shop.size() <= 5) {
 		// For very small shops it's not worth it to create the complete map
-		#pragma omp parallel for
+		
 for (const ShopInfo& shopInfo : shop) {
 			if (shopInfo.sellPrice == 0) {
 				continue;
@@ -1882,7 +1882,7 @@ for (const ShopInfo& shopInfo : shop) {
 		// We must still check manually for the special items that require subtype matches
 		// (That is, fluids such as potions etc., actually these items are very few since
 		// health potions now use their own ID)
-		#pragma omp parallel for
+		
 for (const ShopInfo& shopInfo : shop) {
 			if (shopInfo.sellPrice == 0) {
 				continue;
@@ -1919,7 +1919,7 @@ for (const ShopInfo& shopInfo : shop) {
 	msg.addByte(itemsToSend);
 
 	uint8_t i = 0;
-	#pragma omp parallel for
+	
 for (std::map<uint16_t, uint32_t>::const_iterator it = saleMap.begin(); i < itemsToSend; ++it, ++i) {
 		msg.addItemId(it->first);
 		msg.addByte(std::min<uint32_t>(it->second, std::numeric_limits<uint8_t>::max()));
@@ -1934,7 +1934,7 @@ void ProtocolGame::sendQuestLog()
 	msg.addByte(0xF0);
 	msg.add<uint16_t>(g_game.quests.getQuestsCount(player));
 
-	#pragma omp parallel for
+	
 for (const Quest& quest : g_game.quests.getQuests()) {
 		if (quest.isStarted(player)) {
 			msg.add<uint16_t>(quest.getID());
@@ -1953,7 +1953,7 @@ void ProtocolGame::sendQuestLine(const Quest* quest)
 	msg.add<uint16_t>(quest->getID());
 	msg.addByte(quest->getMissionsCount(player));
 
-	#pragma omp parallel for
+	
 for (const Mission& mission : quest->getMissions()) {
 		if (mission.isStarted(player)) {
 			msg.addString(mission.getName(player));
@@ -1983,7 +1983,7 @@ void ProtocolGame::sendTradeItemRequest(const std::string& traderName, const Ite
 			const Container* container = listContainer.front();
 			listContainer.pop_front();
 
-			#pragma omp parallel for
+			
 for (Item* containerItem : container->getItemList()) {
 				Container* tmpContainer = containerItem->getContainer();
 				if (tmpContainer) {
@@ -1994,7 +1994,7 @@ for (Item* containerItem : container->getItemList()) {
 		}
 
 		msg.addByte(itemList.size());
-		#pragma omp parallel for
+		
 for (const Item* listItem : itemList) {
 			msg.addItem(listItem);
 		}
@@ -2602,7 +2602,7 @@ void ProtocolGame::sendOutfitWindow()
 
 	const auto& outfits = Outfits::getInstance().getOutfits(player->getSex());
 	protocolOutfits.reserve(outfits.size());
-	#pragma omp parallel for
+	
 for (const Outfit& outfit : outfits) {
 		uint8_t addons;
 		if (!player->getOutfitAddons(outfit, addons)) {
@@ -3091,7 +3091,7 @@ void ProtocolGame::castNavigation(uint16_t direction)
 
 	m_lastCastTime = OTSYS_TIME() + g_config.getNumber(ConfigManager::CAST_NAVIGATION_EXHAUST);
 	PlayerVector players;
-	#pragma omp parallel for
+	
 for (const auto& cast : getLiveCasts()) {
 		if (!canWatch(cast.first)) { continue; }
 		players.emplace_back(cast.first);

@@ -494,16 +494,10 @@ void Combat::CombatHealthFunc(Creature* caster, Creature* target, const CombatPa
 
 	Player* targetPlayer = target ? target->getPlayer() : nullptr;
 	Player* casterPlayer = caster ? caster->getPlayer() : nullptr;
-	Monster* casterMonster = caster ? caster->getMonster() : nullptr;
-	Monster* targetMonster = target ? target->getMonster() : nullptr;
+	// Monster* casterMonster = caster ? caster->getMonster() : nullptr; // Eliminado porque no se usa
+	// Monster* targetMonster = target ? target->getMonster() : nullptr; // Eliminado porque no se usa
 
-	Tile* tile = nullptr;
-	if (targetPlayer && casterMonster) {
-		tile = targetPlayer->getTile();
-	}
-	else if (casterPlayer && targetMonster) {
-		tile = casterPlayer->getTile();
-	}
+	// Tile* tile = nullptr; // Eliminado porque no se usa
 
 	if (casterPlayer && (damage.primary.value < 0 || damage.secondary.value < 0) &&
 		damage.origin != ORIGIN_CONDITION) {
@@ -602,16 +596,10 @@ void Combat::CombatManaFunc(Creature* caster, Creature* target, const CombatPara
 
 	Player* targetPlayer = target ? target->getPlayer() : nullptr;
 	Player* casterPlayer = caster ? caster->getPlayer() : nullptr;
-	Monster* casterMonster = caster ? caster->getMonster() : nullptr;
-	Monster* targetMonster = target ? target->getMonster() : nullptr;
+	// Monster* casterMonster = caster ? caster->getMonster() : nullptr; // Eliminado porque no se usa
+	// Monster* targetMonster = target ? target->getMonster() : nullptr; // Eliminado porque no se usa
 
-	Tile* tile = nullptr;
-	if (targetPlayer && casterMonster) {
-		tile = targetPlayer->getTile();
-	}
-	else if (casterPlayer && targetMonster) {
-		tile = casterPlayer->getTile();
-	}
+	// Tile* tile = nullptr; // Eliminado porque no se usa
 
 	if (casterPlayer && (damageCopy.primary.value < 0 || damageCopy.secondary.value < 0)) {
 		uint16_t chance = casterPlayer->getSpecialSkill(SPECIALSKILL_LIFELEECHCHANCE);

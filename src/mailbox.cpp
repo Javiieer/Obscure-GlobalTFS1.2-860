@@ -140,7 +140,7 @@ bool Mailbox::getReceiver(Item* item, std::string& name) const
 {
 	const Container* container = item->getContainer();
 	if (container) {
-		#pragma omp parallel for
+		
 for (Item* containerItem : container->getItemList()) {
 			if (containerItem->getID() == ITEM_LABEL && getReceiver(containerItem, name)) {
 				return true;

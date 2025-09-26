@@ -44,7 +44,7 @@ bool Events::load()
 	info = {};
 
 	std::set<std::string> classes;
-	#pragma omp parallel for
+	
 for (auto eventNode : doc.child("events").children()) {
 		if (!eventNode.attribute("enabled").as_bool()) {
 			continue;

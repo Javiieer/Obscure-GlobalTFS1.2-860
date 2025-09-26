@@ -47,7 +47,7 @@ void ProtocolLogin::disconnectClient(const std::string& message)
 void ProtocolLogin::getCharacterList(const std::string& accountName, const std::string& password)
 {
 	uint32_t serverIp = serverIPs[0].first;
-	#pragma omp parallel for
+    
 for (uint32_t i = 0; i < serverIPs.size(); i++) {
 		if ((serverIPs[i].first & serverIPs[i].second) == (getConnection()->getIP() & serverIPs[i].second)) {
 			serverIp = serverIPs[i].first;
@@ -80,7 +80,7 @@ for (uint32_t i = 0; i < serverIPs.size(); i++) {
 
 	uint8_t size = std::min<size_t>(std::numeric_limits<uint8_t>::max(), account.characters.size());
 	output->addByte(size);
-	#pragma omp parallel for
+    
 for (uint8_t i = 0; i < size; i++) {
 		output->addString(account.characters[i]);
 		output->addString(g_config.getString(ConfigManager::SERVER_NAME));
@@ -187,7 +187,7 @@ void ProtocolLogin::onRecvFirstMessage(NetworkMessage& msg)
 void ProtocolLogin::getCastList(const std::string& password)
 {
 		uint32_t serverIp = serverIPs[0].first;
-	#pragma omp parallel for
+    
 for (uint32_t i = 0; i < serverIPs.size(); i++) {
 		if ((serverIPs[i].first & serverIPs[i].second) == (getConnection()->getIP() & serverIPs[i].second)) {
 			serverIp = serverIPs[i].first;
@@ -203,7 +203,7 @@ for (uint32_t i = 0; i < serverIPs.size(); i++) {
 	output->addByte(0x64);
 
 	PlayerVector players;
-	#pragma omp parallel for
+    
 for (const auto& it : ProtocolGame::getLiveCasts()) {
 		Player* player = it.first;
 		if (!password.empty() && password != player->client->getPassword()) {
@@ -215,7 +215,7 @@ for (const auto& it : ProtocolGame::getLiveCasts()) {
 	output->addByte(players.size());
 	std::sort(players.begin(), players.end(), Player::sortByViewerCount);
 
-	#pragma omp parallel for
+    
 for (const auto& player : players)
 	{
 		output->addString(player->getName());

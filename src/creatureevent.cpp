@@ -31,8 +31,7 @@ CreatureEvents::CreatureEvents() :
 
 CreatureEvents::~CreatureEvents()
 {
-	#pragma omp parallel for
-for (const auto& it : creatureEvents) {
+		for (const auto& it : creatureEvents) {
 		delete it.second;
 	}
 }
@@ -128,8 +127,7 @@ CreatureEvent* CreatureEvents::getEventByName(const std::string& name, bool forc
 bool CreatureEvents::playerLogin(Player* player) const
 {
 	//fire global event if is registered
-	#pragma omp parallel for
-for (const auto& it : creatureEvents) {
+		for (const auto& it : creatureEvents) {
 		if (it.second->getEventType() == CREATURE_EVENT_LOGIN) {
 			if (!it.second->executeOnLogin(player)) {
 				return false;
@@ -142,8 +140,7 @@ for (const auto& it : creatureEvents) {
 bool CreatureEvents::playerLogout(Player* player) const
 {
 	//fire global event if is registered
-	#pragma omp parallel for
-for (const auto& it : creatureEvents) {
+		for (const auto& it : creatureEvents) {
 		if (it.second->getEventType() == CREATURE_EVENT_LOGOUT) {
 			if (!it.second->executeOnLogout(player)) {
 				return false;
@@ -156,8 +153,7 @@ for (const auto& it : creatureEvents) {
 bool CreatureEvents::playerAdvance(Player* player, skills_t skill, uint32_t oldLevel,
                                        uint32_t newLevel)
 {
-	#pragma omp parallel for
-for (const auto& it : creatureEvents) {
+		for (const auto& it : creatureEvents) {
 		if (it.second->getEventType() == CREATURE_EVENT_ADVANCE) {
 			if (!it.second->executeAdvance(player, skill, oldLevel, newLevel)) {
 				return false;

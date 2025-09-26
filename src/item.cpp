@@ -774,7 +774,7 @@ bool Item::unserializeAbility(PropStream& propStream)
 
 void Item::serializeAbility(PropWriteStream& propWriteStream) const
 {
-	#pragma omp parallel for
+	
 	for (uint8_t i = ABILITY_START; i <= ABILITY_END; i++) {
 		AbilityTypes_t abilityType = static_cast<AbilityTypes_t>(i);
 		itemAbilityTypes itemAbility = static_cast<itemAbilityTypes>(1ULL << (i - ABILITY_START));
@@ -2713,7 +2713,7 @@ std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 		}
 	}
 
-	if (item && item->abilities || it.abilities) {
+	if ((item && item->abilities) || it.abilities) {
 		for (uint8_t i = SKILL_FIRST; i <= SKILL_LAST; i++) {
 			const int16_t skillValue = item ? item->getAbilityValue(skillToAbility(i)) : (it.abilities ? it.abilities->skills[i] : 0);
 			if (!skillValue) {
@@ -2777,7 +2777,7 @@ std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 		int16_t show = item ? item->getAbilityValue(ITEM_ABILITY_ABSORBPHYSICAL) : (it.abilities ? it.abilities->absorbPercent[0] : 0);
 		if (show != 0) {
 			for (size_t i = 1; i < COMBAT_COUNT; ++i) {
-				if (item && item->getAbilityValue(combatToAbsorb(indexToCombatType(i))) != show || it.abilities && it.abilities->absorbPercent[indexToCombatType(i)] != show) {
+				if ((item && item->getAbilityValue(combatToAbsorb(indexToCombatType(i))) != show) || (it.abilities && it.abilities->absorbPercent[indexToCombatType(i)] != show)) {
 					show = 0;
 					break;
 				}

@@ -32,40 +32,33 @@ const auto SYSTEM_TIME_ZERO = std::chrono::system_clock::time_point(std::chrono:
 class Task
 {
 public:
-	// DO NOT allocate this class on the stack
-	explicit Task(TaskFunc&& f, const std::string& _description, const std::string& _extraDescription) :
-		func(std::move(f)), description(_description), extraDescription(_extraDescription) {}
-	Task(uint32_t ms, TaskFunc&& f, const std::string& _description, const std::string& _extraDescription) :
-		expiration(std::chrono::system_clock::now() + std::chrono::milliseconds(ms)), func(std::move(f)), description(_description), extraDescription(_extraDescription) {}
+       // DO NOT allocate this class on the stack
+       explicit Task(TaskFunc&& f, const std::string& _description, const std::string& _extraDescription)
+	       : description(_description), extraDescription(_extraDescription), executionTime(0), func(std::move(f)), expiration(SYSTEM_TIME_ZERO) {}
+       Task(uint32_t ms, TaskFunc&& f, const std::string& _description, const std::string& _extraDescription)
+	       : description(_description), extraDescription(_extraDescription), executionTime(0), func(std::move(f)), expiration(std::chrono::system_clock::now() + std::chrono::milliseconds(ms)) {}
 
-	virtual ~Task() = default;
-	void operator()() {
-		func();
-	}
+       virtual ~Task() = default;
+       void operator()() {
+	       func();
+       }
 
-	void setDontExpire() {
-		expiration = SYSTEM_TIME_ZERO;
-	}
+       void setDontExpire() {
+	       expiration = SYSTEM_TIME_ZERO;
+       }
 
-	bool hasExpired() const {
-		if (expiration == SYSTEM_TIME_ZERO) {
-			return false;
-		}
-		return expiration < std::chrono::system_clock::now();
-	}
+       bool hasExpired() const {
+	       if (expiration == SYSTEM_TIME_ZERO) {
+		       return false;
+	       }
+	       return expiration < std::chrono::system_clock::now();
+       }
 
-	const std::string description;
-	const std::string extraDescription;
-	uint64_t executionTime = 0;
-
-protected:
-	std::chrono::system_clock::time_point expiration = SYSTEM_TIME_ZERO;
-
-private:
-	// Expiration has another meaning for scheduler tasks,
-	// then it is the time the task should be added to the
-	// dispatcher
-	TaskFunc func;
+       const std::string description;
+       const std::string extraDescription;
+       uint64_t executionTime;
+       TaskFunc func;
+       std::chrono::system_clock::time_point expiration;
 };
 
 Task* createTaskWithStats(TaskFunc&& f, const std::string& description, const std::string& extraDescription);

@@ -53,7 +53,7 @@ void ServiceManager::stop()
 
 	running = false;
 
-	#pragma omp parallel for
+	
 for (auto& servicePortIt : acceptors) {
 		try {
 			io_service.post(std::bind(&ServicePort::onStopServer, servicePortIt.second));
@@ -85,7 +85,7 @@ std::string ServicePort::get_protocol_names() const
 	}
 
 	std::string str = services.front()->get_protocol_name();
-	#pragma omp parallel for
+	
 for (size_t i = 1; i < services.size(); ++i) {
 		str.push_back(',');
 		str.push_back(' ');
@@ -137,7 +137,7 @@ void ServicePort::onAccept(Connection_ptr connection, const boost::system::error
 Protocol_ptr ServicePort::make_protocol(bool checksummed, NetworkMessage& msg, const Connection_ptr& connection) const
 {
 	uint8_t protocolID = msg.getByte();
-	#pragma omp parallel for
+	
 for (auto& service : services) {
 		if (protocolID != service->get_protocol_identifier()) {
 			continue;

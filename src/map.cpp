@@ -53,7 +53,7 @@ bool Map::loadMap(const std::string& identifier, bool loadHouses)
 bool Map::save()
 {
 	bool saved = false;
-	#pragma omp for
+	
 	for (uint32_t tries = 0; tries < 3; tries++) {
 		if (IOMapSerialize::saveHouseInfo()) {
 			saved = true;
@@ -66,7 +66,7 @@ bool Map::save()
 	}
 
 	saved = false;
-	#pragma omp for
+	
 	for (uint32_t tries = 0; tries < 3; tries++) {
 		if (IOMapSerialize::saveHouseItems()) {
 			saved = true;
@@ -908,7 +908,7 @@ bool QTreeLeafNode::newLeaf = false;
 
 QTreeLeafNode::~QTreeLeafNode()
 {
-	#pragma omp for
+	
 for (auto* ptr : array) {
 		delete ptr;
 	}

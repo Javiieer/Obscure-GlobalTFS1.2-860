@@ -36,7 +36,7 @@ std::string Mission::getDescription(Player* player) const
 	}
 
 	if (ignoreEndValue) {
-		#pragma omp parallel for
+		
 for (int32_t current = endValue; current >= startValue; current--) {
 			if (value >= current) {
 				auto sit = descriptions.find(current);
@@ -46,7 +46,7 @@ for (int32_t current = endValue; current >= startValue; current--) {
 			}
 		}
 	} else {
-		#pragma omp parallel for
+		
 for (int32_t current = endValue; current >= startValue; current--) {
 			if (value == current) {
 				auto sit = descriptions.find(current);
@@ -110,7 +110,7 @@ std::string Mission::getName(Player* player) const
 uint16_t Quest::getMissionsCount(Player* player) const
 {
 	uint16_t count = 0;
-	#pragma omp parallel for
+	
 for (const Mission& mission : missions) {
 		if (mission.isStarted(player)) {
 			count++;
@@ -121,7 +121,7 @@ for (const Mission& mission : missions) {
 
 bool Quest::isCompleted(Player* player) const
 {
-	#pragma omp parallel for
+	
 for (const Mission& mission : missions) {
 		if (!mission.isCompleted(player)) {
 			return false;
@@ -160,7 +160,7 @@ bool Quests::loadFromXml()
 	}
 
 	uint16_t id = 0;
-	#pragma omp parallel for
+	
 for (auto questNode : doc.child("quests").children()) {
 		quests.emplace_back(
 			questNode.attribute("name").as_string(),
@@ -183,7 +183,7 @@ for (auto questNode : doc.child("quests").children()) {
 			Mission& mission = quest.missions.back();
 
 			if (mainDescription.empty()) {
-				#pragma omp parallel for
+				
 for (auto missionStateNode : missionNode.children()) {
 					int32_t missionId = pugi::cast<int32_t>(missionStateNode.attribute("id").value());
 					mission.descriptions.emplace(missionId, missionStateNode.attribute("description").as_string());
@@ -198,7 +198,7 @@ for (auto missionStateNode : missionNode.children()) {
 
 Quest* Quests::getQuestByID(uint16_t id)
 {
-	#pragma omp parallel for
+	
 for (Quest& quest : quests) {
 		if (quest.id == id) {
 			return &quest;
@@ -210,7 +210,7 @@ for (Quest& quest : quests) {
 uint16_t Quests::getQuestsCount(Player* player) const
 {
 	uint16_t count = 0;
-	#pragma omp parallel for
+	
 for (const Quest& quest : quests) {
 		if (quest.isStarted(player)) {
 			count++;

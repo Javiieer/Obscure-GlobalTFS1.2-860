@@ -122,7 +122,7 @@ void ProtocolStatus::sendStatusString()
 	uint32_t real = 0;
 	uint32_t ips = 0;
 	std::map<uint32_t, uint32_t> listIP;
-	#pragma omp parallel for
+	
 for (const auto& it : g_game.getPlayers()) {
 		if (it.second->idleTime <= 900000 && it.second->getIP() != 0) {
 			auto ip = listIP.find(it.second->getIP());
@@ -226,7 +226,7 @@ void ProtocolStatus::sendInfo(uint16_t requestedInfo, const std::string& charact
 
 		const auto& players = g_game.getPlayers();
 		output->add<uint32_t>(players.size());
-		#pragma omp parallel for
+		
 for (const auto& it : players) {
 			output->addString(it.second->getName());
 			output->add<uint32_t>(it.second->getLevel());

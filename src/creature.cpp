@@ -696,8 +696,7 @@ void Creature::onDeath()
 		}
 	}
 
-	#pragma omp parallel for
-for (const auto& it : experienceMap) {
+		for (const auto& it : experienceMap) {
 		it.first->onGainExperience(it.second, this);
 	}
 
@@ -728,8 +727,7 @@ bool Creature::dropCorpse(Creature* lastHitCreature, Creature* mostDamageCreatur
 		if (master) {
 			//scripting event - onDeath
 			const CreatureEventList& deathEvents = getCreatureEvents(CREATURE_EVENT_DEATH);
-			#pragma omp parallel for
-for (CreatureEvent* deathEvent : deathEvents) {
+				for (CreatureEvent* deathEvent : deathEvents) {
 				deathEvent->executeOnDeath(this, nullptr, lastHitCreature, mostDamageCreature, lastHitUnjustified, mostDamageUnjustified);
 			}
 		}
@@ -765,8 +763,7 @@ for (CreatureEvent* deathEvent : deathEvents) {
 		}
 
 		//scripting event - onDeath
-		#pragma omp parallel for
-for (CreatureEvent* deathEvent : getCreatureEvents(CREATURE_EVENT_DEATH)) {
+			for (CreatureEvent* deathEvent : getCreatureEvents(CREATURE_EVENT_DEATH)) {
 			deathEvent->executeOnDeath(this, corpse, lastHitCreature, mostDamageCreature, lastHitUnjustified, mostDamageUnjustified);
 		}
 

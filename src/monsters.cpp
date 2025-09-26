@@ -60,14 +60,14 @@ void MonsterType::createLoot(Container* corpse)
 	}
 	Player* owner = g_game.getPlayerByID(corpse->getCorpseOwner());
 	if (!owner || owner->getStaminaMinutes() > 840) {
-		#pragma omp parallel for
+		
 for (auto it = info.lootItems.rbegin(), end = info.lootItems.rend(); it != end; ++it) {
 			auto itemList = createLootItem(*it, owner);
 			if (itemList.empty()) {
 				continue;
 			}
 
-			#pragma omp parallel for
+			
 for (Item* item : itemList) {
 				//check containers
 				if (Container* container = item->getContainer()) {
@@ -249,7 +249,7 @@ bool MonsterType::createLootContainer(Container* parent, const LootBlock& lootbl
 
 	for (; it != end && parent->size() < parent->capacity(); ++it) {
 		auto itemList = createLootItem(*it, owner);
-		#pragma omp parallel for
+		
 for (Item* tmpItem : itemList) {
 			if (Container* container = tmpItem->getContainer()) {
 				if (!createLootContainer(container, *it, owner)) {
@@ -277,7 +277,7 @@ bool Monsters::loadFromXml(bool reloading /*= false*/)
 
 	loaded = true;
 
-	#pragma omp parallel for
+	
 for (auto monsterNode : doc.child("monsters").children()) {
 		std::string name = asLowerCaseString(monsterNode.attribute("name").as_string());
 		std::string file = "data/monster/" + std::string(monsterNode.attribute("file").as_string());
@@ -677,7 +677,7 @@ bool Monsters::deserializeSpell(const pugi::xml_node& node, spellBlock_t& sb, co
 		combat->setPlayerCombatValues(COMBAT_FORMULA_DAMAGE, sb.minCombatValue, 0, sb.maxCombatValue, 0);
 		combatSpell = new CombatSpell(combat, needTarget, needDirection);
 
-		#pragma omp parallel for
+		
 for (auto attributeNode : node.children()) {
 			if ((attr = attributeNode.attribute("key"))) {
 				const char* value = attr.value();
@@ -826,7 +826,7 @@ MonsterType* Monsters::loadMonster(const std::string& file, const std::string& m
 	}
 
 	if ((node = monsterNode.child("flags"))) {
-		#pragma omp parallel for
+		
 for (auto flagNode : node.children()) {
 			attr = flagNode.first_attribute();
 			const char* attrName = attr.name();
@@ -941,7 +941,7 @@ for (auto flagNode : node.children()) {
 	}
 
 	if ((node = monsterNode.child("attacks"))) {
-		#pragma omp parallel for
+		
 for (auto attackNode : node.children()) {
 			spellBlock_t sb;
 			if (deserializeSpell(attackNode, sb, monsterName)) {
@@ -961,7 +961,7 @@ for (auto attackNode : node.children()) {
 			mType->info.armor = pugi::cast<int32_t>(attr.value());
 		}
 
-		#pragma omp parallel for
+		
 for (auto defenseNode : node.children()) {
 			spellBlock_t sb;
 			if (deserializeSpell(defenseNode, sb, monsterName)) {
@@ -973,7 +973,7 @@ for (auto defenseNode : node.children()) {
 	}
 
 	if ((node = monsterNode.child("immunities"))) {
-		#pragma omp parallel for
+		
 for (auto immunityNode : node.children()) {
 			if ((attr = immunityNode.attribute("name"))) {
 				std::string tmpStrValue = asLowerCaseString(attr.as_string());
@@ -1106,7 +1106,7 @@ for (auto immunityNode : node.children()) {
 			std::cout << "[Warning - Monsters::loadMonster] Missing voices chance. " << file << std::endl;
 		}
 
-		#pragma omp parallel for
+		
 for (auto voiceNode : node.children()) {
 			voiceBlock_t vb;
 			if ((attr = voiceNode.attribute("sentence"))) {
@@ -1125,7 +1125,7 @@ for (auto voiceNode : node.children()) {
 	}
 
 	if ((node = monsterNode.child("loot"))) {
-		#pragma omp parallel for
+		
 for (auto lootNode : node.children()) {
 			LootBlock lootBlock;
 			if (loadLootItem(lootNode, lootBlock)) {
@@ -1137,7 +1137,7 @@ for (auto lootNode : node.children()) {
 	}
 
 	if ((node = monsterNode.child("elements"))) {
-		#pragma omp parallel for
+		
 for (auto elementNode : node.children()) {
 			if ((attr = elementNode.attribute("physicalPercent"))) {
 				mType->info.elementMap[COMBAT_PHYSICALDAMAGE] = pugi::cast<int32_t>(attr.value());
@@ -1172,7 +1172,7 @@ for (auto elementNode : node.children()) {
 			std::cout << "[Warning - Monsters::loadMonster] Missing summons maxSummons. " << file << std::endl;
 		}
 
-		#pragma omp parallel for
+		
 for (auto summonNode : node.children()) {
 			int32_t chance = 100;
 			int32_t speed = 1000;
@@ -1210,7 +1210,7 @@ for (auto summonNode : node.children()) {
 	}
 
 	if ((node = monsterNode.child("script"))) {
-		#pragma omp parallel for
+		
 for (auto eventNode : node.children()) {
 			if ((attr = eventNode.attribute("name"))) {
 				mType->info.scripts.emplace_back(attr.as_string());
@@ -1335,7 +1335,7 @@ bool Monsters::loadLootItem(const pugi::xml_node& node, LootBlock& lootBlock)
 
 void Monsters::loadLootContainer(const pugi::xml_node& node, LootBlock& lBlock)
 {
-	#pragma omp parallel for
+	
 for (auto subNode : node.children()) {
 		LootBlock lootBlock;
 		if (loadLootItem(subNode, lootBlock)) {

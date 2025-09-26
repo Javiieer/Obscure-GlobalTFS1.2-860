@@ -52,8 +52,9 @@ void RSA::loadPEM(const std::string& filename)
  	}
 
 	std::ostringstream oss;
-	#pragma omp parallel for
-for (std::string line; std::getline(file, line); oss << line);
+	for (std::string line; std::getline(file, line); ) {
+		oss << line;
+	}
 	std::string key = oss.str();
 
 	// fixes "Missing RSA private key footer." error

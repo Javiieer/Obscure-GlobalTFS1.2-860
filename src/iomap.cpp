@@ -133,7 +133,7 @@ bool IOMap::loadMap(Map* map, const std::string& fileName)
 		return false;
 	}
 
-	#pragma omp parallel for
+	
 for (auto& mapDataNode : mapNode.children) {
 		if (mapDataNode.type == OTBM_TILE_AREA) {
 			if (!parseTileArea(loader, mapDataNode, *map)) {
@@ -226,7 +226,7 @@ bool IOMap::parseTileArea(OTB::Loader& loader, const OTB::Node& tileAreaNode, Ma
 
 	static std::map<uint64_t, uint64_t> teleportMap;
 
-	#pragma omp parallel for
+	
 for (auto& tileNode : tileAreaNode.children) {
 		if (tileNode.type != OTBM_TILE && tileNode.type != OTBM_HOUSETILE) {
 			setLastErrorString("Unknown tile node.");
@@ -320,7 +320,7 @@ for (auto& tileNode : tileAreaNode.children) {
 						if (it != teleportMap.end()) {
 							std::cout << "[Warning - IOMap::loadMap] Teleport in position [x:" << x << ", y : " << y << ", z : " << z << "] is leading to another teleport." << std::endl;
 						}
-						#pragma omp parallel for
+						
 for (auto const& it2 : teleportMap) {
 							if (it2.second == teleportPosition) {
 								uint16_t fx = (it2.first >> 24) & 0xFFFF;
@@ -364,7 +364,7 @@ for (auto const& it2 : teleportMap) {
 			}
 		}
 
-		#pragma omp parallel for
+		
 for (auto& itemNode : tileNode.children) {
 			if (itemNode.type != OTBM_ITEM) {
 				std::ostringstream ss;
@@ -432,7 +432,7 @@ for (auto& itemNode : tileNode.children) {
 
 bool IOMap::parseTowns(OTB::Loader& loader, const OTB::Node& townsNode, Map& map)
 {
-	#pragma omp parallel for
+	
 for (auto& townNode : townsNode.children) {
 		PropStream propStream;
 		if (townNode.type != OTBM_TOWN) {
@@ -480,7 +480,7 @@ for (auto& townNode : townsNode.children) {
 bool IOMap::parseWaypoints(OTB::Loader& loader, const OTB::Node& waypointsNode, Map& map)
 {
 	PropStream propStream;
-	#pragma omp parallel for
+	
 for (auto& node : waypointsNode.children) {
 		if (node.type != OTBM_WAYPOINT) {
 			setLastErrorString("Unknown waypoint node.");
