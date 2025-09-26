@@ -29,19 +29,26 @@ using TaskFunc = std::function<void(void)>;
 const int DISPATCHER_TASK_EXPIRATION = 2000;
 const auto SYSTEM_TIME_ZERO = std::chrono::system_clock::time_point(std::chrono::milliseconds(0));
 
-class Task
-{
-public:
-	// DO NOT allocate this class on the stack
-	explicit Task(TaskFunc&& f, const std::string& _description, const std::string& _extraDescription) :
-		func(std::move(f)), description(_description), extraDescription(_extraDescription) {}
-	Task(uint32_t ms, TaskFunc&& f, const std::string& _description, const std::string& _extraDescription) :
-		expiration(std::chrono::system_clock::now() + std::chrono::milliseconds(ms)), func(std::move(f)), description(_description), extraDescription(_extraDescription) {}
+class Task {
+private:
+    const std::string description;
+    TaskFunc func;
+    const std::string extraDescription;
+    std::chrono::time_point<std::chrono::system_clock> expiration;
 
-	virtual ~Task() = default;
-	void operator()() {
-		func();
-	}
+public:
+    // DO NOT allocate this class on the stack
+    explicit Task(TaskFunc&& f, const std::string& _description, const std::string& _extraDescription) :
+        description(_description), func(std::move(f)), extraDescription(_extraDescription) {}
+    Task(uint32_t ms, TaskFunc&& f, const std::string& _description, const std::string& _extraDescription) :
+        description(_description), func(std::move(f)), extraDescription(_extraDescription), 
+        expiration(std::chrono::system_clock::now() + std::chrono::milliseconds(ms)) {}
+
+    virtual ~Task() = default;
+    void operator()() {
+        func();
+    }
+};
 
 	void setDontExpire() {
 		expiration = SYSTEM_TIME_ZERO;
