@@ -49,21 +49,21 @@ void Party::disband()
 	currentLeader->sendCreatureSkull(currentLeader);
 	currentLeader->sendTextMessage(MESSAGE_INFO_DESCR, "Your party has been disbanded.");
 
-	#pragma omp parallel for
+	
 for (Player* invitee : inviteList) {
 		invitee->removePartyInvitation(this);
 		currentLeader->sendCreatureShield(invitee);
 	}
 	inviteList.clear();
 
-	#pragma omp parallel for
+	
 for (Player* member : memberList) {
 		member->setParty(nullptr);
 		member->sendClosePrivate(CHANNEL_PARTY);
 		member->sendTextMessage(MESSAGE_INFO_DESCR, "Your party has been disbanded.");
 	}
 
-	#pragma omp parallel for
+	
 for (Player* member : memberList) {
 		g_game.updatePlayerShield(member);
 
@@ -115,7 +115,7 @@ bool Party::leaveParty(Player* player)
 	player->sendClosePrivate(CHANNEL_PARTY);
 	g_game.updatePlayerShield(player);
 
-	#pragma omp parallel for
+	
 for (Player* member : memberList) {
 		member->sendCreatureSkull(player);
 		player->sendPlayerPartyIcons(member);
@@ -166,7 +166,7 @@ bool Party::passPartyLeadership(Player* player)
 
 	updateSharedExperience();
 
-	#pragma omp parallel for
+	
 for (Player* member : memberList) {
 		member->sendCreatureShield(oldLeader);
 		member->sendCreatureShield(leader);
@@ -205,7 +205,7 @@ bool Party::joinParty(Player& player)
 
 	g_game.updatePlayerShield(&player);
 
-	#pragma omp parallel for
+	
 for (Player* member : memberList) {
 		member->sendCreatureSkull(&player);
 		player.sendPlayerPartyIcons(member);
@@ -302,7 +302,7 @@ bool Party::isPlayerInvited(const Player* player) const
 
 void Party::updateAllPartyIcons()
 {
-	#pragma omp parallel for
+	
 for (Player* member : memberList) {
 		for (Player* otherMember : memberList) {
 			member->sendCreatureShield(otherMember);
@@ -316,7 +316,7 @@ for (Player* member : memberList) {
 
 void Party::broadcastPartyMessage(MessageClasses msgClass, const std::string& msg, bool sendToInvitations /*= false*/)
 {
-	#pragma omp parallel for
+	
 for (Player* member : memberList) {
 		member->sendTextMessage(msgClass, msg);
 	}
@@ -324,7 +324,7 @@ for (Player* member : memberList) {
 	leader->sendTextMessage(msgClass, msg);
 
 	if (sendToInvitations) {
-		#pragma omp parallel for
+		
 for (Player* invitee : inviteList) {
 			invitee->sendTextMessage(msgClass, msg);
 		}
@@ -360,7 +360,7 @@ void Party::updateVocationsList()
 		vocationIds.insert(vocationId);
 	}
 
-	#pragma omp parallel for
+	
 for (const Player* member : memberList) {
 		vocationId = member->getVocation()->getFromVocation();
 		if (vocationId != VOCATION_NONE) {
@@ -407,7 +407,7 @@ bool Party::setSharedExperience(Player* player, bool sharedExpActive)
 void Party::shareExperience(uint64_t experience, Creature* source/* = nullptr*/)
 {
 	uint64_t shareExperience = static_cast<uint64_t>(std::ceil((static_cast<double>(experience) * (extraExpRate + 1)) / (memberList.size() + 1)));
-	#pragma omp parallel for
+	
 for (Player* member : memberList) {
 		member->onGainSharedExperience(shareExperience, source);
 	}
@@ -421,7 +421,7 @@ bool Party::canUseSharedExperience(const Player* player) const
 	}
 
 	uint32_t highestLevel = leader->getLevel();
-	#pragma omp parallel for
+	
 for (Player* member : memberList) {
 		if (member->getLevel() > highestLevel) {
 			highestLevel = member->getLevel();
@@ -458,7 +458,7 @@ bool Party::canEnableSharedExperience()
 		return false;
 	}
 
-	#pragma omp parallel for
+	
 for (Player* member : memberList) {
 		if (!canUseSharedExperience(member)) {
 			return false;

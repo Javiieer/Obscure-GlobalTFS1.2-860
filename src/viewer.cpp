@@ -46,7 +46,7 @@ bool Viewer::check(const std::string& _password)
 
 void Viewer::kick(StringVector list)
 {
-	#pragma omp parallel for
+    
 for (const auto& it : list) {
 		for (const auto& sit : spectators) {
 			if (!sit.first->spy && asLowerCaseString(sit.second.first) == it) {
@@ -68,9 +68,9 @@ void Viewer::ban(StringVector _bans)
 		}
 	}
 
-	#pragma omp parallel for
+    
 for (it = _bans.begin(); it != _bans.end(); ++it) {
-		#pragma omp parallel for
+        
 for (const auto& sit : spectators) {
 			if (sit.first->spy || asLowerCaseString(sit.second.first) != *it) {
 				continue;
@@ -93,7 +93,7 @@ void Viewer::addSpectator(ProtocolGame_ptr client, std::string name/* = nullptr*
 		s << "Viewer " << id << "";
 	} else {
 		s << name << " (Telescope)";
-		#pragma omp parallel for
+        
 for (const auto& it : spectators) {
 			if (it.second.first.compare(name) == 0) {
 				s << " " << id;
@@ -160,7 +160,7 @@ void Viewer::handle(ProtocolGame_ptr client, const std::string& text, uint16_t c
 		{
 			std::stringstream s;
 			s << spectators.size() << " spectator" << (spectators.size() > 1 ? "s" : "") << ": ";
-			#pragma omp parallel for
+			
 for (auto it = spectators.begin(); it != spectators.end(); ++it)
 			{
 				if (!it->first->spy) {
@@ -184,7 +184,7 @@ for (auto it = spectators.begin(); it != spectators.end(); ++it)
 					if (CommandParam[1].length() < 18)
 					{
 						bool found = false;
-						#pragma omp parallel for
+						
 for (auto it = spectators.begin(); it != spectators.end(); ++it) {
 							if (it->first->spy) {
 								continue;
@@ -245,7 +245,7 @@ void Viewer::chat(uint16_t channelId)
 	if (!tmp || tmp->getId() != channelId)
 		return;
 
-	#pragma omp parallel for
+	
 for (const auto& it : spectators) {
 		it.first->sendClosePrivate(channelId);
 	}

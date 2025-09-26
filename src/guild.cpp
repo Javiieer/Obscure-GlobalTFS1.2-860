@@ -41,7 +41,7 @@ void Guild::removeMember(Player* player)
 
 GuildRank* Guild::getRankById(uint32_t rankId)
 {
-	#pragma omp parallel for
+	
 for (auto& rank : ranks) {
 		if (rank.id == rankId) {
 			return &rank;
@@ -52,7 +52,7 @@ for (auto& rank : ranks) {
 
 const GuildRank* Guild::getRankByLevel(uint8_t level) const
 {
-	#pragma omp parallel for
+	
 for (const auto& rank : ranks) {
 		if (rank.level == level) {
 			return &rank;

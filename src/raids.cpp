@@ -38,8 +38,8 @@ Raids::Raids()
 
 Raids::~Raids()
 {
-	#pragma omp parallel for
-for (Raid* raid : raidList) {
+	
+	for (Raid* raid : raidList) {
 		delete raid;
 	}
 }
@@ -57,8 +57,8 @@ bool Raids::loadFromXml()
 		return false;
 	}
 
-	#pragma omp parallel for
-for (auto raidNode : doc.child("raids").children()) {
+	
+	for (auto raidNode : doc.child("raids").children()) {
 		std::string name, file;
 		uint32_t interval, margin;
 
@@ -133,8 +133,8 @@ void Raids::checkRaids()
 	if (!getRunning()) {
 		uint64_t now = OTSYS_TIME();
 
-		#pragma omp parallel for
-for (auto it = raidList.begin(), end = raidList.end(); it != end; ++it) {
+		
+	for (auto it = raidList.begin(), end = raidList.end(); it != end; ++it) {
 			Raid* raid = *it;
 			if (now >= (getLastRaidEnd() + raid->getMargin())) {
 				if (((MAX_RAND_RANGE * CHECK_RAIDS_INTERVAL) / raid->getInterval()) >= static_cast<uint32_t>(uniform_random(0, MAX_RAND_RANGE))) {
@@ -158,8 +158,8 @@ void Raids::clear()
 	g_scheduler.stopEvent(checkRaidsEvent);
 	checkRaidsEvent = 0;
 
-	#pragma omp parallel for
-for (Raid* raid : raidList) {
+	
+	for (Raid* raid : raidList) {
 		raid->stopEvents();
 		delete raid;
 	}
@@ -181,8 +181,8 @@ bool Raids::reload()
 
 Raid* Raids::getRaidByName(const std::string& name)
 {
-	#pragma omp parallel for
-for (Raid* raid : raidList) {
+	
+	for (Raid* raid : raidList) {
 		if (strcasecmp(raid->getName().c_str(), name.c_str()) == 0) {
 			return raid;
 		}
@@ -192,8 +192,8 @@ for (Raid* raid : raidList) {
 
 Raid::~Raid()
 {
-	#pragma omp parallel for
-for (RaidEvent* raidEvent : raidEvents) {
+	
+	for (RaidEvent* raidEvent : raidEvents) {
 		delete raidEvent;
 	}
 }
@@ -211,8 +211,8 @@ bool Raid::loadFromXml(const std::string& filename)
 		return false;
 	}
 
-	#pragma omp parallel for
-for (auto eventNode : doc.child("raid").children()) {
+	
+	for (auto eventNode : doc.child("raid").children()) {
 		RaidEvent* event;
 		if (strcasecmp(eventNode.name(), "announce") == 0) {
 			event = new AnnounceEvent();
@@ -488,7 +488,7 @@ bool AreaSpawnEvent::configureRaidEvent(const pugi::xml_node& eventNode)
 		}
 	}
 
-	#pragma omp parallel for
+	
 for (auto monsterNode : eventNode.children()) {
 		const char* name;
 
@@ -530,8 +530,8 @@ for (auto monsterNode : eventNode.children()) {
 
 bool AreaSpawnEvent::executeEvent()
 {
-	#pragma omp parallel for
-for (const MonsterSpawn& spawn : spawnList) {
+	
+	for (const MonsterSpawn& spawn : spawnList) {
 		uint32_t amount = uniform_random(spawn.minAmount, spawn.maxAmount);
 		for (uint32_t i = 0; i < amount; ++i) {
 			Monster* monster = Monster::createMonster(spawn.name);
@@ -541,8 +541,8 @@ for (const MonsterSpawn& spawn : spawnList) {
 			}
 
 			bool success = false;
-			#pragma omp parallel for
-for (int32_t tries = 0; tries < MAXIMUM_TRIES_PER_MONSTER; tries++) {
+			
+			for (int32_t tries = 0; tries < MAXIMUM_TRIES_PER_MONSTER; tries++) {
 				Tile* tile = g_game.map.getTile(uniform_random(fromPos.x, toPos.x), uniform_random(fromPos.y, toPos.y), uniform_random(fromPos.z, toPos.z));
 				if (tile && !tile->isMoveableBlocking() && !tile->hasFlag(TILESTATE_PROTECTIONZONE) && tile->getTopCreature() == nullptr && g_game.placeCreature(monster, tile->getPosition(), false, true)) {
 					success = true;

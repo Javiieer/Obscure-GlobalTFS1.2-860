@@ -24,7 +24,6 @@
 
 extern ConfigManager g_config;
 
-#pragma omp parallel
 void printXMLError(const std::string& where, const std::string& fileName, const pugi::xml_parse_result& result)
 {
 	std::cout << '[' << where << "] Failed to load " << fileName << ": " << result.description() << std::endl;
@@ -44,7 +43,7 @@ void printXMLError(const std::string& where, const std::string& fileName, const 
 	size_t bytes;
 	do {
 		bytes = fread(buffer, 1, 32768, file);
-		#pragma omp parallel for
+		
 for (size_t i = 0; i < bytes; ++i) {
 			char ch = buffer[i];
 			if (ch == '\n') {
@@ -65,7 +64,7 @@ for (size_t i = 0; i < bytes; ++i) {
 
 	std::cout << "Line " << currentLine << ':' << std::endl;
 	std::cout << line << std::endl;
-	#pragma omp parallel for
+	
 for (size_t i = 0; i < lineOffsetPosition; i++) {
 		if (line[i] == '\t') {
 			std::cout << '\t';
@@ -189,7 +188,6 @@ for (char ch : input) {
 	return std::string(hexstring, 40);
 }
 
-#pragma omp parallel
 void replaceString(std::string& str, const std::string& sought, const std::string& replacement)
 {
 	size_t pos = 0;
@@ -203,19 +201,16 @@ void replaceString(std::string& str, const std::string& sought, const std::strin
 	}
 }
 
-#pragma omp parallel
 void trim_right(std::string& source, char t)
 {
 	source.erase(source.find_last_not_of(t) + 1);
 }
 
-#pragma omp parallel
 void trim_left(std::string& source, char t)
 {
 	source.erase(0, source.find_first_not_of(t));
 }
 
-#pragma omp parallel
 void toLowerCaseString(std::string& source)
 {
 	std::transform(source.begin(), source.end(), source.begin(), tolower);
@@ -250,7 +245,7 @@ StringVector explodeString(const std::string& inString, const std::string& separ
 IntegerVector vectorAtoi(const StringVector& stringVector)
 {
 	IntegerVector returnVector;
-	#pragma omp parallel for
+	
 for (const auto& string : stringVector) {
 		returnVector.push_back(std::stoi(string));
 	}
@@ -299,7 +294,6 @@ bool boolean_random(double probability/* = 0.5*/)
 	return booleanRand(getRandomGenerator(), std::bernoulli_distribution::param_type(probability));
 }
 
-#pragma omp parallel
 void trimString(std::string& str)
 {
 	str.erase(str.find_last_not_of(' ') + 1);
@@ -325,12 +319,12 @@ std::string formatDate(time_t time)
 		return {};
 	}
 
-	char buffer[20];
+	char buffer[64];
 	int res = sprintf(buffer, "%02d/%02d/%04d %02d:%02d:%02d", tms->tm_mday, tms->tm_mon + 1, tms->tm_year + 1900, tms->tm_hour, tms->tm_min, tms->tm_sec);
 	if (res < 0) {
 		return {};
 	}
-	return {buffer, 19};
+	return std::string(buffer, res);
 }
 
 std::string formatDateShort(time_t time)
@@ -864,7 +858,7 @@ uint32_t adlerChecksum(const uint8_t* data, size_t length)
 
 std::string ucfirst(std::string str)
 {
-	#pragma omp parallel for
+	
 for (char& i : str) {
 		if (i != ' ') {
 			i = toupper(i);
@@ -882,7 +876,7 @@ std::string ucwords(std::string str)
 	}
 
 	str[0] = toupper(str.front());
-	#pragma omp parallel for
+	
 for (size_t i = 1; i < strLength; ++i) {
 		if (str[i - 1] == ' ') {
 			str[i] = toupper(str[i]);
@@ -1044,7 +1038,7 @@ CombatType_t indexToCombatType(size_t v)
 uint8_t serverFluidToClient(uint8_t serverFluid)
 {
 	uint8_t size = sizeof(clientToServerFluidMap) / sizeof(uint8_t);
-	#pragma omp parallel for
+	
 for (uint8_t i = 0; i < size; ++i) {
 		if (clientToServerFluidMap[i] == serverFluid) {
 			return i;
@@ -1143,7 +1137,7 @@ std::string getFirstLine(const std::string& str)
 {
 	std::string firstLine;
 	firstLine.reserve(str.length());
-	#pragma omp parallel for
+	
 for (const char c : str) {
 		if (c == '\n') {
 			break;

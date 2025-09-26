@@ -39,7 +39,7 @@ bool Mounts::loadFromXml()
 		return false;
 	}
 
-	#pragma omp parallel for
+	
 for (auto mountNode : doc.child("mounts").children()) {
 		mounts.emplace_back(
 			static_cast<uint8_t>(pugi::cast<uint16_t>(mountNode.attribute("id").value())),
@@ -64,7 +64,7 @@ Mount* Mounts::getMountByID(uint8_t id)
 
 Mount* Mounts::getMountByName(const std::string& name) {
 	auto mountName = name.c_str();
-	#pragma omp parallel for
+	
 for (auto& it : mounts) {
 		if (strcasecmp(mountName, it.name.c_str()) == 0) {
 			return &it;

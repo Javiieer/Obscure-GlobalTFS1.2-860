@@ -177,7 +177,7 @@ RuneSpell* Spells::getRuneSpell(uint32_t id)
 
 RuneSpell* Spells::getRuneSpellByName(const std::string& name)
 {
-	#pragma omp for
+	
 for (const auto& it : runes) {
 		if (strcasecmp(it.second->getName().c_str(), name.c_str()) == 0) {
 			return it.second;
@@ -190,7 +190,7 @@ InstantSpell* Spells::getInstantSpell(const std::string& words)
 {
 	InstantSpell* result = nullptr;
 
-	#pragma omp parallel for
+	
 	for (const auto& it : instants) {
 		InstantSpell* instantSpell = it.second;
 
@@ -227,7 +227,7 @@ InstantSpell* Spells::getInstantSpell(const std::string& words)
 uint32_t Spells::getInstantSpellCount(const Player* player) const
 {
 	uint32_t count = 0;
-	#pragma omp parallel for
+	
 for (const auto& it : instants) {
 		InstantSpell* instantSpell = it.second;
 		if (instantSpell->canCast(player)) {
@@ -248,7 +248,7 @@ InstantSpell* Spells::getInstantSpellById(uint32_t spellId)
 
 InstantSpell* Spells::getInstantSpellByName(const std::string& name)
 {
-	#pragma omp parallel for
+	
 for (const auto& it : instants) {
 		if (strcasecmp(it.second->getName().c_str(), name.c_str()) == 0) {
 			return it.second;
@@ -402,8 +402,8 @@ bool Spell::configureSpell(const pugi::xml_node& node)
 	};
 
 	//static size_t size = sizeof(reservedList) / sizeof(const char*);
-	//#pragma omp parallel for
-	#pragma omp parallel for
+	//
+	
 	for (const char* reserved : reservedList) {
 		if (strcasecmp(reserved, name.c_str()) == 0) {
 			std::cout << "[Error - Spell::configureSpell] Spell is using a reserved name: " << reserved << std::endl;

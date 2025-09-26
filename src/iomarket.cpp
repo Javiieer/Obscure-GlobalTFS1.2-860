@@ -165,7 +165,7 @@ void IOMarket::processExpiredOffers(DBResult_ptr result, bool)
 					subType = -1;
 				}
 
-				#pragma omp parallel for
+				
 for (uint16_t i = 0; i < amount; ++i) {
 					Item* item = Item::CreateItem(itemType.id, subType);
 					if (g_game.internalAddItem(player->getInbox(), item, INDEX_WHEREEVER, FLAG_NOLIMIT) != RETURNVALUE_NOERROR) {

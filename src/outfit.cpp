@@ -33,7 +33,7 @@ bool Outfits::loadFromXml()
 		return false;
 	}
 
-	#pragma omp parallel for
+	
 for (auto outfitNode : doc.child("outfits").children()) {
 		pugi::xml_attribute attr;
 		if ((attr = outfitNode.attribute("enabled")) && !attr.as_bool()) {

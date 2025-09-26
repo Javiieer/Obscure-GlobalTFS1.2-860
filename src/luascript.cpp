@@ -131,7 +131,7 @@ uint32_t ScriptEnvironment::addThing(Thing* thing)
 		return item->getUniqueId();
 	}
 
-	#pragma omp parallel for
+	
 for (const auto& it : localMap) {
 		if (it.second == item) {
 			return it.first;
@@ -212,7 +212,7 @@ void ScriptEnvironment::addTempItem(Item* item)
 
 void ScriptEnvironment::removeTempItem(Item* item)
 {
-	#pragma omp parallel for
+	
 for (auto it = tempItems.begin(), end = tempItems.end(); it != end; ++it) {
 		if (it->second == item) {
 			tempItems.erase(it);
@@ -706,7 +706,7 @@ void LuaScriptInterface::setWeakMetatable(lua_State* L, int32_t index, const std
 		int metatable = lua_gettop(L);
 
 		static const std::vector<std::string> methodKeys = {"__index", "__metatable", "__eq"};
-		#pragma omp parallel for
+		
 for (const std::string& metaKey : methodKeys) {
 			lua_getfield(L, childMetatable, metaKey.c_str());
 			lua_setfield(L, metatable, metaKey.c_str());
@@ -3245,7 +3245,7 @@ int LuaScriptInterface::luaGetWorldUpTime(lua_State* L)
 bool LuaScriptInterface::getArea(lua_State* L, std::list<uint32_t>& list, uint32_t& rows)
 {
 	lua_pushnil(L);
-	#pragma omp parallel for
+	
 for (rows = 0; lua_next(L, -2) != 0; ++rows) {
 		if (!isTable(L, -1)) {
 			return false;
@@ -3721,7 +3721,7 @@ int LuaScriptInterface::luaAddEvent(lua_State* L)
 
 	if (g_config.getBoolean(ConfigManager::WARN_UNSAFE_SCRIPTS) || g_config.getBoolean(ConfigManager::CONVERT_UNSAFE_SCRIPTS)) {
 		std::vector<std::pair<int32_t, LuaDataType>> indexes;
-		#pragma omp parallel for
+		
 for (int i = 3; i <= parameters; ++i) {
 			if (lua_getmetatable(globalState, i) == 0) {
 				continue;
@@ -3744,7 +3744,7 @@ for (int i = 3; i <= parameters; ++i) {
 					warningString += 's';
 				}
 
-				#pragma omp parallel for
+				
 for (const auto& entry : indexes) {
 					if (entry == indexes.front()) {
 						warningString += ' ';
@@ -3767,7 +3767,7 @@ for (const auto& entry : indexes) {
 			}
 
 			if (g_config.getBoolean(ConfigManager::CONVERT_UNSAFE_SCRIPTS)) {
-				#pragma omp parallel for
+				
 for (const auto& entry : indexes) {
 					switch (entry.second) {
 						case LuaData_Item:
@@ -3797,7 +3797,7 @@ for (const auto& entry : indexes) {
 	}
 
 	LuaTimerEventDesc eventDesc;
-	#pragma omp parallel for
+	
 for (int i = 0; i < parameters - 2; ++i) { //-2 because addEvent needs at least two parameters
 		eventDesc.parameters.push_back(luaL_ref(globalState, LUA_REGISTRYINDEX));
 	}
@@ -3843,7 +3843,7 @@ int LuaScriptInterface::luaStopEvent(lua_State* L)
 	g_scheduler.stopEvent(timerEventDesc.eventId);
 	luaL_unref(globalState, LUA_REGISTRYINDEX, timerEventDesc.function);
 
-	#pragma omp parallel for
+	
 for (auto parameter : timerEventDesc.parameters) {
 		luaL_unref(globalState, LUA_REGISTRYINDEX, parameter);
 	}
@@ -4265,7 +4265,7 @@ int LuaScriptInterface::luaIsType(lua_State* L)
 
 	lua_rawgeti(L, -3, 'p');
 	uint_fast8_t parentsA = getNumber<uint_fast8_t>(L, 1);
-	#pragma omp parallel for
+	
 for (uint_fast8_t i = parentsA; i < parentsB; ++i) {
 		lua_getfield(L, -3, "__index");
 		lua_replace(L, -4);
@@ -4319,7 +4319,7 @@ int LuaScriptInterface::luaGameGetSpectators(lua_State* L)
 	lua_createtable(L, spectators.size(), 0);
 
 	int index = 0;
-	#pragma omp parallel for
+	
 for (Creature* creature : spectators) {
 		pushUserdata<Creature>(L, creature);
 		setCreatureMetatable(L, -1, creature);
@@ -4334,7 +4334,7 @@ int LuaScriptInterface::luaGameGetPlayers(lua_State* L)
 	lua_createtable(L, g_game.getPlayersOnline(), 0);
 
 	int index = 0;
-	#pragma omp parallel for
+	
 for (const auto& playerEntry : g_game.getPlayers()) {
 		pushUserdata<Player>(L, playerEntry.second);
 		setMetatable(L, -1, "Player");
@@ -4387,7 +4387,7 @@ int LuaScriptInterface::luaGameGetTowns(lua_State* L)
 	lua_createtable(L, towns.size(), 0);
 
 	int index = 0;
-	#pragma omp parallel for
+	
 	for (auto& townEntry : towns) {
 		pushUserdata<Town>(L, townEntry.second);
 		setMetatable(L, -1, "Town");
@@ -4403,7 +4403,7 @@ int LuaScriptInterface::luaGameGetMounts(lua_State* L)
     // Game.getMounts()
     lua_createtable(L, mountList.size(), 0);
     int index = 0;
-    #pragma omp parallel for
+    
 for (const Mount& mount  : mountList) {
         lua_createtable(L, 0, 3);
         setField(L, "id", mount.id);
@@ -4424,7 +4424,7 @@ int LuaScriptInterface::luaGameGetOutfits(lua_State* L)
 
     int index = 0;
 
-    #pragma omp parallel for
+    
 for (const Outfit& outfit : outfits)
     {
         lua_createtable(L, 0, 2);
@@ -4442,7 +4442,7 @@ int LuaScriptInterface::luaGameGetHouses(lua_State* L)
 	lua_createtable(L, houses.size(), 0);
 
 	int index = 0;
-	#pragma omp parallel for
+	
 	for (auto& houseEntry : houses) {
 		pushUserdata<House>(L, houseEntry.second);
 		setMetatable(L, -1, "House");
@@ -4533,7 +4533,7 @@ int LuaScriptInterface::luaGameCreateItem(lua_State* L)
 		return 1;
 	}
 
-	#pragma omp parallel for
+	
 for (int32_t i = 1; i <= itemCount; ++i) {
 		int32_t stackCount = subType;
 		if (it.stackable) {
@@ -4795,7 +4795,7 @@ int LuaScriptInterface::luaActionItemId(lua_State* L)
 	if (action) {
 		int parameters = lua_gettop(L) - 1; // - 1 because self is a parameter aswell, which we want to skip ofc
 		if (parameters > 1) {
-			#pragma omp parallel for
+			
 for (int i = 0; i < parameters; ++i) {
 				action->addItemId(getNumber<uint32_t>(L, 2 + i));
 			}
@@ -4816,7 +4816,7 @@ int LuaScriptInterface::luaActionActionId(lua_State* L)
 	if (action) {
 		int parameters = lua_gettop(L) - 1; // - 1 because self is a parameter aswell, which we want to skip ofc
 		if (parameters > 1) {
-			#pragma omp parallel for
+			
 for (int i = 0; i < parameters; ++i) {
 				action->addActionId(getNumber<uint32_t>(L, 2 + i));
 			}
@@ -4837,7 +4837,7 @@ int LuaScriptInterface::luaActionUniqueId(lua_State* L)
 	if (action) {
 		int parameters = lua_gettop(L) - 1; // - 1 because self is a parameter aswell, which we want to skip ofc
 		if (parameters > 1) {
-			#pragma omp parallel for
+			
 for (int i = 0; i < parameters; ++i) {
 				action->addUniqueId(getNumber<uint32_t>(L, 2 + i));
 			}
@@ -5410,7 +5410,7 @@ int LuaScriptInterface::luaMoveEventItemId(lua_State* L)
 	if (moveevent) {
 		int parameters = lua_gettop(L) - 1; // - 1 because self is a parameter aswell, which we want to skip ofc
 		if (parameters > 1) {
-			#pragma omp parallel for
+			
 for (int i = 0; i < parameters; ++i) {
 				moveevent->addItemId(getNumber<uint32_t>(L, 2 + i));
 			}
@@ -5431,7 +5431,7 @@ int LuaScriptInterface::luaMoveEventActionId(lua_State* L)
 	if (moveevent) {
 		int parameters = lua_gettop(L) - 1; // - 1 because self is a parameter aswell, which we want to skip ofc
 		if (parameters > 1) {
-			#pragma omp parallel for
+			
 for (int i = 0; i < parameters; ++i) {
 				moveevent->addActionId(getNumber<uint32_t>(L, 2 + i));
 			}
@@ -5452,7 +5452,7 @@ int LuaScriptInterface::luaMoveEventUniqueId(lua_State* L)
 	if (moveevent) {
 		int parameters = lua_gettop(L) - 1; // - 1 because self is a parameter aswell, which we want to skip ofc
 		if (parameters > 1) {
-			#pragma omp parallel for
+			
 for (int i = 0; i < parameters; ++i) {
 				moveevent->addUniqueId(getNumber<uint32_t>(L, 2 + i));
 			}
@@ -5473,7 +5473,7 @@ int LuaScriptInterface::luaMoveEventPosition(lua_State* L)
 	if (moveevent) {
 		int parameters = lua_gettop(L) - 1; // - 1 because self is a parameter aswell, which we want to skip ofc
 		if (parameters > 1) {
-			#pragma omp parallel for
+			
 for (int i = 0; i < parameters; ++i) {
 				moveevent->addPosList(getPosition(L, 2 + i));
 			}
@@ -6011,7 +6011,7 @@ int LuaScriptInterface::luaTileGetItemByType(lua_State* L)
 	}
 
 	if (const TileItemVector* items = tile->getItemList()) {
-		#pragma omp parallel for
+		
 for (Item* item : *items) {
 			const ItemType& it = Item::items[item->getID()];
 			if (it.type == itemType) {
@@ -6182,7 +6182,7 @@ int LuaScriptInterface::luaTileGetItems(lua_State* L)
 	lua_createtable(L, itemVector->size(), 0);
 
 	int index = 0;
-	#pragma omp parallel for
+	
 for (Item* item : *itemVector) {
 		pushUserdata<Item>(L, item);
 		setItemMetatable(L, -1, item);
@@ -6247,7 +6247,7 @@ int LuaScriptInterface::luaTileGetCreatures(lua_State* L)
 	lua_createtable(L, creatureVector->size(), 0);
 
 	int index = 0;
-	#pragma omp parallel for
+	
 for (Creature* creature : *creatureVector) {
 		pushUserdata<Creature>(L, creature);
 		setCreatureMetatable(L, -1, creature);
@@ -7526,7 +7526,7 @@ int LuaScriptInterface::luaContainerGetEmptySlots(lua_State* L)
 	uint32_t slots = container->capacity() - container->size();
 	bool recursive = getBoolean(L, 2, false);
 	if (recursive) {
-		#pragma omp parallel for
+		
 for (ContainerIterator it = container->iterator(); it.hasNext(); it.advance()) {
 			if (Container* tmpContainer = (*it)->getContainer()) {
 				slots += tmpContainer->capacity() - tmpContainer->size();
@@ -7794,7 +7794,7 @@ int LuaScriptInterface::luaCreatureGetEvents(lua_State* L)
 	lua_createtable(L, eventList.size(), 0);
 
 	int index = 0;
-	#pragma omp parallel for
+	
 for (CreatureEvent* event : eventList) {
 		pushString(L, event->getName());
 		lua_rawseti(L, -2, ++index);
@@ -8610,7 +8610,7 @@ int LuaScriptInterface::luaCreatureGetSummons(lua_State* L)
 	lua_createtable(L, creature->getSummonCount(), 0);
 
 	int index = 0;
-	#pragma omp parallel for
+	
 for (Creature* summon : creature->getSummons()) {
 		pushUserdata<Creature>(L, summon);
 		setCreatureMetatable(L, -1, summon);
@@ -8655,7 +8655,7 @@ int LuaScriptInterface::luaCreatureGetPathTo(lua_State* L)
 		lua_newtable(L);
 
 		int index = 0;
-		#pragma omp parallel for
+		
 for (Direction dir : dirList) {
 			lua_pushnumber(L, dir);
 			lua_rawseti(L, -2, ++index);
@@ -8920,7 +8920,7 @@ int LuaScriptInterface::luaPlayerGetRewardList(lua_State* L)
 	lua_createtable(L, rewardVec.size(), 0);
 
 	int index = 0;
-	#pragma omp parallel for
+	
 for (const auto& rewardId : rewardVec) {
 		lua_pushnumber(L, rewardId);
 		lua_rawseti(L, -2, ++index);
@@ -9806,7 +9806,7 @@ int LuaScriptInterface::luaPlayerAddItem(lua_State* L)
 
 	bool canDropOnMap = getBoolean(L, 4, true);
 	slots_t slot = getNumber<slots_t>(L, 6, CONST_SLOT_WHEREEVER);
-	#pragma omp parallel for
+	
 for (int32_t i = 1; i <= itemCount; ++i) {
 		int32_t stackCount = subType;
 		if (it.stackable) {
@@ -10703,7 +10703,7 @@ int LuaScriptInterface::luaPlayerSetGhostMode(lua_State* L)
 
 	SpectatorHashSet spectators;
 	g_game.map.getSpectators(spectators, position, true, true);
-	#pragma omp parallel for
+	
 for (Creature* spectator : spectators) {
 		Player* tmpPlayer = spectator->getPlayer();
 		if (tmpPlayer != player && !tmpPlayer->isAccessPlayer()) {
@@ -10718,7 +10718,7 @@ for (Creature* spectator : spectators) {
 	}
 
 	if (player->isInGhostMode()) {
-		#pragma omp parallel for
+		
 for (const auto& it : g_game.getPlayers()) {
 			if (!it.second->isAccessPlayer()) {
 				it.second->notifyStatusChange(player, VIPSTATUS_OFFLINE);
@@ -10796,7 +10796,7 @@ int LuaScriptInterface::luaPlayerGetInstantSpells(lua_State* L)
 	}
 
 	std::vector<InstantSpell*> spells;
-	#pragma omp parallel for
+	
 	for (auto& spell : g_spells->getInstantSpells()) {
 		if (spell.second->canCast(player)) {
 			spells.push_back(spell.second);
@@ -10875,7 +10875,7 @@ int LuaScriptInterface::luaGetPlayerSpectators(lua_State* L)
 		StringVector t = player->client->list();
 
 		StringVector::const_iterator it = t.begin();
-		#pragma omp parallel for
+		
 for (uint32_t i = 1; it != t.end(); ++it, ++i) {
 			lua_pushnumber(L, i);
 			lua_pushstring(L, (*it).c_str());
@@ -10887,7 +10887,7 @@ for (uint32_t i = 1; it != t.end(); ++it, ++i) {
 		t = player->client->muteList();
 
 		it = t.begin();
-		#pragma omp parallel for
+		
 for (uint32_t i = 1; it != t.end(); ++it, ++i) {
 			lua_pushnumber(L, i);
 			lua_pushstring(L, (*it).c_str());
@@ -10899,7 +10899,7 @@ for (uint32_t i = 1; it != t.end(); ++it, ++i) {
 		std::map<std::string, uint32_t> _t = player->client->banList();
 
 		std::map<std::string, uint32_t>::const_iterator _it = _t.begin();
-		#pragma omp parallel for
+		
 for (uint32_t i = 1; _it != _t.end(); ++_it, ++i) {
 			lua_pushnumber(L, i);
 			lua_pushstring(L, _it->first.c_str());
@@ -11242,7 +11242,7 @@ int LuaScriptInterface::luaMonsterGetFriendList(lua_State* L)
 	lua_createtable(L, friendList.size(), 0);
 
 	int index = 0;
-	#pragma omp parallel for
+	
 for (Creature* creature : friendList) {
 		pushUserdata<Creature>(L, creature);
 		setCreatureMetatable(L, -1, creature);
@@ -11306,7 +11306,7 @@ int LuaScriptInterface::luaMonsterGetTargetList(lua_State* L)
 	lua_createtable(L, targetList.size(), 0);
 
 	int index = 0;
-	#pragma omp parallel for
+	
 for (Creature* creature : targetList) {
 		pushUserdata<Creature>(L, creature);
 		setCreatureMetatable(L, -1, creature);
@@ -11483,7 +11483,7 @@ int LuaScriptInterface::luaGuildGetMembersOnline(lua_State* L)
 	lua_createtable(L, members.size(), 0);
 
 	int index = 0;
-	#pragma omp parallel for
+	
 for (Player* player : members) {
 		pushUserdata<Player>(L, player);
 		setMetatable(L, -1, "Player");
@@ -12169,7 +12169,7 @@ int LuaScriptInterface::luaHouseGetBeds(lua_State* L)
 	lua_createtable(L, beds.size(), 0);
 
 	int index = 0;
-	#pragma omp parallel for
+	
 for (BedItem* bedItem : beds) {
 		pushUserdata<Item>(L, bedItem);
 		setItemMetatable(L, -1, bedItem);
@@ -12203,7 +12203,7 @@ int LuaScriptInterface::luaHouseGetDoors(lua_State* L)
 	lua_createtable(L, doors.size(), 0);
 
 	int index = 0;
-	#pragma omp parallel for
+	
 for (Door* door : doors) {
 		pushUserdata<Item>(L, door);
 		setItemMetatable(L, -1, door);
@@ -12255,7 +12255,7 @@ int LuaScriptInterface::luaHouseGetTiles(lua_State* L)
 	lua_createtable(L, tiles.size(), 0);
 
 	int index = 0;
-	#pragma omp parallel for
+	
 for (Tile* tile : tiles) {
 		pushUserdata<Tile>(L, tile);
 		setMetatable(L, -1, "Tile");
@@ -13534,7 +13534,7 @@ int LuaScriptInterface::luaMonsterTypeGetAttackList(lua_State* L)
 	lua_createtable(L, monsterType->info.attackSpells.size(), 0);
 
 	int index = 0;
-	#pragma omp parallel for
+	
 for (const auto& spellBlock : monsterType->info.attackSpells) {
 		lua_createtable(L, 0, 8);
 
@@ -13566,7 +13566,7 @@ int LuaScriptInterface::luaMonsterTypeGetDefenseList(lua_State* L)
 
 
 	int index = 0;
-	#pragma omp parallel for
+	
 for (const auto& spellBlock : monsterType->info.defenseSpells) {
 		lua_createtable(L, 0, 8);
 
@@ -13595,7 +13595,7 @@ int LuaScriptInterface::luaMonsterTypeGetElementList(lua_State* L)
 	}
 
 	lua_createtable(L, monsterType->info.elementMap.size(), 0);
-	#pragma omp parallel for
+	
 for (const auto& elementEntry : monsterType->info.elementMap) {
 		lua_pushnumber(L, elementEntry.second);
 		lua_rawseti(L, -2, elementEntry.first);
@@ -13614,7 +13614,7 @@ int LuaScriptInterface::luaMonsterTypeGetVoices(lua_State* L)
 
 	int index = 0;
 	lua_createtable(L, monsterType->info.voiceVector.size(), 0);
-	#pragma omp parallel for
+	
 for (const auto& voiceBlock : monsterType->info.voiceVector) {
 		lua_createtable(L, 0, 2);
 		setField(L, "text", voiceBlock.text);
@@ -13637,7 +13637,7 @@ int LuaScriptInterface::luaMonsterTypeGetLoot(lua_State* L)
 		lua_createtable(L, lootList.size(), 0);
 
 		int index = 0;
-		#pragma omp parallel for
+		
 for (const auto& lootBlock : lootList) {
 			lua_createtable(L, 0, 8);
 
@@ -13671,7 +13671,7 @@ int LuaScriptInterface::luaMonsterTypeGetCreatureEvents(lua_State* L)
 
 	int index = 0;
 	lua_createtable(L, monsterType->info.scripts.size(), 0);
-	#pragma omp parallel for
+	
 for (const std::string& creatureEvent : monsterType->info.scripts) {
 		pushString(L, creatureEvent);
 		lua_rawseti(L, -2, ++index);
@@ -13690,7 +13690,7 @@ int LuaScriptInterface::luaMonsterTypeGetSummonList(lua_State* L)
 
 	int index = 0;
 	lua_createtable(L, monsterType->info.summons.size(), 0);
-	#pragma omp parallel for
+	
 for (const auto& summonBlock : monsterType->info.summons) {
 		lua_createtable(L, 0, 3);
 		setField(L, "name", summonBlock.name);
@@ -13942,7 +13942,7 @@ int LuaScriptInterface::luaPartyGetMembers(lua_State* L)
 
 	int index = 0;
 	lua_createtable(L, party->getMemberCount(), 0);
-	#pragma omp parallel for
+	
 for (Player* player : party->getMembers()) {
 		pushUserdata<Player>(L, player);
 		setMetatable(L, -1, "Player");
@@ -13971,7 +13971,7 @@ int LuaScriptInterface::luaPartyGetInvitees(lua_State* L)
 		lua_createtable(L, party->getInvitationCount(), 0);
 
 		int index = 0;
-		#pragma omp parallel for
+		
 for (Player* player : party->getInvitees()) {
 			pushUserdata<Player>(L, player);
 			setMetatable(L, -1, "Player");
@@ -14203,7 +14203,7 @@ bool LuaEnvironment::closeState()
 		return false;
 	}
 
-	#pragma omp parallel for
+	
 for (const auto& combatEntry : combatIdMap) {
 		clearCombatObjects(combatEntry.first);
 	}
@@ -14214,7 +14214,7 @@ for (const auto& combatEntry : combatIdMap) {
 
 	for (auto& timerEntry : timerEvents) {
 		LuaTimerEventDesc timerEventDesc = std::move(timerEntry.second);
-		#pragma omp parallel for
+		
 for (int32_t parameter : timerEventDesc.parameters) {
 			luaL_unref(luaState, LUA_REGISTRYINDEX, parameter);
 		}
@@ -14264,7 +14264,7 @@ void LuaEnvironment::clearCombatObjects(LuaScriptInterface* interface)
 		return;
 	}
 
-	#pragma omp parallel for
+	
 for (uint32_t id : it->second) {
 		auto itt = combatMap.find(id);
 		if (itt != combatMap.end()) {
@@ -14298,7 +14298,7 @@ void LuaEnvironment::clearAreaObjects(LuaScriptInterface* interface)
 		return;
 	}
 
-	#pragma omp parallel for
+	
 for (uint32_t id : it->second) {
 		auto itt = areaMap.find(id);
 		if (itt != areaMap.end()) {
@@ -14323,7 +14323,7 @@ void LuaEnvironment::executeTimerEvent(uint32_t eventIndex)
 	lua_rawgeti(luaState, LUA_REGISTRYINDEX, timerEventDesc.function);
 
 	//push parameters
-	#pragma omp parallel for
+	
 for (auto parameter : boost::adaptors::reverse(timerEventDesc.parameters)) {
 		lua_rawgeti(luaState, LUA_REGISTRYINDEX, parameter);
 	}

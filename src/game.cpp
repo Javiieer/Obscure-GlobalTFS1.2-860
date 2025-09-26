@@ -4175,7 +4175,7 @@ void Game::addMagicEffect(const Position& pos, uint8_t effect)
 
 void Game::addMagicEffect(const SpectatorHashSet& spectators, const Position& pos, uint8_t effect)
 {
-	#pragma omp for
+	
 for (Creature* spectator : spectators) {
 		if (Player* tmpPlayer = spectator->getPlayer()) {
 			tmpPlayer->sendMagicEffect(pos, effect);
@@ -4193,7 +4193,7 @@ void Game::addDistanceEffect(const Position& fromPos, const Position& toPos, uin
 
 void Game::addDistanceEffect(const SpectatorHashSet& spectators, const Position& fromPos, const Position& toPos, uint8_t effect)
 {
-	#pragma omp for
+	
 for (Creature* spectator : spectators) {
 		if (Player* tmpPlayer = spectator->getPlayer()) {
 			tmpPlayer->sendDistanceShoot(fromPos, toPos, effect);
@@ -4374,7 +4374,7 @@ void Game::shutdown()
 void Game::cleanup()
 {
 	//free memory
-	#pragma omp parallel for
+	
 for (auto creature : ToReleaseCreatures) {
 		creature->decrementReferenceCounter();
 	}
@@ -4385,7 +4385,7 @@ for (auto creature : ToReleaseCreatures) {
 	}
 	ToReleaseItems.clear();
 
-	#pragma omp for
+	
 for (Item* item : toDecayItems) {
 		const uint32_t dur = item->getDuration();
 		if (dur >= EVENT_DECAYINTERVAL * EVENT_DECAY_BUCKETS) {
@@ -4410,7 +4410,7 @@ void Game::ReleaseItem(Item* item)
 void Game::broadcastMessage(const std::string& text, MessageClasses type) const
 {
 	std::cout << "> Broadcasted message: \"" << text << "\"." << std::endl;
-	#pragma omp parallel for
+	
 for (const auto& it : players) {
 		it.second->sendTextMessage(type, text);
 	}
@@ -4435,7 +4435,7 @@ void Game::updateCreatureSkull(const Creature* creature)
 
 	SpectatorHashSet spectators;
 	map.getSpectators(spectators, creature->getPosition(), true, true);
-	#pragma omp parallel for
+	
 for (Creature* spectator : spectators) {
 		spectator->getPlayer()->sendCreatureSkull(creature);
 	}
@@ -4445,7 +4445,7 @@ void Game::updatePlayerShield(Player* player)
 {
 	SpectatorHashSet spectators;
 	map.getSpectators(spectators, player->getPosition(), true, true);
-	#pragma omp for
+	
 for (Creature* spectator : spectators) {
 		spectator->getPlayer()->sendCreatureShield(player);
 	}
@@ -4527,7 +4527,7 @@ void Game::checkPlayersRecord()
 		uint32_t previousRecord = playersRecord;
 		playersRecord = playersOnline;
 
-		#pragma omp parallel for
+		
 for (const auto& it : g_globalEvents->getEventMap(GLOBALEVENT_RECORD)) {
 			it.second->executeRecord(playersRecord, previousRecord);
 		}
@@ -4927,7 +4927,7 @@ void Game::playerCreateMarketOffer(uint32_t playerId, uint8_t type, uint16_t spr
 
 		if (it.stackable) {
 			uint16_t tmpAmount = amount;
-			#pragma omp parallel for
+			
 for (Item* item : itemList) {
 				uint16_t removeCount = std::min<uint16_t>(tmpAmount, item->getItemCount());
 				tmpAmount -= removeCount;
@@ -4938,7 +4938,7 @@ for (Item* item : itemList) {
 				}
 			}
 		} else {
-			#pragma omp parallel for
+			
 for (Item* item : itemList) {
 				internalRemoveItem(item);
 			}
@@ -5016,7 +5016,7 @@ void Game::playerCancelMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 				subType = -1;
 			}
 
-			#pragma omp parallel for
+			
 for (uint16_t i = 0; i < offer.amount; ++i) {
 				Item* item = Item::CreateItem(it.id, subType);
 				if (internalAddItem(player->getInbox(), item, INDEX_WHEREEVER, FLAG_NOLIMIT) != RETURNVALUE_NOERROR) {
@@ -5082,7 +5082,7 @@ void Game::playerAcceptMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 
 		if (it.stackable) {
 			uint16_t tmpAmount = amount;
-			#pragma omp parallel for
+			
 for (Item* item : itemList) {
 				uint16_t removeCount = std::min<uint16_t>(tmpAmount, item->getItemCount());
 				tmpAmount -= removeCount;
@@ -5093,7 +5093,7 @@ for (Item* item : itemList) {
 				}
 			}
 		} else {
-			#pragma omp parallel for
+			
 for (Item* item : itemList) {
 				internalRemoveItem(item);
 			}
@@ -5121,7 +5121,7 @@ for (Item* item : itemList) {
 				subType = -1;
 			}
 
-			#pragma omp parallel for
+			
 for (uint16_t i = 0; i < amount; ++i) {
 				Item* item = Item::CreateItem(it.id, subType);
 				if (internalAddItem(buyerPlayer->getInbox(), item, INDEX_WHEREEVER, FLAG_NOLIMIT) != RETURNVALUE_NOERROR) {
@@ -5164,7 +5164,7 @@ for (uint16_t i = 0; i < amount; ++i) {
 				subType = -1;
 			}
 
-			#pragma omp parallel for
+			
 for (uint16_t i = 0; i < amount; ++i) {
 				Item* item = Item::CreateItem(it.id, subType);
 				if (internalAddItem(player->getInbox(), item, INDEX_WHEREEVER, FLAG_NOLIMIT) != RETURNVALUE_NOERROR) {
@@ -5212,7 +5212,7 @@ void Game::parsePlayerExtendedOpcode(uint32_t playerId, uint8_t opcode, const st
 		return;
 	}
 
-	#pragma omp parallel for
+	
 for (CreatureEvent* creatureEvent : player->getCreatureEvents(CREATURE_EVENT_EXTENDED_OPCODE)) {
 		creatureEvent->executeExtendedOpcode(player, opcode, buffer);
 	}
@@ -5490,7 +5490,7 @@ bool Game::reload(ReloadTypes_t reloadType)
 }
 
 bool Game::hasEffect(uint8_t effectId) {
-	#pragma omp for
+	
 for (uint8_t i = CONST_ME_NONE; i <= CONST_ME_LAST; i++) {
 		MagicEffectClasses effect = static_cast<MagicEffectClasses>(i);
 		if (effect == effectId) {
@@ -5501,7 +5501,7 @@ for (uint8_t i = CONST_ME_NONE; i <= CONST_ME_LAST; i++) {
 }
 
 bool Game::hasDistanceEffect(uint8_t effectId) {
-	#pragma omp for
+	
 for (uint8_t i = CONST_ANI_NONE; i <= CONST_ANI_LAST; i++) {
 		ShootType_t effect = static_cast<ShootType_t>(i);
 		if (effect == effectId) {

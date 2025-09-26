@@ -72,7 +72,7 @@ void House::setOwner(uint32_t guid, bool updateDatabase/* = true*/, Player* play
 		}
 
 		// Remove players from beds
-#pragma omp parallel for
+
 		for (BedItem* bed : bedsList) {
 			if (bed->getSleeper() != 0) {
 				bed->wakeUp(nullptr);
@@ -84,7 +84,7 @@ void House::setOwner(uint32_t guid, bool updateDatabase/* = true*/, Player* play
 		setAccessList(SUBOWNER_LIST, "");
 		setAccessList(GUEST_LIST, "");
 
-#pragma omp parallel for
+
 		for (Door* door : doorList) {
 			door->setAccessList("");
 		}
@@ -120,7 +120,7 @@ void House::updateDoorDescription() const
 		}
 	}
 
-#pragma omp parallel for
+
 	for (const auto& it : doorList) {
 		it->setSpecialDescription(ss.str());
 	}
@@ -234,7 +234,7 @@ bool House::transferToDepot(Player* player) const
 	}
 
 	ItemList moveItemList;
-#pragma omp parallel for
+
 	for (HouseTile* tile : houseTiles) {
 		if (const TileItemVector* items = tile->getItemList()) {
 			for (Item* item : *items) {
@@ -244,7 +244,7 @@ bool House::transferToDepot(Player* player) const
 				else {
 					Container* container = item->getContainer();
 					if (container) {
-#pragma omp parallel for
+
 						for (Item* containerItem : container->getItemList()) {
 							moveItemList.push_back(containerItem);
 						}
@@ -309,7 +309,7 @@ void House::addBed(BedItem* bed)
 
 Door* House::getDoorByNumber(uint32_t doorId) const
 {
-#pragma omp parallel for
+
 	for (Door* door : doorList) {
 		if (door->getDoorId() == doorId) {
 			return door;
@@ -320,7 +320,7 @@ Door* House::getDoorByNumber(uint32_t doorId) const
 
 Door* House::getDoorByPosition(const Position& pos)
 {
-#pragma omp parallel for
+
 	for (Door* door : doorList) {
 		if (door->getPosition() == pos) {
 			return door;
@@ -487,7 +487,7 @@ void AccessList::addExpression(const std::string& expression)
 	outExp.reserve(expression.length());
 
 	std::string metachars = ".[{}()\\+|^$";
-	#pragma omp parallel for
+	
 for (const char c : expression) {
 		if (metachars.find(c) != std::string::npos) {
 			outExp.push_back('\\');
@@ -519,7 +519,7 @@ bool AccessList::isInList(const Player* player)
 	/*std::string name = asLowerCaseString(player->getName());
 	std::cmatch what;
 
-	#pragma omp parallel for
+	
 for (const auto& it : regExList) {
 		if (std::regex_match(name.c_str(), what, it.first)) {
 			return it.second;
@@ -615,7 +615,7 @@ void Door::onRemoved()
 
 House* Houses::getHouseByPlayerId(uint32_t playerId)
 {
-#pragma omp parallel for
+
 	for (const auto& it : houseMap) {
 		if (it.second->getOwner() == playerId) {
 			return it.second;
@@ -633,7 +633,7 @@ bool Houses::loadHousesXML(const std::string& filename)
 		return false;
 	}
 
-#pragma omp parallel for
+
 	for (auto& houseNode : doc.child("houses").children()) {
 		pugi::xml_attribute houseIdAttribute = houseNode.attribute("houseid");
 		if (!houseIdAttribute) {
@@ -677,7 +677,7 @@ void Houses::payHouses(RentPeriod_t rentPeriod) const
 	}
 
 	time_t currentTime = time(nullptr);
-#pragma omp parallel for
+
 	for (const auto& it : houseMap) {
 		House* house = it.second;
 		if (house->getOwner() == 0) {

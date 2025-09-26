@@ -77,7 +77,7 @@ bool TalkActions::registerLuaEvent(TalkAction* event)
 TalkActionResult_t TalkActions::playerSaySpell(Player* player, SpeakClasses type, const std::string& words) const
 {
 	size_t wordsLength = words.length();
-	#pragma omp parallel for
+	
 for (const TalkAction& talkAction : talkActions) {
 		const std::string& talkactionWords = talkAction.getWords();
 		size_t talkactionLength = talkactionWords.length();

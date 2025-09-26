@@ -40,7 +40,6 @@ struct Wait
 
 using WaitList = std::list<Wait>;
 
-#pragma omp parallel
 void cleanupList(WaitList& list)
 {
 	int64_t time = OTSYS_TIME();
@@ -70,14 +69,14 @@ struct WaitListInfo
 
 	std::pair<WaitList::iterator, WaitList::size_type> findClient(const Player *player) {
 		std::size_t slot = 1;
-		#pragma omp parallel for
+        
 for (auto it = priorityWaitList.begin(), end = priorityWaitList.end(); it != end; ++it, ++slot) {
 			if (it->playerGUID == player->getGUID()) {
 				return {it, slot};
 			}
 		}
 
-		#pragma omp parallel for
+        
 for (auto it = waitList.begin(), end = waitList.end(); it != end; ++it, ++slot) {
 			if (it->playerGUID == player->getGUID()) {
 				return {it, slot};

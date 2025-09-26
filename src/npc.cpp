@@ -32,7 +32,7 @@ NpcScriptInterface* Npc::scriptInterface = nullptr;
 void Npcs::reload()
 {
 	const std::map<uint32_t, Npc*>& npcs = g_game.getNpcs();
-	#pragma omp parallel for
+	
 for (const auto& it : npcs) {
 		it.second->closeAllShopWindows();
 	}
@@ -207,7 +207,7 @@ bool Npc::loadFromXml()
 		currentOutfit = defaultOutfit;
 	}
 
-	#pragma omp parallel for
+	
 for (auto parameterNode : npcNode.child("parameters").children()) {
 		parameters[parameterNode.attribute("key").as_string()] = parameterNode.attribute("value").as_string();
 	}
@@ -926,7 +926,7 @@ int NpcScriptInterface::luaDoSellItem(lua_State* L)
 			sellCount += stackCount;
 		}
 	} else {
-		#pragma omp parallel for
+		
 for (uint32_t i = 0; i < amount; ++i) {
 			Item* item = Item::CreateItem(it.id, subType);
 			if (item && actionId != 0) {

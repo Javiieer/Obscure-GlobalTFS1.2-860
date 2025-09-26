@@ -61,7 +61,7 @@ Monster::Monster(MonsterType* mType) :
     nameDescription = mType->nameDescription;
 
 	// register creature events
-	#pragma omp parallel for
+	
 for (const std::string& scriptName : mType->info.scripts) {
 		if (!registerCreatureEvent(scriptName)) {
 			std::cout << "[Warning - Monster::Monster] Unknown event name: " << scriptName << std::endl;
@@ -382,7 +382,7 @@ void Monster::updateTargetList()
 	SpectatorHashSet spectators;
 	g_game.map.getSpectators(spectators, position, true);
 	spectators.erase(this);
-	#pragma omp parallel for
+	
 for (Creature* spectator : spectators) {
 		if (canSee(spectator->getPosition())) {
 			onCreatureFound(spectator);
@@ -400,7 +400,7 @@ void Monster::clearTargetList()
 
 void Monster::clearFriendList()
 {
-	#pragma omp parallel for
+	
 for (Creature* creature : friendList) {
 		creature->decrementReferenceCounter();
 	}
@@ -512,7 +512,7 @@ bool Monster::searchTarget(TargetSearchType_t searchType /*= TARGETSEARCH_DEFAUL
 	std::list<Creature*> resultList;
 	const Position& myPos = getPosition();
 
-	#pragma omp parallel for
+	
 for (Creature* creature : targetList) {
 		if (followCreature != creature && isTarget(creature)) {
 			if (searchType == TARGETSEARCH_RANDOM || canUseAttack(myPos, creature)) {
@@ -543,7 +543,7 @@ for (Creature* creature : targetList) {
 				}
 			} else {
 				int32_t minRange = std::numeric_limits<int32_t>::max();
-				#pragma omp parallel for
+				
 for (Creature* creature : targetList) {
 					if (!isTarget(creature)) {
 						continue;
@@ -585,7 +585,7 @@ for (Creature* creature : targetList) {
 	}
 
 	//lets just pick the first target in the list
-	#pragma omp parallel for
+	
 for (Creature* target : targetList) {
 		if (followCreature != target && selectTarget(target)) {
 			if (target->getPlayer() && !target->getPlayer()->hasClient()) {
@@ -651,7 +651,7 @@ bool Monster::isTarget(const Creature* creature) const
 	}
 	
 	if (creature->getPlayer()) {
-		if ((OTSYS_TIME() - ProtocolStatus::start) / 1000 <= g_config.getNumber(ConfigManager::abriu_nao_server_atacado)) {
+	if (static_cast<int32_t>((OTSYS_TIME() - ProtocolStatus::start) / 1000) <= g_config.getNumber(ConfigManager::abriu_nao_server_atacado)) {
 			return false;
 		}
 	}
@@ -905,7 +905,7 @@ bool Monster::canUseAttack(const Position& pos, const Creature* target) const
 	if (isHostile()) {
 		const Position& targetPos = target->getPosition();
 		uint32_t distance = std::max<uint32_t>(Position::getDistanceX(pos, targetPos), Position::getDistanceY(pos, targetPos));
-		#pragma omp parallel for
+		
 for (const spellBlock_t& spellBlock : mType->info.attackSpells) {
 			if (spellBlock.range != 0 && distance <= spellBlock.range) {
 				return g_game.isSightClear(pos, targetPos, true);
@@ -992,7 +992,7 @@ void Monster::onThinkDefense(uint32_t interval)
 	bool resetTicks = true;
 	defenseTicks += interval;
 
-	#pragma omp parallel for
+	
 for (const spellBlock_t& spellBlock : mType->info.defenseSpells) {
 		if (spellBlock.speed > defenseTicks) {
 			resetTicks = false;
@@ -1012,7 +1012,7 @@ for (const spellBlock_t& spellBlock : mType->info.defenseSpells) {
 	}
 
 	if (!isSummon() && summons.size() < mType->info.maxSummons && hasFollowPath) {
-		#pragma omp parallel for
+		
 for (const summonBlock_t& summonBlock : mType->info.summons) {
 			if (summonBlock.speed > defenseTicks) {
 				resetTicks = false;
@@ -1029,7 +1029,7 @@ for (const summonBlock_t& summonBlock : mType->info.summons) {
 			}
 
 			uint32_t summonCount = 0;
-			#pragma omp parallel for
+			
 for (Creature* summon : summons) {
 				if (summon->getName() == summonBlock.name) {
 					++summonCount;
@@ -1104,7 +1104,7 @@ bool Monster::pushItem(Item* item)
 
 	std::shuffle(relList.begin(), relList.end(), getRandomGenerator());
 
-	#pragma omp parallel for
+	
 for (const auto& it : relList) {
 		Position tryPos(centerPos.x + it.first, centerPos.y + it.second, centerPos.z);
 		Tile* tile = g_game.map.getTile(tryPos);
@@ -1154,7 +1154,7 @@ bool Monster::pushCreature(Creature* creature)
 	};
 	std::shuffle(dirList.begin(), dirList.end(), getRandomGenerator());
 
-	#pragma omp parallel for
+	
 for (Direction dir : dirList) {
 		const Position& tryPos = Spells::getCasterPosition(creature, dir);
 		Tile* toTile = g_game.map.getTile(tryPos);
@@ -1262,7 +1262,7 @@ bool Monster::getRandomStep(const Position& creaturePos, Direction& direction) c
 	};
 	std::shuffle(dirList.begin(), dirList.end(), getRandomGenerator());
 
-	#pragma omp parallel for
+	
 for (Direction dir : dirList) {
 		if (canWalkTo(creaturePos, dir)) {
 			direction = dir;
@@ -1873,7 +1873,7 @@ void Monster::death(Creature*)
 {
 	setAttackedCreature(nullptr);
 
-	#pragma omp parallel for
+	
 for (Creature* summon : summons) {
 		summon->changeHealth(-summon->getHealth());
 		summon->removeMaster();
@@ -2069,7 +2069,7 @@ bool Monster::convinceCreature(Creature* creature)
 	setAttackedCreature(nullptr);
 
 	//destroy summons
-	#pragma omp parallel for
+	
 for (Creature* summon : summons) {
 		summon->changeHealth(-summon->getHealth());
 		summon->removeMaster();
@@ -2084,7 +2084,7 @@ for (Creature* summon : summons) {
 	SpectatorHashSet spectators;
 	g_game.map.getSpectators(spectators, getPosition(), true);
 	g_game.map.getSpectators(spectators, creature->getPosition(), true);
-	#pragma omp parallel for
+	
 for (Creature* spectator : spectators) {
 		spectator->onCreatureConvinced(creature, this);
 	}

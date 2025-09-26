@@ -50,8 +50,7 @@ bool BaseEvents::loadFromXml()
 
 	loaded = true;
 
-	#pragma omp parallel for
-for (auto node : doc.child(scriptsName.c_str()).children()) {
+		for (auto node : doc.child(scriptsName.c_str()).children()) {
 		Event* event = getEvent(node.name());
 		if (!event) {
 			continue;

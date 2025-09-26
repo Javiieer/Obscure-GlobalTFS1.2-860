@@ -73,8 +73,7 @@ void PrivateChatChannel::excludePlayer(const Player& player, Player& excludePlay
 
 void PrivateChatChannel::closeChannel() const
 {
-	#pragma omp parallel for
-for (const auto& it : users) {
+	for (const auto& it : users) {
 		it.second->sendClosePrivate(id);
 	}
 }
@@ -116,8 +115,7 @@ bool ChatChannel::removeUser(const Player& player)
 
 void ChatChannel::sendToAll(const std::string& message, SpeakClasses type) const
 {
-	#pragma omp parallel for
-for (const auto& it : users) {
+	for (const auto& it : users) {
 		it.second->sendChannelMessage("", message, type, id);
 	}
 }
@@ -273,8 +271,7 @@ bool Chat::load()
 	}
 
 	std::forward_list<uint16_t> removedChannels;
-	#pragma omp parallel for
-for (auto& channelEntry : normalChannels) {
+	for (auto& channelEntry : normalChannels) {
 		ChatChannel& channel = channelEntry.second;
 		channel.onSpeakEvent = -1;
 		channel.canJoinEvent = -1;
@@ -283,8 +280,7 @@ for (auto& channelEntry : normalChannels) {
 		removedChannels.push_front(channelEntry.first);
 	}
 
-	#pragma omp parallel for
-for (auto channelNode : doc.child("channels").children()) {
+	for (auto channelNode : doc.child("channels").children()) {
 		ChatChannel channel(pugi::cast<uint16_t>(channelNode.attribute("id").value()), channelNode.attribute("name").as_string());
 		channel.publicChannel = channelNode.attribute("public").as_bool();
 
@@ -304,8 +300,7 @@ for (auto channelNode : doc.child("channels").children()) {
 		normalChannels[channel.id] = channel;
 	}
 
-	#pragma omp parallel for
-for (uint16_t channelId : removedChannels) {
+	for (uint16_t channelId : removedChannels) {
 		normalChannels.erase(channelId);
 	}
 	return true;
@@ -343,8 +338,7 @@ ChatChannel* Chat::createChannel(const Player& player, uint16_t channelId)
 			}
 
 			//find a free private channel slot
-			#pragma omp parallel for
-for (uint16_t i = 100; i < 10000; ++i) {
+			for (uint16_t i = 100; i < 10000; ++i) {
 				auto ret = privateChannels.emplace(std::make_pair(i, PrivateChatChannel(i, player.getName() + "'s Channel")));
 				if (ret.second) { //second is a bool that indicates that a new channel has been placed in the map
 					auto& newChannel = (*ret.first).second;
@@ -433,8 +427,7 @@ bool Chat::removeUserFromChannel(const Player& player, uint16_t channelId)
 
 void Chat::removeUserFromAllChannels(const Player& player)
 {
-	#pragma omp parallel for
-for (auto& it : normalChannels) {
+	for (auto& it : normalChannels) {
 		it.second.removeUser(player);
 	}
 
@@ -512,8 +505,7 @@ ChannelList Chat::getChannelList(const Player& player)
 		}
 	}
 
-	#pragma omp parallel for
-for (const auto& it : normalChannels) {
+	for (const auto& it : normalChannels) {
 		ChatChannel* channel = getChannel(player, it.first);
 		if (channel) {
 			list.push_back(channel);

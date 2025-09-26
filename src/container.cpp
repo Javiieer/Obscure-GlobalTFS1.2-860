@@ -36,8 +36,7 @@ Container::Container(uint16_t type, uint16_t size, bool unlocked /*= true*/) :
 
 Container::~Container()
 {
-	#pragma omp parallel for
-for (Item* item : itemlist) {
+		for (Item* item : itemlist) {
 		item->setParent(nullptr);
 		item->decrementReferenceCounter();
 	}
@@ -46,8 +45,7 @@ for (Item* item : itemlist) {
 Item* Container::clone() const
 {
 	Container* clone = static_cast<Container*>(Item::clone());
-	#pragma omp parallel for
-for (Item* item : itemlist) {
+		for (Item* item : itemlist) {
 		clone->addItem(item->clone());
 	}
 	clone->totalWeight = totalWeight;
@@ -92,8 +90,7 @@ bool Container::unserializeItemNode(OTB::Loader& loader, const OTB::Node& node, 
 		return false;
 	}
 
-	#pragma omp parallel for
-for (auto& itemNode : node.children) {
+		for (auto& itemNode : node.children) {
 		//load container items
 		if (itemNode.type != OTBM_ITEM) {
 			// unknown type
@@ -142,8 +139,7 @@ std::string Container::getContentDescription() const
 std::ostringstream& Container::getContentDescription(std::ostringstream& os) const
 {
 	bool firstitem = true;
-	#pragma omp parallel for
-for (ContainerIterator it = iterator(); it.hasNext(); it.advance()) {
+		for (ContainerIterator it = iterator(); it.hasNext(); it.advance()) {
 		Item* item = *it;
 
 		Container* container = item->getContainer();
@@ -177,8 +173,7 @@ Item* Container::getItemByIndex(size_t index) const
 uint32_t Container::getItemHoldingCount() const
 {
 	uint32_t counter = 0;
-	#pragma omp parallel for
-for (ContainerIterator it = iterator(); it.hasNext(); it.advance()) {
+		for (ContainerIterator it = iterator(); it.hasNext(); it.advance()) {
 		++counter;
 	}
 	return counter;
@@ -186,8 +181,7 @@ for (ContainerIterator it = iterator(); it.hasNext(); it.advance()) {
 
 bool Container::isHoldingItem(const Item* item) const
 {
-	#pragma omp parallel for
-for (ContainerIterator it = iterator(); it.hasNext(); it.advance()) {
+		for (ContainerIterator it = iterator(); it.hasNext(); it.advance()) {
 		if (*it == item) {
 			return true;
 		}
@@ -201,8 +195,7 @@ void Container::onAddContainerItem(Item* item)
 	g_game.map.getSpectators(spectators, getPosition(), false, true, 2, 2, 2, 2);
 
 	//send to client
-	#pragma omp parallel for
-for (Creature* spectator : spectators) {
+		for (Creature* spectator : spectators) {
 		spectator->getPlayer()->sendAddContainerItem(this, item);
 	}
 
@@ -218,8 +211,7 @@ void Container::onUpdateContainerItem(uint32_t index, Item* oldItem, Item* newIt
 	g_game.map.getSpectators(spectators, getPosition(), false, true, 2, 2, 2, 2);
 
 	//send to client
-	#pragma omp parallel for
-for (Creature* spectator : spectators) {
+		for (Creature* spectator : spectators) {
 		spectator->getPlayer()->sendUpdateContainerItem(this, index, newItem);
 	}
 
@@ -235,8 +227,7 @@ void Container::onRemoveContainerItem(uint32_t index, Item* item)
 	g_game.map.getSpectators(spectators, getPosition(), false, true, 2, 2, 2, 2);
 
 	//send change to client
-	#pragma omp parallel for
-for (Creature* spectator : spectators) {
+		for (Creature* spectator : spectators) {
 		spectator->getPlayer()->sendRemoveContainerItem(this, index);
 	}
 
@@ -330,8 +321,7 @@ ReturnValue Container::queryMaxCount(int32_t index, const Thing& thing, uint32_t
 		if (index == INDEX_WHEREEVER) {
 			//Iterate through every item and check how much free stackable slots there is.
 			uint32_t slotIndex = 0;
-			#pragma omp parallel for
-for (Item* containerItem : itemlist) {
+				for (Item* containerItem : itemlist) {
 				if (containerItem != item && containerItem->equals(item) && containerItem->getItemCount() < 100) {
 					uint32_t remainder = (100 - containerItem->getItemCount());
 					if (queryAdd(slotIndex++, *item, remainder, flags) == RETURNVALUE_NOERROR) {
@@ -427,8 +417,7 @@ Cylinder* Container::queryDestination(int32_t& index, const Thing &thing, Item**
 	if (autoStack && item->isStackable() && item->getParent() != this) {
 		//try find a suitable item to stack with
 		uint32_t n = 0;
-		#pragma omp parallel for
-for (Item* listItem : itemlist) {
+			for (Item* listItem : itemlist) {
 			if (listItem != item && listItem->equals(item) && listItem->getItemCount() < 100) {
 				*destItem = listItem;
 				index = n;
@@ -576,8 +565,7 @@ void Container::removeThing(Thing* thing, uint32_t count)
 int32_t Container::getThingIndex(const Thing* thing) const
 {
 	int32_t index = 0;
-	#pragma omp parallel for
-for (Item* item : itemlist) {
+		for (Item* item : itemlist) {
 		if (item == thing) {
 			return index;
 		}
@@ -599,8 +587,7 @@ size_t Container::getLastIndex() const
 uint32_t Container::getItemTypeCount(uint16_t itemId, int32_t subType/* = -1*/) const
 {
 	uint32_t count = 0;
-	#pragma omp parallel for
-for (Item* item : itemlist) {
+		for (Item* item : itemlist) {
 		if (item->getID() == itemId) {
 			count += countByType(item, subType);
 		}
@@ -610,8 +597,7 @@ for (Item* item : itemlist) {
 
 std::map<uint32_t, uint32_t>& Container::getAllItemTypeCount(std::map<uint32_t, uint32_t>& countMap) const
 {
-	#pragma omp parallel for
-for (Item* item : itemlist) {
+		for (Item* item : itemlist) {
 		countMap[item->getID()] += item->getItemCount();
 	}
 	return countMap;
@@ -671,8 +657,7 @@ void Container::internalAddThing(uint32_t, Thing* thing)
 
 void Container::startDecaying()
 {
-	#pragma omp parallel for
-for (Item* item : itemlist) {
+		for (Item* item : itemlist) {
 		item->startDecaying();
 	}
 }

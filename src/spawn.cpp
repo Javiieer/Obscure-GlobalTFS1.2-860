@@ -52,7 +52,7 @@ bool Spawns::loadFromXml(const std::string& filename)
 	this->filename = filename;
 	loaded = true;
 
-	#pragma omp parallel for
+	
 for (auto spawnNode : doc.child("spawns").children()) {
 		Position centerPos(
 			pugi::cast<uint16_t>(spawnNode.attribute("centerx").value()),
@@ -71,7 +71,7 @@ for (auto spawnNode : doc.child("spawns").children()) {
 		spawnList.emplace_front(centerPos, radius);
 		Spawn& spawn = spawnList.front();
 
-		#pragma omp parallel for
+		
 for (auto childNode : spawnNode.children()) {
 			if (strcasecmp(childNode.name(), "monster") == 0) {
 				pugi::xml_attribute nameAttribute = childNode.attribute("name");
@@ -135,7 +135,7 @@ void Spawns::startup()
 		return;
 	}
 
-	#pragma omp parallel for
+	
 for (Npc* npc : npcList) {
 		g_game.placeCreature(npc, npc->getMasterPos(), false, true);
 	}
@@ -150,7 +150,7 @@ for (Npc* npc : npcList) {
 
 void Spawns::clear()
 {
-	#pragma omp parallel for
+	
 for (Spawn& spawn : spawnList) {
 		spawn.stopEvent();
 	}
@@ -180,7 +180,7 @@ void Spawn::startSpawnCheck()
 
 Spawn::~Spawn()
 {
-	#pragma omp parallel for
+	
 for (const auto& it : spawnedMap) {
 		Monster* monster = it.second;
 		monster->setSpawn(nullptr);
@@ -192,7 +192,7 @@ bool Spawn::findPlayer(const Position& pos)
 {
 	SpectatorHashSet spectators;
 	g_game.map.getSpectators(spectators, pos, false, true);
-	#pragma omp parallel for
+	
 for (Creature* spectator : spectators) {
 		if (!spectator->getPlayer()->hasFlag(PlayerFlag_IgnoredByMonsters)) {
 			return true;
@@ -238,7 +238,7 @@ bool Spawn::spawnMonster(uint32_t spawnId, MonsterType* mType, const Position& p
 
 void Spawn::startup()
 {
-	#pragma omp parallel for
+	
 for (const auto& it : spawnMap) {
 		uint32_t spawnId = it.first;
 		const spawnBlock_t& sb = it.second;
@@ -254,7 +254,7 @@ void Spawn::checkSpawn()
 
 	uint32_t spawnCount = 0;
 
-	#pragma omp parallel for
+	
 for (auto& it : spawnMap) {
 		uint32_t spawnId = it.first;
 		if (spawnedMap.find(spawnId) != spawnedMap.end()) {
@@ -341,7 +341,7 @@ bool Spawn::addMonster(const std::string& name, const Position& pos, Direction d
 
 void Spawn::removeMonster(Monster* monster)
 {
-	#pragma omp parallel for
+	
 for (auto it = spawnedMap.begin(), end = spawnedMap.end(); it != end; ++it) {
 		if (it->second == monster) {
 			monster->decrementReferenceCounter();

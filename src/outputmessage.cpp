@@ -29,13 +29,8 @@ extern Scheduler g_scheduler;
 const uint16_t OUTPUTMESSAGE_FREE_LIST_CAPACITY = 2048;
 const std::chrono::milliseconds OUTPUTMESSAGE_AUTOSEND_DELAY {8};
 
-class OutputMessageAllocator
-{
-	public:
-		using value_type = OutputMessage;
-		template<typename U>
-		struct rebind {using other = LockfreePoolingAllocator<U, OUTPUTMESSAGE_FREE_LIST_CAPACITY>;};
-};
+
+using OutputMessageAllocator = LockfreePoolingAllocator<OutputMessage, OUTPUTMESSAGE_FREE_LIST_CAPACITY>;
 
 void OutputMessagePool::scheduleSendAll()
 {
@@ -46,7 +41,7 @@ void OutputMessagePool::scheduleSendAll()
 void OutputMessagePool::sendAll()
 {
 	//dispatcher thread
-	#pragma omp parallel for
+	
 for (auto& protocol : bufferedProtocols) {
 		auto& msg = protocol->getCurrentBuffer();
 		if (msg) {
@@ -80,5 +75,5 @@ void OutputMessagePool::removeProtocolFromAutosend(const Protocol_ptr& protocol)
 
 OutputMessage_ptr OutputMessagePool::getOutputMessage()
 {
-	return std::allocate_shared<OutputMessage>(OutputMessageAllocator());
+	return std::allocate_shared<OutputMessage>(OutputMessageAllocator(0));
 }

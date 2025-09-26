@@ -47,7 +47,7 @@ bool Tile::hasProperty(ITEMPROPERTY prop) const
 	}
 
 	if (const TileItemVector* items = getItemList()) {
-		#pragma omp parallel for
+		
 for (const Item* item : *items) {
 			if (item->hasProperty(prop)) {
 				return true;
@@ -66,7 +66,7 @@ bool Tile::hasProperty(const Item* exclude, ITEMPROPERTY prop) const
 	}
 
 	if (const TileItemVector* items = getItemList()) {
-		#pragma omp parallel for
+		
 for (const Item* item : *items) {
 			if (item != exclude && item->hasProperty(prop)) {
 				return true;
@@ -92,7 +92,7 @@ bool Tile::hasHeight(uint32_t n) const
 	}
 
 	if (const TileItemVector* items = getItemList()) {
-		#pragma omp parallel for
+		
 for (const Item* item : *items) {
 			if (item->hasProperty(CONST_PROP_HASHEIGHT)) {
 				++height;
@@ -150,7 +150,7 @@ Teleport* Tile::getTeleportItem() const
 	}
 
 	if (const TileItemVector* items = getItemList()) {
-		#pragma omp parallel for
+		
 for (auto it = items->rbegin(), end = items->rend(); it != end; ++it) {
 			if ((*it)->getTeleport()) {
 				return (*it)->getTeleport();
@@ -171,7 +171,7 @@ MagicField* Tile::getFieldItem() const
 	}
 
 	if (const TileItemVector* items = getItemList()) {
-		#pragma omp parallel for
+		
 for (auto it = items->rbegin(), end = items->rend(); it != end; ++it) {
 			if ((*it)->getMagicField()) {
 				return (*it)->getMagicField();
@@ -192,7 +192,7 @@ TrashHolder* Tile::getTrashHolder() const
 	}
 
 	if (const TileItemVector* items = getItemList()) {
-		#pragma omp parallel for
+		
 for (auto it = items->rbegin(), end = items->rend(); it != end; ++it) {
 			if ((*it)->getTrashHolder()) {
 				return (*it)->getTrashHolder();
@@ -213,7 +213,7 @@ Mailbox* Tile::getMailbox() const
 	}
 
 	if (const TileItemVector* items = getItemList()) {
-		#pragma omp parallel for
+		
 for (auto it = items->rbegin(), end = items->rend(); it != end; ++it) {
 			if ((*it)->getMailbox()) {
 				return (*it)->getMailbox();
@@ -234,7 +234,7 @@ BedItem* Tile::getBedItem() const
 	}
 
 	if (const TileItemVector* items = getItemList()) {
-		#pragma omp parallel for
+		
 for (auto it = items->rbegin(), end = items->rend(); it != end; ++it) {
 			if ((*it)->getBed()) {
 				return (*it)->getBed();
@@ -344,7 +344,7 @@ Item* Tile::getItemByTopOrder(int32_t topOrder)
 	//3: doors etc
 	//4: creatures
 	if (TileItemVector* items = getItemList()) {
-		#pragma omp parallel for
+		
 for (auto it = ItemVector::const_reverse_iterator(items->getEndTopItem()), end = ItemVector::const_reverse_iterator(items->getBeginTopItem()); it != end; ++it) {
 			if (Item::items[(*it)->getID()].alwaysOnTopOrder == topOrder) {
 				return (*it);
@@ -363,7 +363,7 @@ Thing* Tile::getTopVisibleThing(const Creature* creature)
 
 	TileItemVector* items = getItemList();
 	if (items) {
-		#pragma omp parallel for
+		
 for (ItemVector::const_iterator it = items->getBeginDownItem(), end = items->getEndDownItem(); it != end; ++it) {
 			const ItemType& iit = Item::items[(*it)->getID()];
 			if (!iit.lookThrough) {
@@ -371,7 +371,7 @@ for (ItemVector::const_iterator it = items->getBeginDownItem(), end = items->get
 			}
 		}
 
-		#pragma omp parallel for
+		
 for (auto it = ItemVector::const_reverse_iterator(items->getEndTopItem()), end = ItemVector::const_reverse_iterator(items->getBeginTopItem()); it != end; ++it) {
 			const ItemType& iit = Item::items[(*it)->getID()];
 			if (!iit.lookThrough) {
@@ -393,7 +393,7 @@ void Tile::onAddTileItem(Item* item)
 	g_game.map.getSpectators(spectators, cylinderMapPos, true);
 
 	//send to client
-	#pragma omp parallel for
+	
 for (Creature* spectator : spectators) {
 		if (Player* tmpPlayer = spectator->getPlayer()) {
 			tmpPlayer->sendAddTileItem(this, cylinderMapPos, item);
@@ -414,7 +414,7 @@ void Tile::onUpdateTileItem(Item* oldItem, const ItemType& oldType, Item* newIte
 	g_game.map.getSpectators(spectators, cylinderMapPos, true);
 
 	//send to client
-	#pragma omp parallel for
+	
 for (Creature* spectator : spectators) {
 		if (Player* tmpPlayer = spectator->getPlayer()) {
 			tmpPlayer->sendUpdateTileItem(this, cylinderMapPos, newItem);
@@ -436,7 +436,7 @@ void Tile::onRemoveTileItem(const SpectatorHashSet& spectators, const std::vecto
 
 	//send to client
 	size_t i = 0;
-	#pragma omp parallel for
+	
 for (Creature* spectator : spectators) {
 		if (Player* tmpPlayer = spectator->getPlayer()) {
 			tmpPlayer->sendRemoveTileThing(cylinderMapPos, oldStackPosVector[i++]);
@@ -454,7 +454,7 @@ void Tile::onUpdateTile(const SpectatorHashSet& spectators)
 	const Position& cylinderMapPos = getPosition();
 
 	//send to clients
-	#pragma omp parallel for
+	
 for (Creature* spectator : spectators) {
 		spectator->getPlayer()->sendUpdateTile(this, cylinderMapPos);
 	}
@@ -483,7 +483,7 @@ ReturnValue Tile::queryAdd(int32_t, const Thing& thing, uint32_t, uint32_t flags
 			const CreatureVector* creatures = getCreatures();
 			if (monster->canPushCreatures() && !monster->isSummon()) {
 				if (creatures) {
-					#pragma omp parallel for
+					
 for (Creature* tileCreature : *creatures) {
 						if (tileCreature->getPlayer() && tileCreature->getPlayer()->isInGhostMode()) {
 							continue;
@@ -497,7 +497,7 @@ for (Creature* tileCreature : *creatures) {
 					}
 				}
 			} else if (creatures && !creatures->empty()) {
-				#pragma omp parallel for
+				
 for (const Creature* tileCreature : *creatures) {
 					if (!tileCreature->isInGhostMode()) {
 						return RETURNVALUE_NOTENOUGHROOM;
@@ -544,7 +544,7 @@ for (const Creature* tileCreature : *creatures) {
 		const CreatureVector* creatures = getCreatures();
 		if (const Player* player = creature->getPlayer()) {
 			if (creatures && !creatures->empty() && !hasBitSet(FLAG_IGNOREBLOCKCREATURE, flags) && !player->isAccessPlayer()) {
-				#pragma omp parallel for
+				
 for (const Creature* tileCreature : *creatures) {
 					if (!player->canWalkthrough(tileCreature)) {
 						return RETURNVALUE_NOTPOSSIBLE;
@@ -576,7 +576,7 @@ for (const Creature* tileCreature : *creatures) {
 				}
 			}
 		} else if (creatures && !creatures->empty() && !hasBitSet(FLAG_IGNOREBLOCKCREATURE, flags)) {
-			#pragma omp parallel for
+			
 for (const Creature* tileCreature : *creatures) {
 				if (!tileCreature->isInGhostMode()) {
 					return RETURNVALUE_NOTENOUGHROOM;
@@ -599,7 +599,7 @@ for (const Creature* tileCreature : *creatures) {
 			}
 
 			if (const auto items = getItemList()) {
-				#pragma omp parallel for
+				
 for (const Item* item : *items) {
 					const ItemType& iiType = Item::items[item->getID()];
 					if (iiType.blockSolid && (!iiType.moveable || item->hasAttribute(ITEM_ATTRIBUTE_UNIQUEID))) {
@@ -625,7 +625,7 @@ for (const Item* item : *items) {
 
 		const CreatureVector* creatures = getCreatures();
 		if (creatures && !creatures->empty() && item->isBlocking() && !hasBitSet(FLAG_IGNOREBLOCKCREATURE, flags)) {
-			#pragma omp parallel for
+			
 for (const Creature* tileCreature : *creatures) {
 				if (!tileCreature->isInGhostMode()) {
 					return RETURNVALUE_NOTENOUGHROOM;
@@ -658,7 +658,7 @@ for (const Creature* tileCreature : *creatures) {
 			}
 
 			if (items) {
-				#pragma omp parallel for
+				
 for (const Item* tileItem : *items) {
 					const ItemType& iiType = Item::items[tileItem->getID()];
 					if (!iiType.blockSolid) {
@@ -855,7 +855,7 @@ void Tile::addThing(int32_t, Thing* thing)
 		} else if (itemType.alwaysOnTop) {
 			if (itemType.isSplash() && items) {
 				//remove old splash if exists
-				#pragma omp parallel for
+				
 for (ItemVector::const_iterator it = items->getBeginTopItem(), end = items->getEndTopItem(); it != end; ++it) {
 					Item* oldSplash = *it;
 					if (!Item::items[oldSplash->getID()].isSplash()) {
@@ -873,7 +873,7 @@ for (ItemVector::const_iterator it = items->getBeginTopItem(), end = items->getE
 			bool isInserted = false;
 
 			if (items) {
-				#pragma omp parallel for
+				
 for (auto it = items->getBeginTopItem(), end = items->getEndTopItem(); it != end; ++it) {
 					//Note: this is different from internalAddThing
 					if (itemType.alwaysOnTopOrder <= Item::items[(*it)->getID()].alwaysOnTopOrder) {
@@ -895,7 +895,7 @@ for (auto it = items->getBeginTopItem(), end = items->getEndTopItem(); it != end
 			if (itemType.isMagicField()) {
 				//remove old field item if exists
 				if (items) {
-					#pragma omp parallel for
+					
 for (ItemVector::const_iterator it = items->getBeginDownItem(), end = items->getEndDownItem(); it != end; ++it) {
 						MagicField* oldField = (*it)->getMagicField();
 						if (oldField) {
@@ -1069,7 +1069,7 @@ void Tile::removeThing(Thing* thing, uint32_t count)
 
 		SpectatorHashSet spectators;
 		g_game.map.getSpectators(spectators, getPosition(), true);
-		#pragma omp parallel for
+		
 for (Creature* spectator : spectators) {
 			if (Player* tmpPlayer = spectator->getPlayer()) {
 				oldStackPosVector.push_back(getStackposOfItem(tmpPlayer, item));
@@ -1094,7 +1094,7 @@ for (Creature* spectator : spectators) {
 
 			SpectatorHashSet spectators;
 			g_game.map.getSpectators(spectators, getPosition(), true);
-			#pragma omp parallel for
+			
 for (Creature* spectator : spectators) {
 				if (Player* tmpPlayer = spectator->getPlayer()) {
 					oldStackPosVector.push_back(getStackposOfItem(tmpPlayer, item));
@@ -1129,7 +1129,7 @@ int32_t Tile::getThingIndex(const Thing* thing) const
 	if (items) {
 		const Item* item = thing->getItem();
 		if (item && item->isAlwaysOnTop()) {
-			#pragma omp parallel for
+			
 for (auto it = items->getBeginTopItem(), end = items->getEndTopItem(); it != end; ++it) {
 				++n;
 				if (*it == item) {
@@ -1143,7 +1143,7 @@ for (auto it = items->getBeginTopItem(), end = items->getEndTopItem(); it != end
 
 	if (const CreatureVector* creatures = getCreatures()) {
 		if (thing->getCreature()) {
-			#pragma omp parallel for
+			
 for (Creature* creature : *creatures) {
 				++n;
 				if (creature == thing) {
@@ -1158,7 +1158,7 @@ for (Creature* creature : *creatures) {
 	if (items) {
 		const Item* item = thing->getItem();
 		if (item && !item->isAlwaysOnTop()) {
-			#pragma omp parallel for
+			
 for (auto it = items->getBeginDownItem(), end = items->getEndDownItem(); it != end; ++it) {
 				++n;
 				if (*it == item) {
@@ -1185,7 +1185,7 @@ int32_t Tile::getClientIndexOfCreature(const Player* player, const Creature* cre
 	}
 
 	if (const CreatureVector* creatures = getCreatures()) {
-		#pragma omp parallel for
+		
 for (const Creature* c : boost::adaptors::reverse(*creatures)) {
 			if (c == creature) {
 				return n;
@@ -1215,7 +1215,7 @@ int32_t Tile::getStackposOfCreature(const Player* player, const Creature* creatu
 	}
 
 	if (const CreatureVector* creatures = getCreatures()) {
-		#pragma omp parallel for
+		
 for (const Creature* c : boost::adaptors::reverse(*creatures)) {
 			if (c == creature) {
 				return n;
@@ -1242,7 +1242,7 @@ int32_t Tile::getStackposOfItem(const Player* player, const Item* item) const
 	const TileItemVector* items = getItemList();
 	if (items) {
 		if (item->isAlwaysOnTop()) {
-			#pragma omp parallel for
+			
 for (auto it = items->getBeginTopItem(), end = items->getEndTopItem(); it != end; ++it) {
 				if (*it == item) {
 					return n;
@@ -1259,7 +1259,7 @@ for (auto it = items->getBeginTopItem(), end = items->getEndTopItem(); it != end
 	}
 
 	if (const CreatureVector* creatures = getCreatures()) {
-		#pragma omp parallel for
+		
 for (const Creature* creature : *creatures) {
 			if (player->canSeeCreature(creature)) {
 				if (++n >= 10) {
@@ -1300,7 +1300,7 @@ uint32_t Tile::getItemTypeCount(uint16_t itemId, int32_t subType /*= -1*/) const
 
 	const TileItemVector* items = getItemList();
 	if (items) {
-		#pragma omp parallel for
+		
 for (const Item* item : *items) {
 			if (item->getID() == itemId) {
 				count += Item::countByType(item, subType);
@@ -1346,7 +1346,7 @@ void Tile::postAddNotification(Thing* thing, const Cylinder* oldParent, int32_t 
 {
 	SpectatorHashSet spectators;
 	g_game.map.getSpectators(spectators, getPosition(), true, true);
-	#pragma omp parallel for
+	
 for (Creature* spectator : spectators) {
 		spectator->getPlayer()->postAddNotification(thing, oldParent, index, LINK_NEAR);
 	}
@@ -1407,7 +1407,7 @@ void Tile::postRemoveNotification(Thing* thing, const Cylinder* newParent, int32
 		onUpdateTile(spectators);
 	}
 
-	#pragma omp parallel for
+	
 for (Creature* spectator : spectators) {
 		spectator->getPlayer()->postRemoveNotification(thing, newParent, index, LINK_NEAR);
 	}
@@ -1460,7 +1460,7 @@ void Tile::internalAddThing(uint32_t, Thing* thing)
 
 		if (itemType.alwaysOnTop) {
 			bool isInserted = false;
-			#pragma omp parallel for
+			
 for (auto it = items->getBeginTopItem(), end = items->getEndTopItem(); it != end; ++it) {
 				if (Item::items[(*it)->getID()].alwaysOnTopOrder > itemType.alwaysOnTopOrder) {
 					items->insert(it, item);
@@ -1613,7 +1613,7 @@ Item* Tile::getUseItem() const
 		return ground;
 	}
 
-	#pragma omp parallel for
+	
 for (Item* item : boost::adaptors::reverse(*items)) {
 		//if the behavior is wrong remove && !Item::items[item->getID()].isContainer()
 		if (Item::items[item->getID()].forceUse && !Item::items[item->getID()].isContainer()) {
