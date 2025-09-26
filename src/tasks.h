@@ -35,7 +35,7 @@ public:
     explicit Task(TaskFunc&& f, const std::string& _description, const std::string& _extraDescription) :
         description(_description), func(std::move(f)), extraDescription(_extraDescription), executionTime(0), expiration(SYSTEM_TIME_ZERO) {}
     Task(uint32_t ms, TaskFunc&& f, const std::string& _description, const std::string& _extraDescription) :
-        description(_description), func(std::move(f)), extraDescription(_extraDescription), executionTime(0),
+        description(_description), func(std::move(f)), extraDescription(_extraDescription), executionTime(0), 
         expiration(std::chrono::system_clock::now() + std::chrono::milliseconds(ms)) {}
 
     virtual ~Task() = default;
