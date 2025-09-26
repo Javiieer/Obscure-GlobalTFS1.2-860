@@ -1,0 +1,43 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Ignorar archivos y carpetas comunes que no son parte del datapack o sources
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+*.DS_Store
+*.Thumbs.db
+*.idea/
+*.vscode/
+node_modules/
+build/
+dist/
+out/
+.env
+.env.*
+.cache/
+__pycache__/
+*.pyc
+*.class
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.dylib
+*.pdb
+*.sublime-workspace
+*.sublime-project
+
+# Ignorar backups y archivos temporales
+*~
+# Ignorar archivos de sistema
+desktop.ini
+
+# Si tienes carpetas específicas para datapack y sources, exclúyelas del ignore
+!/datapack/
+!/src/
+!/source/
+tfs
