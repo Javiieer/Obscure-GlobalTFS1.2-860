@@ -1,0 +1,107 @@
+# Archivos y carpetas de compilación# Auto detect text files and perform LF normalization
+
+build/* text=auto
+
+*.o
+
+*.obj# Ignorar archivos y carpetas comunes que no son parte del datapack o sources
+
+*.exe*.log
+
+*.dll*.tmp
+
+*.so*.bak
+
+*.a*.swp
+
+*.lib*.swo
+
+*.out*.DS_Store
+
+*.Thumbs.db
+
+# Archivos temporales y de sistema*.idea/
+
+*.log*.vscode/
+
+*.tmpnode_modules/
+
+*.swpbuild/
+
+*.swodist/
+
+*.bakout/
+
+*.cache.env
+
+.env.*
+
+# Archivos de configuración de IDE.cache/
+
+.vscode/__pycache__/
+
+.idea/*.pyc
+
+*.sublime-workspace*.class
+
+*.sublime-project*.o
+
+*.obj
+
+# Archivos de usuario*.exe
+
+*.user*.dll
+
+*.pid*.so
+
+*.pid.lock*.dylib
+
+*.pdb
+
+# Archivos de bases de datos*.sublime-workspace
+
+*.db*.sublime-project
+
+*.sqlite
+
+# Ignorar backups y archivos temporales
+
+# Archivos de mapas y datos pesados*~
+
+Remeres map/# Ignorar archivos de sistema
+
+Client V8/desktop.ini
+
+
+
+# Otros archivos innecesarios# Si tienes carpetas específicas para datapack y sources, exclúyelas del ignore
+
+*.gz!/datapack/
+
+*.zip!/src/
+
+*.tar!/source/
+
+*.7ztfs
+*.rar
+
+# Ignorar dependencias
+node_modules/
+
+# Ignorar archivos de Python
+__pycache__/
+*.pyc
+
+# Ignorar archivos de CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+cotire/
+
+# Ignorar archivos de logs
+logs/
+
+# Ignorar archivos de migraciones
+migrations/
+tfs
+build/
