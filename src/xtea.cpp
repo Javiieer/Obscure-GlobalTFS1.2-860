@@ -64,7 +64,7 @@ for (uint32_t i = 0, sum = 0, next_sum = sum + delta; i < 32; ++i, sum = next_su
     };
 }
 
-#pragma omp parallel
+
 void decrypt(uint8_t* data, size_t length, const key& k)
 {
     

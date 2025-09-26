@@ -54,7 +54,7 @@ std::mutex g_loaderLock;
 std::condition_variable g_loaderSignal;
 std::unique_lock<std::mutex> g_loaderUniqueLock(g_loaderLock);
 
-#pragma omp parallel
+
 void startupErrorMessage(const std::string& errorStr)
 {
 	std::cout << "> ERROR: " << errorStr << std::endl;
@@ -63,7 +63,7 @@ void startupErrorMessage(const std::string& errorStr)
 
 void mainLoader(int argc, char* argv[], ServiceManager* servicer);
 
-#pragma omp parallel
+
 void badAllocationHandler()
 {
 	// Use functions that only use stack allocation
@@ -111,7 +111,7 @@ int main(int argc, char* argv[])
 	return 0;
 }
 
-#pragma omp parallel
+
 void mainLoader(int argc, char* argv[], ServiceManager* services)
 {
 	//dispatcher thread
