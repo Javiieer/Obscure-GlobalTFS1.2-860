@@ -30,42 +30,49 @@ const int DISPATCHER_TASK_EXPIRATION = 2000;
 const auto SYSTEM_TIME_ZERO = std::chrono::system_clock::time_point(std::chrono::milliseconds(0));
 
 class Task {
+private:
+    const std::string description;
+    TaskFunc func;
+    const std::string extraDescription;
+    std::chrono::time_point<std::chrono::system_clock> expiration;
+
 public:
     // DO NOT allocate this class on the stack
     explicit Task(TaskFunc&& f, const std::string& _description, const std::string& _extraDescription) :
-        description(_description), func(std::move(f)), extraDescription(_extraDescription), expiration(SYSTEM_TIME_ZERO) {}
+        description(_description), func(std::move(f)), extraDescription(_extraDescription) {}
     Task(uint32_t ms, TaskFunc&& f, const std::string& _description, const std::string& _extraDescription) :
         description(_description), func(std::move(f)), extraDescription(_extraDescription), 
         expiration(std::chrono::system_clock::now() + std::chrono::milliseconds(ms)) {}
 
     virtual ~Task() = default;
-
     void operator()() {
         func();
     }
+};
 
-    void setDontExpire() {
-        expiration = SYSTEM_TIME_ZERO;
-    }
+	void setDontExpire() {
+		expiration = SYSTEM_TIME_ZERO;
+	}
 
-    bool hasExpired() const {
-        if (expiration == SYSTEM_TIME_ZERO) {
-            return false;
-        }
-        return expiration < std::chrono::system_clock::now();
-    }
+	bool hasExpired() const {
+		if (expiration == SYSTEM_TIME_ZERO) {
+			return false;
+		}
+		return expiration < std::chrono::system_clock::now();
+	}
+
+	const std::string description;
+	const std::string extraDescription;
+	uint64_t executionTime = 0;
 
 protected:
-    std::chrono::time_point<std::chrono::system_clock> expiration = SYSTEM_TIME_ZERO;
+	std::chrono::system_clock::time_point expiration = SYSTEM_TIME_ZERO;
 
 private:
-    // Expiration has another meaning for scheduler tasks,
-    // then it is the time the task should be added to the
-    // dispatcher
-    const std::string description;
-    TaskFunc func;
-    const std::string extraDescription;
-    uint64_t executionTime = 0;
+	// Expiration has another meaning for scheduler tasks,
+	// then it is the time the task should be added to the
+	// dispatcher
+	TaskFunc func;
 };
 
 Task* createTaskWithStats(TaskFunc&& f, const std::string& description, const std::string& extraDescription);
@@ -73,28 +80,28 @@ Task* createTaskWithStats(uint32_t expiration, TaskFunc&& f, const std::string& 
 
 class Dispatcher : public ThreadHolder<Dispatcher> {
 public:
-    Dispatcher() : ThreadHolder() {
-        static int id = 0;
-        dispatcherId = id;
-        id += 1;
-    }
-    void addTask(Task* task);
+	Dispatcher() : ThreadHolder() {
+		static int id = 0;
+		dispatcherId = id;
+		id += 1;
+	}
+	void addTask(Task* task);
 
-    void shutdown();
+	void shutdown();
 
-    uint64_t getDispatcherCycle() const {
-        return dispatcherCycle;
-    }
+	uint64_t getDispatcherCycle() const {
+		return dispatcherCycle;
+	}
 
-    void threadMain();
+	void threadMain();
 
 private:
-    std::mutex taskLock;
-    std::condition_variable taskSignal;
+	std::mutex taskLock;
+	std::condition_variable taskSignal;
 
-    std::vector<Task*> taskList;
-    uint64_t dispatcherCycle = 0;
-    int dispatcherId = 0;
+	std::vector<Task*> taskList;
+	uint64_t dispatcherCycle = 0;
+	int dispatcherId = 0;
 };
 
 extern Dispatcher g_dispatcher;
