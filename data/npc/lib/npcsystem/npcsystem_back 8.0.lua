@@ -28,7 +28,7 @@ if NpcSystem == nil then
 	FOCUS_FAREWELLWORDS = {'bye', 'farewell'}
 
 	-- The word for requesting trade window. For more information look at the top of modules.lua
-	SHOP_TRADEREQUEST = {'trade'}
+	SHOP_TRADEREQUEST = {'offer', 'trade'}
 
 	-- The word for accepting/declining an offer. CAN ONLY CONTAIN ONE FIELD! For more information look at the top of modules.lua
 	SHOP_YESWORD = {'yes'}
@@ -42,14 +42,14 @@ if NpcSystem == nil then
 
 	-- Constant strings defining the keywords to replace in the default messages.
 	--	For more information, look at the top of npchandler.lua...
-	TAG_PLAYERNAME 		= '|PLAYERNAME|'
-	TAG_ITEMCOUNT 		= '|ITEMCOUNT|'
-	TAG_TOTALCOST 		= '|TOTALCOST|'
-	TAG_ITEMNAME 		= '|ITEMNAME|'
-	TAG_TIME 			= '|TIME|'
-	TAG_BLESSCOST 		= '|BLESSCOST|'
-	TAG_PVPBLESSCOST 	= '|PVPBLESSCOST|'
-	TAG_TRAVELCOST 		= '|TRAVELCOST|'
+	TAG_PLAYERNAME = '|PLAYERNAME|'
+	TAG_ITEMCOUNT = '|ITEMCOUNT|'
+	TAG_TOTALCOST = '|TOTALCOST|'
+	TAG_ITEMNAME = '|ITEMNAME|'
+	TAG_QUEUESIZE = '|QUEUESIZE|'
+	TAG_TIME = '|TIME|'
+	TAG_BLESSCOST = '|BLESSCOST|'
+	TAG_TRAVELCOST = '|TRAVELCOST|'
 
 	NpcSystem = {}
 
@@ -140,6 +140,10 @@ if NpcSystem == nil then
 		local ret = NpcSystem.getParameter('message_alreadyfocused')
 		if ret ~= nil then
 			npcHandler:setMessage(MESSAGE_ALREADYFOCUSED, ret)
+		end
+		local ret = NpcSystem.getParameter('message_placedinqueue')
+		if ret ~= nil then
+			npcHandler:setMessage(MESSAGE_PLACEDINQUEUE, ret)
 		end
 		local ret = NpcSystem.getParameter('message_buy')
 		if ret ~= nil then
