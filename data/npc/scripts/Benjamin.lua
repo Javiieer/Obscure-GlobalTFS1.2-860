@@ -7,6 +7,13 @@ function onCreatureDisappear(cid)		npcHandler:onCreatureDisappear(cid)			end
 function onCreatureSay(cid, type, msg)		npcHandler:onCreatureSay(cid, type, msg)		end
 function onThink()		npcHandler:onThink()		end
 
+local shopModule = ShopModule:new()
+npcHandler:addModule(shopModule)
+
+-- Menu Modal
+
+shopModule:addBuyableItem({'parcel'}, 2595, 15, 'parcel')
+
 local voices = {
 	{ text = 'Welcome to the post office!' },
 	{ text = 'If you need help with letters or parcels, just ask me. I can explain everything.' },
