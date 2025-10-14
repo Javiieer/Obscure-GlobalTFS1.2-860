@@ -177,7 +177,38 @@ function Player.getCookiesDelivered(self)
 end
 
 function Player.removeMoneyNpc(self, amount)
-    return self:removeMoney(amount)
+	local totalMoney = self:getMoney() + self:getBankBalance()
+	if amount > totalMoney then
+		return false
+	end
+
+	local inventoryMoney = self:getMoney()
+	if amount <= inventoryMoney then
+		-- If player has enough money in inventory, remove from inventory only
+		return self:removeMoney(amount)
+	else
+		-- Remove all money from inventory first
+		local remainingAmount = amount
+		if inventoryMoney > 0 then
+			if self:removeMoney(inventoryMoney) then
+				remainingAmount = remainingAmount - inventoryMoney
+			else
+				return false
+			end
+		end
+		
+		-- Remove the rest from bank
+		if remainingAmount > 0 then
+			local bankBalance = self:getBankBalance()
+			if remainingAmount <= bankBalance then
+				self:setBankBalance(bankBalance - remainingAmount)
+				return true
+			else
+				return false
+			end
+		end
+		return true
+	end
 end
 
 
