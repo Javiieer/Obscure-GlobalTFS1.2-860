@@ -10,10 +10,10 @@ function onThink()  npcHandler:onThink()  end
 local shopModule = ShopModule:new()
 npcHandler:addModule(shopModule)
 
--- Items a vender (agrega más para testing; usa IDs 8.0 compatibles)
-shopModule:addBuyableItem({'parcel'}, 2595, 15, 'parcel')  -- Precio 15 gp
-shopModule:addBuyableItem({'rope'}, 2120, 50, 'rope')     -- Ejemplo adicional
-shopModule:addSellableItem({'rope'}, 2120, 8, 'rope')     -- Para ventas del player
+-- Items para trade modal (sin keywords en TRADE mode; usa ID, cost, subtype)
+shopModule:addBuyableItem(nil, 2595, 15, 1, 'parcel')  -- nil keywords para modo TRADE
+shopModule:addBuyableItem(nil, 2120, 50, 1, 'rope')     -- Ejemplo adicional buy
+shopModule:addSellableItem(nil, 2120, 8, 'rope')       -- Sell ejemplo
 
 local voices = {
     { text = 'Welcome to the post office!' },
@@ -29,17 +29,7 @@ local function creatureSayCallback(cid, type, msg)
 
     local player = Player(cid)
 
-    -- Handler para abrir Trade Modal Window
-    if msgcontains(msg, 'trade') then
-        if isInRange(player:getPosition(), npcHandler:getNpcPosition(), 4) then  -- Chequea distancia para protocolo 8.0
-            shopModule:openShopWindow(cid)  -- Abre la ventana modal de shop
-            npcHandler:say('Here is my offer, ' .. player:getName() .. '. Feel free to browse.', cid)
-        else
-            npcHandler:say('Come closer, please.', cid)
-        end
-        return true
-    end
-
+    -- Handler para measurements (sin cambios)
     if msgcontains(msg, "measurements") then
         if player:getStorageValue(Storage.postman.Mission07) >= 1 and player:getStorageValue(Storage.postman.MeasurementsBenjamin) ~= 1 then
             npcHandler:say("Oh they don't change that much since in the old days as... <tells a boring and confusing story about a cake, a parcel, himself and two squirrels, at least he tells you his measurements in the end> ", cid)
@@ -53,6 +43,7 @@ local function creatureSayCallback(cid, type, msg)
         return true
     end
 
+    -- No handler manual para trade: el módulo lo maneja vía keyword registrado
     return true
 end
 

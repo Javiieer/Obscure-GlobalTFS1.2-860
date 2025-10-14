@@ -25,8 +25,8 @@ if Modules == nil then
 	SHOPMODULE_MODE_TRADE = 2 -- Trade window system introduced in client version 8.2
 	SHOPMODULE_MODE_BOTH = 3 -- Both working at one time
 
-	-- Used shop mode
-	SHOPMODULE_MODE = SHOPMODULE_MODE_BOTH
+	-- Used shop mode - CAMBIO AQUI: Forzado a TRADE para abrir ventanas modales en protocolo 8.0 con "trade"
+	SHOPMODULE_MODE = SHOPMODULE_MODE_TRADE
 
 	Modules = {
 		parseableModules = {}
@@ -303,7 +303,7 @@ if Modules == nil then
 			self.farewellWords[#self.farewellWords + 1] = message
 		else
 			for i = 1, #message do
-				self.farewellWords[#self.farewellWords + 1] = message
+				self.farewellWords[#self.farewellWords + 1] = message[i]
 			end
 		end
 	end
@@ -894,7 +894,7 @@ if Modules == nil then
 
 			local shopItem = self:getShopItem(itemid, itemSubType)
 			if shopItem == nil then
-				self.npcHandler.shopItems[#self.npcHandler.shopItems + 1] = {id = itemid, buy = cost, sell = -1, subType = itemSubType, name = realName or ItemType(itemid):getName()}
+				self.npcHandler.shopItems[#self.npcHandler.shopItems + 1] = = {id = itemid, buy = cost, sell = -1, subType = itemSubType, name = realName or ItemType(itemid):getName()}
 			else
 				shopItem.buy = cost
 			end
@@ -1175,7 +1175,7 @@ if Modules == nil then
                         	end
                         end
                         if table.maxn(sellableItems) > 0 then
-                        	local message = "I'm buying "
+                        	local message =  "I'm buying "
                         	for i = 1, table.maxn(sellableItems) do
                         		message = message .. sellableItems[i] .. ", "
                         		if message:len() > 500 then
@@ -1196,7 +1196,7 @@ if Modules == nil then
 							return
 						end
 						npcId:say(message:sub(0, -3) .. ".", TALKTYPE_SAY)
-					end, 2000, npc.uid)
+					end, 2000, npc.uid0)
                         	end
                         end
                         return true
