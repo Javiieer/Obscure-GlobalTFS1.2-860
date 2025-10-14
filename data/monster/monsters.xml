@@ -244,7 +244,7 @@
 	<!-- Giants -->
 	<monster name="Behemoth" file="giants/behemoth.xml"/>
 	<monster name="Cyclops" file="giants/cyclops.xml"/>
-	<monster name="The Bloodtusk" file="giants/the bloodtusk.xml"/>
+	<monster name="The Bloodtusk" file="Giants/The Bloodtusk.xml"/>
 	<monster name="Leviathan" file="giants/leviathan.xml"/>
 	<monster name="Frost Giant" file="giants/frost giant.xml"/>
 	<monster name="Frost Giantess" file="giants/frost giantess.xml"/>
