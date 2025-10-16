@@ -1,7 +1,7 @@
 local spellbook = Action()
 
 function spellbook.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	local text = {}
+	local text = ""
 	local spells = {}
 	for _, spell in ipairs(player:getInstantSpells()) do
 		if spell.level ~= 0 then
@@ -15,24 +15,24 @@ function spellbook.onUse(player, item, fromPosition, target, toPosition, isHotke
 	table.sort(spells, function(a, b) return a.level < b.level end)
 
 	if #spells == 0 then
-		text[#text + 1] = "You don't know any spells yet."
-		player:showTextDialog(item:getId(), table.concat(text))
+		text = "You don't know any spells yet."
+		player:showTextDialog(item:getId(), text)
 		return true
 	end
 
 	local prevLevel = -1
 	for i, spell in ipairs(spells) do
 		if prevLevel ~= spell.level then
-			if #text > 0 then
-				text[#text + 1] = "\n"
+			if text ~= "" then
+				text = text .. "\n"
 			end
-			text[#text + 1] = "Spells for Level " .. spell.level .. "\n"
+			text = text .. "Spells for Level " .. spell.level .. "\n"
 			prevLevel = spell.level
 		end
-		text[#text + 1] = spell.words .. " - " .. spell.name .. " : " .. spell.mana .. "\n"
+		text = text .. spell.words .. " - " .. spell.name .. " : " .. spell.mana .. "\n"
 	end
 
-	player:showTextDialog(item:getId(), table.concat(text))
+	player:showTextDialog(item:getId(), text)
 	return true
 end
 
