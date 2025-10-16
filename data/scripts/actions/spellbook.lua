@@ -14,18 +14,22 @@ function spellbook.onUse(player, item, fromPosition, target, toPosition, isHotke
 
 	table.sort(spells, function(a, b) return a.level < b.level end)
 
+	if #spells == 0 then
+		text[#text + 1] = "You don't know any spells yet."
+		player:showTextDialog(item:getId(), table.concat(text))
+		return true
+	end
+
 	local prevLevel = -1
 	for i, spell in ipairs(spells) do
 		if prevLevel ~= spell.level then
-			if i == 1 then
-				text[#text == nil and 1 or #text+1] = "Spells for Level "
-			else
-				text[#text+1] = "\nSpells for Level "
+			if #text > 0 then
+				text[#text + 1] = "\n"
 			end
-			text[#text+1] = spell.level .. "\n"
+			text[#text + 1] = "Spells for Level " .. spell.level .. "\n"
 			prevLevel = spell.level
 		end
-		text[#text+1] = spell.words .. " - " .. spell.name .. " : " .. spell.mana .. "\n"
+		text[#text + 1] = spell.words .. " - " .. spell.name .. " : " .. spell.mana .. "\n"
 	end
 
 	player:showTextDialog(item:getId(), table.concat(text))
