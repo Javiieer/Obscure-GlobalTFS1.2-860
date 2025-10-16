@@ -4,6 +4,21 @@
 	
 	<action itemid="14405" function="market" />
 	
+	<!-- Spellbooks -->
+	<action fromid="2175" toid="2175" script="Other/spellbook.lua"/>
+	<action itemid="6120" script="Other/spellbook.lua"/>
+	<action itemid="8900" script="Other/spellbook.lua"/>
+	<action itemid="8901" script="Other/spellbook.lua"/>
+	<action itemid="8902" script="Other/spellbook.lua"/>
+	<action itemid="8903" script="Other/spellbook.lua"/>
+	<action itemid="8904" script="Other/spellbook.lua"/>
+	<action itemid="8918" script="Other/spellbook.lua"/>
+	<action itemid="12647" script="Other/spellbook.lua"/>
+	<action itemid="16112" script="Other/spellbook.lua"/>
+	<action itemid="18401" script="Other/spellbook.lua"/>
+	<action itemid="22422" script="Other/spellbook.lua"/>
+	<action itemid="29003" script="Other/spellbook.lua"/>
+	
 	<!-- Donations -->
 	<action itemid="7476" script="donations/greendjin.lua"/>
 	<action itemid="7477" script="donations/bluedjin.lua"/>
