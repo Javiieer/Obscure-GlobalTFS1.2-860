@@ -1,10 +1,10 @@
-# RealMap Global [8.0] sprites tibia 8.0~12/13 [TFS 1.2]
+# RealMap Global [8.0] sprites tibia 8.0~12/14 [TFS 1.2]
 
 >  
 > **Info:**  
-> **Client sprites:** 8.0 with spr 12~13 ( [(OTClient)](https://github.com/Brunowots/OTClient-V8-Realmap)  
+> **Client sprites:** 8.0 with spr 12~14 ( [(OTClient)](https://github.com/Brunowots/OTClient-V8-Realmap)  
 >**Source version:** 8.6 the forgotten server 1.2 
-> **Server version:** features 8.0 with client 8.6 with sprites 12/13 (the forgotten server 1.2)
+> **Server version:** features 8.0 with client 8.6 with sprites 12/14 (the forgotten server 1.2)
 >  
 
 Package posted by [Shiris undrin](----) on [OTLand (Link)](---)
@@ -31,6 +31,15 @@ Map was not cleaned from Rubbish, it is up to you to clean the map if you think 
 - Runes for sale on npc's
 - Raid player summon (player system with skull and player loot).
 
+## some things to update to 860
+- magic [60%]
+- Quest [70%]
+- items 860 full [50%]
+- monturas global 14 [90%]
+- modall window compatible [✅]
+- Revscript system [❌]
+- attak velocity sqm bug [❌]
+- among others, upcoming updates soon 🙌🏻✨ 
 
 
 # **Images:**
