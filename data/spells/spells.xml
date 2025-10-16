@@ -193,10 +193,6 @@
 		<vocation name="Master Sorcerer"/>
 		<vocation name="Elder Druid"/>
 	</instant>
-	<instant group="attack" name="Ultimate Explosion" words="exevo gran mas vis" lvl="60" mana="1200" prem="1" exhaustion="2000" selftarget="1" needlearn="0" script="attack/ultimate explosion.lua">
-		<vocation name="Sorcerer"/>
-		<vocation name="Master Sorcerer"/>
-	</instant>
 	<instant group="healing" name="Ultimate Healing" words="exura vita" lvl="20" mana="160" aggressive="0" selftarget="1" exhaustion="1000" needlearn="0" script="healing/ultimate healing.lua">
 		<vocation name="Sorcerer"/>
 		<vocation name="Druid"/>
@@ -480,10 +476,6 @@
 		<vocation name="Druid"/>
 		<vocation name="Master Sorcerer"/>
 		<vocation name="Elder Druid"/>
-	</instant>
-	<instant group="attack" name="Death Strike" words="exori mort" lvl="16" mana="20" prem="1" range="3" casterTargetOrDirection="1" blockwalls="1" exhaustion="2000" needlearn="0" script="attack/death strike.lua">
-		<vocation name="Sorcerer"/>
-		<vocation name="Master Sorcerer"/>
 	</instant>
 	<instant group="healing" name="Divine Healing" words="exura san" lvl="35" mana="210" aggressive="0" selftarget="1" exhaustion="1000" needlearn="0" script="healing/divine healing.lua">
 		<vocation name="Paladin"/>
