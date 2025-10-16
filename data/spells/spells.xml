@@ -445,6 +445,10 @@
 		<vocation name="Druid"/>
 		<vocation name="Elder Druid"/>
 	</conjure>
+	<conjure group="attack" name="Eternal Winter" words="exevo gran mas frigo" level="60" mana="1050" premium="1" selftarget="1" cooldown="1000" needlearn="0" script="attack/eternal_winter.lua">
+		<vocation name="Druid" />
+		<vocation name="Elder Druid" />
+	</conjure>
 
 	<!-- House Spells -->
 	<instant name="House Guest List" words="aleta sio" selftarget="1" aggressive="0" function="editHouseGuest"/>
