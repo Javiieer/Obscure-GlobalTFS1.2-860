@@ -7,7 +7,7 @@
 > **Server version:** features 8.0 with client 8.6 with sprites 12/14 (the forgotten server 1.2)
 >  
 
-Package posted by [Shiris undrin](----) on [OTLand (Link)](---)
+
 
 
 ## More information
@@ -40,10 +40,3 @@ Map was not cleaned from Rubbish, it is up to you to clean the map if you think 
 - Revscript system [❌]
 - attak velocity sqm bug [❌]
 - among others, upcoming updates soon 🙌🏻✨ 
-
-
-# **Images:**
-![](---)
-![](---)
-![](---)
-![](---)
