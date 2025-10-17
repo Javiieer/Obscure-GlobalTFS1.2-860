@@ -123,6 +123,7 @@
  <monster name="Mercury Blob" file="blobs/mercury_blob.xml"/>
 
  <!-- Bonelords -->
+ <monster name="Beholder" file="bonelords/beholder.xml"/>
  <monster name="Bonelord" file="bonelords/bonelord.xml"/>
  <monster name="Braindeath" file="bonelords/braindeath.xml"/>
  <monster name="Elder Bonelord" file="bonelords/elder_bonelord.xml"/>
@@ -710,7 +711,7 @@
  <monster name="Urmahlullu The Immaculate" file="Mod/1250/urmahlullu_the_immaculate.xml"/>
  
  
- <!-- Mod 1250b-->
+ <!-- Mod 1250-->
  <monster name="Abyssador" file="Mod/1250b/abyssador.xml"/>
  <monster name="Askarak Demon" file="Mod/1250b/askarak_demon.xml"/>
  <monster name="Askarak Lord" file="Mod/1250b/askarak_lord.xml"/>
