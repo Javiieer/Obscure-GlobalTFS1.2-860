@@ -330,6 +330,7 @@
 	<monster name="Orc Warlord3" file="Orcs/orcshield.xml"/>
 
 	<!-- Outlaws -->
+	<monster name="gladiator" file="Outlaws/gladiator.xml"/>
 	<monster name="Assassin" file="Outlaws/assassin.xml"/>
 	<monster name="Bandit" file="Outlaws/bandit.xml"/>
 	<monster name="Black Knight" file="Outlaws/black knight.xml"/>
