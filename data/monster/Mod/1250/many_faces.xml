@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Many Faces" nameDescription="a Many Faces" race="blood" experience="20000" speed="200">
+	<health now="25000" max="25000"/>
+	<look type="407" corpse="13165"/>
+	<targetchange interval="5000" chance="8"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-650"/>
+		<attack name="death" interval="1000" chance="12" range="7" min="-500" max="-1250">
+			<attribute key="shootEffect" value="suddendeath"/>
+			<attribute key="areaEffect" value="mortarea"/>
+		</attack>
+		<attack name="lifedrain" interval="3000" chance="17" length="8" spread="0" target="0" min="-500" max="-700">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+		<attack name="drunk" interval="3000" chance="11" radius="6" target="0" duration="25000">
+			<attribute key="areaEffect" value="poison"/>
+		</attack>
+		<attack name="speed" interval="1000" chance="25" length="7" spread="3" target="0" speedchange="-350" duration="30000">
+			<attribute key="areaEffect" value="poison"/>
+		</attack>
+		<attack name="poisoncondition" interval="2000" chance="30" radius="5" target="0" min="-35" max="-35"/>
+	</attacks>
+	<defenses armor="25" defense="30">
+		<defense name="healing" interval="2000" chance="15" min="200" max="400">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element earthPercent="50"/>
+		<element icePercent="20"/>
+		<element energyPercent="5"/>
+		<element physicalPercent="-5"/>
+	</elements>
+	<immunities>
+		<immunity death="1"/>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+		<immunity lifedrain="1"/>
+	</immunities>
+	<summons maxSummons="2">
+		<summon name="Sandstone Scorpion" interval="1000" chance="12"/>
+	</summons>
+	<loot>
+		<item id="13067" chance="100000" /> <!--surprise bag-->
+		<item id="12681" chance="750" /> <!--porcelain mask-->
+		<item id="12693" chance="750" /> <!--terra helmet-->
+		<item id="12697" chance="750" /> <!--head (brachiodemon)-->
+		<item id="12710" chance="750" /> <!--mooh'tah plate-->
+		<item id="12747" chance="750" /> <!--vibrant robe-->
+		<item id="12748" chance="750" /> <!--capricious robe-->
+		<item id="12749" chance="750" /> <!--infernal robe-->
+		<item id="12750" chance="750" /> <!--hazardous robe-->
+		<item id="12751" chance="750" /> <!--mould robe-->
+		<item id="12752" chance="750" /> <!--distorted robe-->
+		<item id="12943" chance="750" /> <!--spark sphere-->
+		<item id="12944" chance="750" /> <!--frozen lightning-->
+		<item id="12945" chance="750" /> <!--plasmatic lightning-->
+		<item id="12983" chance="750" /> <!--glacial rod-->
+		<item id="13016" chance="750" /> <!--metal spats-->
+		<item id="13085" chance="750" /> <!--ferumbras' amulet-->
+		<item id="13127" chance="750" /> <!--diabolic skull-->
+	</loot>
+</monster>

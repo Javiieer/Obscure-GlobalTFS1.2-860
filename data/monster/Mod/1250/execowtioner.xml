@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Execowtioner" nameDescription="a Execowtioner" race="blood" experience="2400" speed="235">
+	<health now="13500" max="13500"/>
+	<look type="394" corpse="13153"/>
+	<targetchange interval="2000" chance="4"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="90" attack="80"/>
+		<attack name="lifedrain" interval="2000" chance="18" range="7" radius="5" target="1" min="-135" max="-280">
+			<attribute key="shootEffect" value="whirlwindaxe"/>
+			<attribute key="areaEffect" value="redspark"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="18" range="7" target="1" min="-90" max="-200">
+			<attribute key="shootEffect" value="whirlwindaxe"/>
+			<attribute key="areaEffect" value="explosionarea"/>
+		</attack>
+	</attacks>
+	<defenses armor="40" defense="40"/>
+	<elements>
+		<element physicalPercent="1"/>
+		<element deathPercent="15"/>
+		<element energyPercent="10"/>
+		<element icePercent="10"/>
+		<element earthPercent="20"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="2000" chance="5">
+		<voice sentence="I'm the one who puts the cute into execute!"/>
+		<voice sentence="I'm here to punish!"/>
+		<voice sentence="Justice is swift and unavoidable!"/>
+		<voice sentence="I'll bring justice!"/>
+		<voice sentence="There is excellence in execution!"/>
+		<voice sentence="Your sentence is death!"/>
+	</voices>
+	
+	<loot>
+		<item id="13067" chance="100000" /> <!--surprise bag-->
+		<item id="12673" chance="750" /> <!--rubber cap-->
+		<item id="12689" chance="750" /> <!--gryphon mask-->
+		<item id="12694" chance="750" /> <!--galea mortis-->
+		<item id="12695" chance="750" /> <!--shadow cowl-->
+		<item id="12708" chance="750" /> <!--goo shell-->
+		<item id="12737" chance="750" /> <!--living armor-->
+		<item id="12743" chance="750" /> <!--ghost chestplate-->
+		<item id="12776" chance="750" /> <!--spellbook of vigilance-->
+		<item id="12783" chance="750" /> <!--mino shield-->
+		<item id="12851" chance="750" /> <!--final judgement-->
+		<item id="12871" chance="750" /> <!--mino lance-->
+		<item id="12872" chance="750" /> <!--execowtioner axe-->
+		<item id="12890" chance="750" /> <!--phantasmal axe-->
+		<item id="12955" chance="750" /> <!--living vine bow-->
+		<item id="12982" chance="750" /> <!--muck rod-->
+		<item id="13025" chance="750" /> <!--traditional leather shoes-->
+		<item id="13122" chance="750" /> <!--butterfly ring-->		
+	</loot>
+	
+</monster>

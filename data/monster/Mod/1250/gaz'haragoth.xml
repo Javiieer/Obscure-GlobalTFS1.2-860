@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Gaz'haragoth" nameDescription="a Gaz'haragoth" race="undead" experience="1000000" speed="500">
+	<health now="85000" max="85000" />
+	<look type="412" corpse="13152"/>
+	<targetchange interval="10000" chance="20" />
+	<flags>		
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag staticattack="98" />
+		<flag targetdistance="1" />
+		<flag runonhealth="0" />
+	</flags>
+	
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-5000" />
+		<attack name="ice" interval="3000" chance="35" range="7" radius="7" target="1" min="-90" max="-110">
+			<attribute key="shootEffect" value="ice" />
+			<attribute key="areaEffect" value="icearea" />
+		</attack>
+		<attack name="death" interval="2000" chance="13" length="8" spread="3" min="-10" max="-100">
+			<attribute key="areaEffect" value="poff"/>
+		</attack>
+		<attack name="death" interval="2000" chance="19" range="7" target="1" radius="6" min="-100" max="-800">
+			<attribute key="shootEffect" value="suddendeath"/>
+			<attribute key="areaEffect" value="mortarea"/>
+		</attack>
+		<attack name="melee" interval="1800" chance="40" range="7" radius="5" target="0" min="0" max="-1000">
+			<attribute key="areaEffect" value="blackspark" />
+		</attack>
+		<attack name="fire" interval="3000" chance="30" length="8" spread="0" min="-400" max="-600">
+			<attribute key="areaEffect" value="fire" />
+		</attack>
+		<attack name="fire" interval="2000" chance="14" length="8" spread="0" min="-160" max="-340">
+			<attribute key="areaEffect" value="firearea"/>
+		</attack>
+		<attack name="physical" interval="2500" chance="20" range="7" radius="5" target="0" min="-200" max="-480">
+			<attribute key="areaEffect" value="greenshimmer" />
+		</attack>		
+	</attacks>
+	<defenses armor="55" defense="65">
+		<defense name="healing" interval="3000" chance="35" min="500" max="1500">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>		
+	</defenses>
+	<elements>
+		<element firePercent="50" />
+		<element earthPercent="50" />
+		<element energyPercent="50" />
+		<element deathPercent="50" />
+		<element physicalPercent="50" />
+		<element holyPercent="50" />
+		<element icePercent="50" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+	</immunities>
+	
+	<voices interval="5000" chance="30">
+		<voice sentence="NO ONE WILL ESCAPE ME!" yell="1"/>
+		<voice sentence="I'LL KEEP THE ORDER UP!" yell="1"/>
+		<voice sentence="I've beaten tougher demons then you even know!" yell="1" />
+		<voice sentence="You puny humans will be my snacks!" yell="1" />
+	</voices>
+	<loot>		
+		<item id="13067" chance="100000" /> <!--surprise bag-->
+		<item id="12688" chance="3750" /> <!--golden mask-->
+		<item id="12700" chance="3750" /> <!--dark wizard's crown-->
+		<item id="12701" chance="3750" /> <!--dark whispers-->
+		<item id="12787" chance="3750" /> <!--shield of destiny-->
+		<item id="12788" chance="3750" /> <!--shield of destiny-->
+		<item id="12797" chance="3750" /> <!--adamant shield-->
+		<item id="12798" chance="3750" /> <!--adamant shield-->
+		<item id="12800" chance="3750" /> <!--seal of quality-->
+		<item id="12885" chance="3750" /> <!--golden axe-->
+		<item id="13002" chance="3750" /> <!--wand of darkness-->
+		<item id="13026" chance="3750" /> <!--pair of nightmare boots-->
+		<item id="13068" chance="3750" /> <!--golden crown-->
+		<item id="13084" chance="3750" /> <!--onyx pendant-->
+		<item id="13123" chance="3750" /> <!--blister ring-->
+		<item id="13138" chance="3750" /> <!--golden magic longsword-->
+	</loot>
+</monster>

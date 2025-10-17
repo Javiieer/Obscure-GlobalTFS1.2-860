@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Fairy" nameDescription="Fairy" race="blood" experience="0" speed="250" manacost="1000">
+	<look type="111" corpse="6042"/>
+	<health now="250" max="250"/>
+	<targetchange interval="4000" chance="50"/>
+    <strategy attack="10" defense="90"/>
+    <flags>       	
+		<flag summonable="0"/>
+        <flag attackable="1"/>
+        <flag hostile="1"/>
+        <flag illusionable="0"/>
+        <flag convinceable="0"/>
+        <flag pushable="1"/>
+        <flag canpushitems="1"/>
+        <flag canpushcreatures="1"/>
+        <flag targetdistance="3"/>
+        <flag runonhealth="0"/>
+    </flags>
+ 
+     <script>
+        <event name="curar2"/>
+    </script>
+	
+   <attacks>
+		<attack name="melee" interval="2000" min="0" max="-50"/>
+		<attack name="energy" interval="2000" chance="80" range="7" target="1" min="-10" max="-20">
+			<attribute key="shootEffect" value="energy"/>
+		</attack>		
+		<attack name="fire" interval="2000" chance="60" range="5" min="0" max="-10">
+			<attribute key="shootEffect" value="fire"/>
+		</attack>		
+	</attacks>
+	<defenses armor="50" defense="45">
+		<defense name="healing" interval="2000" chance="60" min="10" max="35">
+			<attribute key="areaEffect" value="greenshimmer"/>
+		</defense>
+	</defenses>
+	
+	<elements>
+		<element firePercent="10" />
+		<element earthPercent="10" />
+		<element energyPercent="10" />
+		<element deathPercent="10" />
+		<element physicalPercent="0" />
+		<element holyPercent="10" />
+		<element icePercent="10" />
+	</elements>
+	
+    <immunities>
+        <immunity physical="0"/>
+        <immunity energy="0"/>
+        <immunity fire="0"/>
+        <immunity poison="0"/>
+        <immunity lifedrain="0"/>
+        <immunity paralyze="1"/>
+        <immunity outfit="1"/>
+        <immunity drunk="1"/>
+        <immunity invisible="1"/>
+    </immunities>
+	
+    <voices interval="4000" chance="20">
+        <voice sentence="can i heal u?" />
+    </voices>
+	
+    <loot capacity="1900">
+    </loot>
+</monster>

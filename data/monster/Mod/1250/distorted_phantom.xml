@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Distorted Phantom" nameDescription="a Distorted Phantom" race="fire" experience="15000" speed="266">
+	<health now="46500" max="46500"/>
+	<look type="408" corpse="13166"/>
+	<targetchange interval="5000" chance="8"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="85"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-1707"/>
+		<attack name="death" interval="1000" chance="11" length="8" spread="0" min="0" max="-600">
+			<attribute key="areaEffect" value="mortarea"/>
+		</attack>
+		<attack name="death" interval="2000" chance="15" target="0" radius="4" min="-200" max="-700">
+			<attribute key="areaEffect" value="icearea"/>
+		</attack>
+		<attack name="physical" interval="3000" chance="18" radius="5" target="1" min="-50" max="-255">
+			<attribute key="areaEffect" value="groundshaker"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="15" radius="6" target="1" min="-50" max="-600">
+			<attribute key="areaEffect" value="firearea"/>
+			<attribute key="shootEffect" value="fire"/>
+		</attack>
+	</attacks>
+	<defenses armor="60" defense="55">
+		<defense name="healing" interval="1000" chance="14" min="400" max="900">
+			<attribute key="areaEffect" value="greenshimmer"/>
+		</defense>
+		<defense name="speed" interval="1000" chance="4" speedchange="500" duration="7000">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element energyPercent="96"/>
+		<element deathPercent="95"/>
+		<element icePercent="20"/>
+		<element earthPercent="-10"/>
+	</elements>
+	<immunities>
+		<immunity lifedrain="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Flee as long as you can!"/>
+		<voice sentence="Annihilon's might will crush you all!"/>
+		<voice sentence="I am coming for you!"/>
+	</voices>
+	<loot>
+		<item id="13067" chance="100000" /> <!--surprise bag-->
+		<item id="12713" chance="1750" /> <!--fireheart cuirass-->
+		<item id="12714" chance="1750" /> <!--fireheart hauberk-->
+		<item id="12715" chance="1750" /> <!--fireheart platemail-->
+		<item id="12716" chance="1750" /> <!--earthheart cuirass-->
+		<item id="12717" chance="1750" /> <!--earthheart hauberk-->
+		<item id="12718" chance="1750" /> <!--earthheart platemail-->
+		<item id="12719" chance="1750" /> <!--thunderheart cuirass-->
+		<item id="12720" chance="1750" /> <!--thunderheart hauberk-->
+		<item id="12721" chance="1750" /> <!--thunderheart platemail-->
+		<item id="12722" chance="1750" /> <!--frostheart cuirass-->
+		<item id="12723" chance="1750" /> <!--frostheart hauberk-->
+		<item id="12724" chance="1750" /> <!--frostheart platemail-->
+		<item id="12725" chance="1750" /> <!--firesoul tabard-->
+		<item id="12726" chance="1750" /> <!--earthsoul tabard-->
+		<item id="12727" chance="1750" /> <!--thundersoul tabard-->
+		<item id="12728" chance="1750" /> <!--frostsoul tabard-->
+		<item id="12729" chance="1750" /> <!--firemind raiment-->
+		<item id="12730" chance="1750" /> <!--earthmind raiment-->
+		<item id="12731" chance="1750" /> <!--thundermind raiment-->
+		<item id="12732" chance="1750" /> <!--frostmind raiment-->
+	</loot>
+</monster>

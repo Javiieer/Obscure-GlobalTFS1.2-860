@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="The Dread Maiden" nameDescription="a Dread Maiden" race="undead" experience="11000" speed="185">
+	<health now="25000" max="25000"/>
+	<look type="406" corpse="13163"/>
+	<targetchange interval="2000" chance="5"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-700"/>
+		<attack name="lifedrain" interval="3000" chance="20" length="8" spread="3" min="-800" max="-1000">
+			<attribute key="areaEffect" value="greenshimmer"/>
+		</attack>
+		<attack name="poison" interval="2000" chance="20" range="7" radius="4" target="1" min="-120" max="-750">
+			<attribute key="shootEffect" value="poison"/>
+			<attribute key="areaEffect" value="poison"/>
+		</attack>
+		<attack name="drowncondition" interval="1000" chance="20" length="8" spread="3">
+			<attribute key="areaEffect" value="poff"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="20" range="7" radius="4" target="1" min="-300" max="-870">
+			<attribute key="shootEffect" value="fire"/>
+			<attribute key="areaEffect" value="redspark"/>
+		</attack>
+		<attack name="physical" interval="3000" chance="10" range="7" min="0" max="-750">
+			<attribute key="shootEffect" value="suddendeath"/>
+			<attribute key="areaEffect" value="mortarea"/>
+		</attack>
+		<attack name="poison" interval="1000" chance="23" range="7" radius="4" target="1" min="-50" max="-175">
+			<attribute key="shootEffect" value="poison"/>
+			<attribute key="areaEffect" value="poison"/>
+		</attack>
+		<attack name="manadrain" interval="2000" chance="10" range="7" min="-100" max="-200"/>
+	</attacks>
+	<defenses armor="40" defense="39">
+		<defense name="healing" interval="4000" chance="10" min="500" max="1000">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<immunities>
+		<immunity earth="1"/>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="2000" chance="5">
+		<voice sentence="Your new name is breakfast." yell="1"/>
+		<voice sentence="I'm bad to the bone." yell="1"/>
+		<voice sentence="DEATH CAN'T STOP MY HUNGER!" yell="1"/>
+	</voices>
+	<loot>
+	    <item id="13067" chance="100000" /> <!--surprise bag-->
+		<item id="12780" chance="950" /> <!--crude umbral spellbook-->
+		<item id="12781" chance="950" /> <!--umbral spellbook-->
+		<item id="12782" chance="950" /> <!--umbral master spellbook-->
+		<item id="12831" chance="950" /> <!--crude umbral blade-->
+		<item id="12832" chance="950" /> <!--umbral blade-->
+		<item id="12833" chance="950" /> <!--umbral masterblade-->
+		<item id="12834" chance="950" /> <!--crude umbral slayer-->
+		<item id="12835" chance="950" /> <!--umbral slayer-->
+		<item id="12836" chance="950" /> <!--umbral master slayer-->
+		<item id="12865" chance="950" /> <!--crude umbral axe-->
+		<item id="12866" chance="950" /> <!--umbral axe-->
+		<item id="12867" chance="950" /> <!--umbral master axe-->
+		<item id="12868" chance="950" /> <!--crude umbral chopper-->
+		<item id="12869" chance="950" /> <!--umbral chopper-->
+		<item id="12870" chance="950" /> <!--umbral master chopper-->
+		<item id="12897" chance="950" /> <!--crude umbral mace-->
+		<item id="12898" chance="950" /> <!--umbral mace-->
+		<item id="12899" chance="950" /> <!--umbral master mace-->
+		<item id="12900" chance="950" /> <!--crude umbral hammer-->
+		<item id="12901" chance="950" /> <!--umbral hammer-->
+		<item id="12902" chance="950" /> <!--umbral master hammer-->
+		<item id="12935" chance="950" /> <!--crude umbral bow-->
+		<item id="12936" chance="950" /> <!--umbral bow-->
+		<item id="12937" chance="950" /> <!--umbral master bow-->
+		<item id="12938" chance="950" /> <!--crude umbral crossbow-->
+		<item id="12939" chance="950" /> <!--umbral crossbow-->
+		<item id="12940" chance="950" /> <!--umbral master crossbow-->
+	</loot>
+	
+</monster>

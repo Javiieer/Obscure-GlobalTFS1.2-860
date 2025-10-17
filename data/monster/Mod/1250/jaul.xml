@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Jaul" nameDescription="a Jaul" race="blood" experience="30000" speed="220">
+	<health now="19000" max="19000"/>
+	<look type="397" corpse="13147"/>
+	<targetchange interval="2000" chance="50"/>
+	<flags>		
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="1"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="0"/>
+		<flag runonhealth="60"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-2000" poison="870"/>
+		<attack name="fire" interval="2200" chance="19" range="7" radius="7" target="1" min="0" max="-1000">
+			<attribute key="shootEffect" value="fire"/>
+			<attribute key="areaEffect" value="firearea"/>
+		</attack>
+		<attack name="manadrain" interval="3000" chance="32" range="7" radius="7" target="1" min="-200" max="-800">
+			<attribute key="areaEffect" value="mortarea"/>
+		</attack>
+		<attack name="earth" interval="1300" chance="27" radius="3" target="0" min="0" max="-600">
+			<attribute key="areaEffect" value="explosionarea"/>
+		</attack>
+		<attack name="death" interval="1200" chance="6" length="8" spread="0" min="-300" max="-900">
+			<attribute key="areaEffect" value="mortarea"/>
+		</attack>
+		<attack name="fire" interval="1000" chance="5" length="8" spread="0" min="-500" max="-1000">
+			<attribute key="areaEffect" value="fire"/>
+		</attack>
+		<attack name="ice" interval="1000" chance="5" length="8" spread="0" min="-1000" max="-2000">
+			<attribute key="areaEffect" value="icearea"/>
+		</attack>
+		<attack name="lifedrain" interval="4000" chance="10" length="8" spread="3" min="-500" max="-1000">
+			<attribute key="areaEffect" value="watersplash"/>
+		</attack>
+		<attack name="speed" interval="1900" chance="14" range="7" radius="1" target="1" speedchange="-600" duration="15000"/>
+	</attacks>
+	<defenses armor="40" defense="40">
+		<defense name="healing" interval="2000" chance="25" min="1000" max="2300">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="healing" interval="5500" chance="10" min="14000" max="21000">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<immunities>
+		<immunity ice="1"/>
+		<immunity paralyze="1"/>
+		<immunity drown="1"/>
+		<immunity fire="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="3000" chance="200">
+		<voice sentence="QJELL AFAR GOU JEY!!"/>
+		<voice sentence="DIE!! KENH!!"/>
+	</voices>
+	<elements>
+		<element deathPercent="-1"/>
+	</elements>
+	<loot>
+		<item id="13067" chance="100000" /> <!--surprise bag-->
+		<item id="12669" chance="750" /> <!--depth galea-->
+		<item id="12674" chance="750" /> <!--crest of the deep seas-->
+		<item id="12702" chance="750" /> <!--ornate chestplate-->
+		<item id="12703" chance="750" /> <!--depth lorica-->
+		<item id="12711" chance="750" /> <!--heat core-->
+		<item id="12735" chance="750" /> <!--ornate testtplate-->
+		<item id="12755" chance="750" /> <!--depth ocrea-->
+		<item id="12756" chance="750" /> <!--ornate legs-->
+		<item id="12770" chance="750" /> <!--depth scutum-->
+		<item id="12771" chance="750" /> <!--ornate shield-->
+		<item id="12828" chance="750" /> <!--shimmer sword-->
+		<item id="12848" chance="750" /> <!--deepling ceremonial dagger-->
+		<item id="12859" chance="750" /> <!--heavy trident-->
+		<item id="12860" chance="750" /> <!--deepling axe-->
+		<item id="12893" chance="750" /> <!--deepling staff-->
+		<item id="12894" chance="750" /> <!--ornate mace-->
+		<item id="12895" chance="750" /> <!--deepling squelcher-->
+		<item id="12927" chance="750" /> <!--shimmer bow-->
+		<item id="12929" chance="750" /> <!--ornate crossbow-->
+		<item id="12981" chance="750" /> <!--shimmer rod-->
+		<item id="12994" chance="750" /> <!--shimmer wand-->
+		<item id="13008" chance="750" /> <!--deepling fork-->
+		<item id="13013" chance="750" /> <!--depth calcei-->
+		<item id="13075" chance="750" /> <!--necklace of the deep-->	
+	</loot>
+</monster>

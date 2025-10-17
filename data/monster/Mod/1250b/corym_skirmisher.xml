@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Corym Skirmisher" nameDescription="a corym skirmisher" race="blood" experience="260" speed="220">
+	<health now="450" max="450"/>
+	<look type="425" legs="101" corpse="13216"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+		<flag canwalkonenergy="0"/>
+		<flag canwalkonfire="0"/>
+		<flag canwalkonpoison="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-110"/>
+		<attack name="physical" interval="2000" chance="20" range="7" min="0" max="-90">
+			<attribute key="shootEffect" value="whirlwindclub"/>
+		</attack>
+	</attacks>
+	<defenses armor="15" defense="15"/>
+	<elements>
+		<element earthPercent="20"/>
+		<element deathPercent="20"/>
+		<element energyPercent="20"/>
+		<element holyPercent="-20"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Squeak! Squeak!"/>
+		<voice sentence="&lt;sniff&gt; &lt;sniff&gt; &lt;sniff&gt;"/>
+	</voices>
+	<loot>
+		<item name="gold coin" countmax="35" chance="50000"/>
+		<item id="2696" chance="10000"/><!-- cheese -->			
+		<item name="final judgement" chance="1909"/>	
+		<item name="platinum coin" countmax="2" chance="12000"/>
+		<item name="brown mushroom" countmax="2" chance="14500"/>
+		<item name="club ring" chance="90"/>
+		<item name="battle axe" chance="5450"/>		
+		<item name="battle hammer" chance="5200"/>
+		<item name="battle shield" chance="6190"/>
+		<item name="spiked squelcher" chance="150"/>
+		<item name="strong health potion" chance="390"/>		
+	</loot>
+</monster>

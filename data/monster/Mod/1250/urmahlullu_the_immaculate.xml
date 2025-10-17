@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Urmahlullu The Immaculate" nameDescription="a Urmahlullu The Immaculate" race="undead" speed="190">
+	<health now="120000" max="120000" />
+	<look type="405" corpse="13162"/>
+	<targetchange interval="4000" chance="20" />
+	<flags>		
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+		
+	<attacks>
+		<attack name="melee" interval="2000" skill="160" attack="300"/>
+		<attack name="manadrain" interval="1000" chance="13" range="7" min="-300" max="-600"/>
+		<attack name="manadrain" interval="1000" chance="6" radius="5" target="0" min="-150" max="-350">
+			<attribute key="areaEffect" value="poison"/>
+		</attack>
+		<attack name="effect" interval="1000" chance="6" radius="5" target="0">
+			<attribute key="areaEffect" value="blackspark"/>
+		</attack>
+		<attack name="fire" interval="1000" chance="34" range="7" radius="7" target="1" min="-310" max="-600">
+			<attribute key="shootEffect" value="fire"/>
+			<attribute key="areaEffect" value="firearea"/>
+		</attack>
+		<attack name="firefield" interval="1000" chance="10" range="7" radius="4" target="1">
+			<attribute key="shootEffect" value="fire"/>
+		</attack>
+		<attack name="energy" interval="1000" chance="15" length="8" spread="0" min="-500" max="-850">
+			<attribute key="areaEffect" value="energy"/>
+		</attack>
+	</attacks>
+	<defenses armor="55" defense="95">
+		<defense name="healing" interval="3000" chance="35" min="1200" max="3500">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>		
+	</defenses>
+	<elements>
+		<element physicalPercent="30" />
+		<element deathPercent="10" />
+		<element energyPercent="10" />
+		<element earthPercent="10" />
+		<element firePercent="10" />
+		<element icePercent="10" />
+		<element holyPercent="10" />
+	</elements>
+	
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+	</immunities>
+	
+	<loot>
+		<item id="13067" chance="100000" /> <!--surprise bag-->
+		<item id="12687" chance="3750" /> <!--cobra hood-->
+		<item id="12775" chance="3750" /> <!--spellbook of ancient arcana-->
+		<item id="12793" chance="3750" /> <!--shoulder plate-->
+		<item id="12849" chance="3750" /> <!--cobra sword-->
+		<item id="12862" chance="3750" /> <!--guardian axe-->
+		<item id="12887" chance="3750" /> <!--cobra axe-->
+		<item id="12921" chance="3750" /> <!--cobra club-->
+		<item id="12923" chance="3750" /> <!--meat hammer-->
+		<item id="12934" chance="3750" /> <!--icicle bow-->
+		<item id="12956" chance="3750" /> <!--cobra crossbow-->
+		<item id="12990" chance="3750" /> <!--cobra rod-->
+		<item id="13000" chance="3750" /> <!--ferumbras' staff-->
+		<item id="13009" chance="3750" /> <!--cobra wand-->
+		<item id="13021" chance="3750" /> <!--pair of dreamwalkers-->
+		<item id="13023" chance="3750" /> <!--cobra boots-->
+		<item id="13090" chance="3750" /> <!--jade amulet-->
+		<item id="13092" chance="3750" /> <!--the cobra amulet-->
+	</loot>
+	
+	
+</monster>

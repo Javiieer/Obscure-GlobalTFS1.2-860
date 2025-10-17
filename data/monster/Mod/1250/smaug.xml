@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Smaug" nameDescription="a Smaug" race="fire" experience="21000" speed="230">
+	<health now="25000" max="25000" />
+	<look type="393" corpse="13172"/>
+	<targetchange interval="4000" chance="0" />
+	<flags>		
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="1" />
+		<flag canpushitems="0" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+		<flag canwalkonenergy="0" />
+		<flag canwalkonfire="0" />
+		<flag canwalkonpoison="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-300" />		
+		<attack name="Fire Wave" chance="30" interval="2000" length="1" spread="0" target="1" min="-800" max="-1200"/>
+		<attack name="speed" interval="1000" chance="12" radius="6" target="0" speedchange="-250" duration="60000">
+			<attribute key="areaEffect" value="fire" />
+		</attack>
+		<attack name="firefield" interval="1000" chance="10" range="7" radius="4" target="1">
+			<attribute key="shootEffect" value="fire" />
+		</attack>
+	</attacks>
+	<defenses armor="80" defense="40" />
+	<elements>
+		<element firePercent="60" />
+		<element holyPercent="50" />
+		<element icePercent="40" />
+		<element deathPercent="50" />
+		<element energyPercent="" />
+	</elements>
+		<immunities>
+		<immunity physical="0" />
+		<immunity energy="0" />
+		<immunity fire="1" />
+		<immunity poison="0" />
+		<immunity lifedrain="0" />
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+	</immunities>
+	<loot>
+		<item id="13067" chance="100000" /> <!--surprise bag-->
+		<item id="12671" chance="750" /> <!--prismatic helmet-->
+		<item id="12706" chance="750" /> <!--prismatic armor-->
+		<item id="12741" chance="750" /> <!--toga mortis-->
+		<item id="12757" chance="750" /> <!--grasshopper legs-->
+		<item id="12759" chance="750" /> <!--prismatic legs-->
+		<item id="12777" chance="750" /> <!--prismatic shield-->
+		<item id="12779" chance="750" /> <!--haunted mirror piece-->
+		<item id="12888" chance="750" /> <!--luminescent crystal pickaxe-->
+		<item id="12908" chance="750" /> <!--painted gourd rattle-->
+		<item id="12931" chance="750" /> <!--crystal crossbow-->
+		<item id="13014" chance="750" /> <!--prismatic boots-->
+		<item id="13018" chance="750" /> <!--badger boots-->
+		<item id="13077" chance="750" /> <!--prismatic necklace-->
+		<item id="13087" chance="750" /> <!--moon mirror-->
+		<item id="13120" chance="750" /> <!--star ring-->
+		<item id="13121" chance="750" /> <!--prismatic ring-->
+	</loot>
+</monster>

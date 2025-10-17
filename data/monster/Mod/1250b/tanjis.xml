@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Tanjis" nameDescription="Tanjis" race="blood" experience="15000" speed="560">
+	<health now="30000" max="30000"/>
+	<look type="458" corpse="13246"/>
+	<targetchange interval="2000" chance="50"/>
+	<flags>		
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="1"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="0"/>
+		<flag runonhealth="60"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-600"/>
+		<attack name="manadrain" interval="2500" chance="20" range="7" radius="4" target="1" min="-200" max="-600">
+			<attribute key="shootEffect" value="poison"/>
+			<attribute key="areaEffect" value="carniphila"/>
+		</attack>
+		<attack name="ice" interval="3500" chance="27" range="7" radius="4" target="1" min="-200" max="-400">
+			<attribute key="shootEffect" value="ice"/>
+			<attribute key="areaEffect" value="icearea"/>
+		</attack>
+		<attack name="ice" interval="3500" chance="15" range="1" radius="1" target="1" min="-100" max="-400"/>
+		<attack name="drown" interval="2300" chance="11" range="7" radius="4" target="1" min="-200" max="-500">
+			<attribute key="shootEffect" value="ice"/>
+			<attribute key="areaEffect" value="watersplash"/>
+		</attack>
+		<attack name="manadrain" interval="2300" chance="14" range="7" radius="7" target="0" min="-200" max="-600">
+			<attribute key="areaEffect" value="bubbles"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="10" range="7" radius="1" target="1" min="-100" max="-400">
+			<attribute key="shootEffect" value="largerock"/>
+		</attack>
+		<attack name="death" interval="1200" chance="7" length="8" spread="0" min="-300" max="-800">
+			<attribute key="areaEffect" value="smallclouds"/>
+		</attack>
+		<attack name="energy" interval="2000" chance="14" length="8" spread="3" min="-200" max="-500">
+			<attribute key="areaEffect" value="purpleenergy"/>
+		</attack>
+		<attack name="speed" interval="2150" chance="16" range="7" radius="1" target="1" speedchange="-600" duration="15000"/>
+	</attacks>
+	<defenses armor="40" defense="40">
+		<defense name="healing" interval="3000" chance="40" min="800" max="1100">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<immunities>
+		<immunity ice="1"/>
+		<immunity paralyze="1"/>
+		<immunity drown="1"/>
+		<immunity fire="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="3000" chance="200">
+		<voice sentence="JAU QJELL, JAKHN JEH KENH!!"/>
+	</voices>
+	<elements>
+		<element earthPercent="-20"/>
+		<element energyPercent="-20"/>
+		<element physicalPercent="-20"/>
+		<element deathPercent="-20"/>
+	</elements>
+	<loot>
+		<item name="depth scutum" chance="100000"/><!-- depth scutum -->
+		<item name="deepling axe" chance="1285"/><!-- deepling axe -->
+		<item name="ornate legs" chance="1285" /><!-- ornate legs -->
+		<item id="13067" chance="100000" /> <!--surprise bag-->
+		<item id="12669" chance="2500" /> <!--depth galea-->
+		<item id="12674" chance="2500" /> <!--crest of the deep seas-->
+		<item id="12702" chance="2500" /> <!--ornate chestplate-->
+		<item id="12703" chance="2500" /> <!--depth lorica-->
+		<item id="12711" chance="2500" /> <!--heat core-->
+		<item id="12735" chance="2500" /> <!--ornate testtplate-->
+		<item id="12755" chance="2500" /> <!--depth ocrea-->			
+		<item id="12771" chance="2500" /> <!--ornate shield-->
+		<item id="12828" chance="2500" /> <!--shimmer sword-->
+		<item id="12848" chance="2500" /> <!--deepling ceremonial dagger-->
+		<item id="12859" chance="2500" /> <!--heavy trident-->		
+		<item id="12893" chance="2500" /> <!--deepling staff-->
+		<item id="12894" chance="2500" /> <!--ornate mace-->
+		<item id="12895" chance="2500" /> <!--deepling squelcher-->
+		<item id="12927" chance="2500" /> <!--shimmer bow-->
+		<item id="12929" chance="2500" /> <!--ornate crossbow-->
+		<item id="12981" chance="2500" /> <!--shimmer rod-->
+		<item id="12994" chance="2500" /> <!--shimmer wand-->
+		<item id="13008" chance="2500" /> <!--deepling fork-->
+		<item id="13013" chance="2500" /> <!--depth calcei-->
+		<item id="13075" chance="2500" /> <!--necklace of the deep-->
+	</loot>
+</monster>

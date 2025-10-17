@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Gnomevil" nameDescription="a Gnomevil" race="blood" experience="45000" speed="470">
+	<health now="25000" max="25000" />
+	<look type="399" corpse="13150"/>
+	<targetchange interval="5000" chance="8" />
+	<flags>		
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="0" />
+		<flag staticattack="50" />
+		<flag runonhealth="1" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="1300" skill="80" attack="140" />
+		<attack name="speed" interval="2000" chance="20" range="7" speedchange="-400" duration="2500">
+			<attribute key="shootEffect" value="whirlwindaxe" />
+		</attack>
+		<attack name="fire" interval="2000" chance="100" range="7" min="-820" max="-950">
+			<attribute key="areaEffect" value="energyarea" />
+		</attack>
+		<attack name="manadrain" interval="2000" chance="9" length="8" spread="0" min="-230" max="-500">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</attack>
+		<attack name="energy" interval="1000" chance="12" range="3" target="1" min="-350" max="-800">
+			<attribute key="areaEffect" value="purpleenergy" />
+		</attack>
+	</attacks>
+	<defenses armor="25" defense="35">
+		<defense name="healing" interval="1000" chance="25" min="1000" max="4000">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element firePercent="10" />
+		<element deathPercent="-20" />
+	</elements>
+	<immunities>
+		<immunity drown="1" />
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+	</immunities>
+	<voices interval="2000" chance="7">
+		<voice sentence="No more Mr. Nicegnome!" />
+		<voice sentence="Taste the power of the dark side!" />
+		<voice sentence="I've seen the light! And it was all engulfing fire!" />
+	</voices>
+	<loot>
+		<item id="13067" chance="100000" /> <!--surprise bag-->
+		<item id="12672" chance="3750" /> <!--gnomevil's hat-->
+		<item id="12682" chance="3750" /> <!--gnome helmet-->
+		<item id="12707" chance="3750" /> <!--albino plate-->
+		<item id="12733" chance="3750" /> <!--swan feather cloak-->
+		<item id="12734" chance="3750" /> <!--gnome armor-->
+		<item id="12742" chance="3750" /> <!--traditional shirt-->
+		<item id="12763" chance="3750" /> <!--gnome legs-->
+		<item id="12774" chance="3750" /> <!--mathmaster shield-->
+		<item id="12789" chance="3750" /> <!--wooden spellbook-->
+		<item id="12790" chance="3750" /> <!--gnome shield-->
+		<item id="12846" chance="3750" /> <!--gnome sword-->
+		<item id="12864" chance="3750" /> <!--crystalline axe-->
+		<item id="12919" chance="3750" /> <!--resizer-->
+		<item id="12932" chance="3750" /> <!--mycological bow-->
+		<item id="12998" chance="3750" /> <!--ferumbras' staff-->
+		<item id="13019" chance="3750" /> <!--treader of torment-->
+		<item id="13088" chance="3750" /> <!--rainbow necklace-->	
+	</loot>
+</monster>

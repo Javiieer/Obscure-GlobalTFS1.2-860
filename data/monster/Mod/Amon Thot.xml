@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Amon Thot" nameDescription="a Amon Thot" race="undead" speed="300" manacost="3000">
+	<health now="2800" max="2800" />
+	<look type="149" head="94" body="77" legs="96" feet="0" addons="3" corpse="6081"/>
+	<targetchange interval="4000" chance="20" />
+	<flags>		
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="0" />
+		<flag illusionable="0" />
+		<flag convinceable="1" />
+		<flag pushable="1" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag staticattack="98" />
+		<flag targetdistance="0" />
+		<flag runonhealth="100" />
+	</flags>
+	
+	<script>
+        <event name="curar2"/>
+    </script>
+		
+	<attacks>
+		<attack name="melee" interval="200" chance="45" skill="153" min="-30" max="-120" />
+		<attack name="fire" interval="2000" chance="15" skill="153" min="-10" max="-50" />	
+		<attack name="energy" interval="2000" chance="15" radius="3" min="-10" max="-80">
+			<attribute key="areaEffect" value="energy" />		
+		</attack>	
+		<attack name="energy" interval="1000" chance="30" range="7" min="-50" max="-150">
+			<attribute key="shootEffect" value="energy"/>
+		</attack>
+		
+	</attacks>
+	<defenses armor="55" defense="95">
+		<defense name="healing" interval="3000" chance="40" min="50" max="320">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="Challenge" interval="2000" chance="15">
+			<attribute key="areaEffect" value="exeta res" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="30" />
+		<element deathPercent="10" />
+		<element energyPercent="10" />
+		<element earthPercent="10" />
+		<element firePercent="10" />
+		<element icePercent="10" />
+		<element holyPercent="10" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+	</immunities>
+</monster>

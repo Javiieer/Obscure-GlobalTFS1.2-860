@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="The Last Lore Keeper" nameDescription="a Last Lore Keeper" race="undead" experience="45000" speed="450">
+	<health now="75000" max="75000"/>
+	<look type="400" corpse="6068"/>
+	<targetchange interval="2000" chance="8"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="340"/>
+		<flag canwalkonenergy="1" />
+		<flag canwalkonfire="1" />
+		<flag canwalkonpoison="1" />		
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="140" attack="80"/>
+		<attack name="physical" interval="2000" chance="7" length="8" spread="3" min="-650" max="-900">
+			<attribute key="areaEffect" value="explosionarea"/>
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="20" length="10" spread="0" min="-850" max="-2260">
+			<attribute key="areaeffect" value="redshimmer"/>
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="20" radius="5" min="-640" max="-800">
+			<attribute key="areaeffect" value="smallclouds"/>
+		</attack>
+		<attack name="energy" interval="2000" chance="20" length="8" spread="0" min="-420" max="-954">
+			<attribute key="areaeffect" value="purpleenergy"/>
+		</attack>
+		<attack name="earth" interval="2000" chance="20" radius="5" target="1" min="-640" max="-800">
+			<attribute key="areaeffect" value="stones"/>
+		</attack>	
+	</attacks>
+	<defenses armor="50" defense="50">
+		<defense name="healing" interval="2000" chance="25" min="1500" max="3000">
+			<attribute key="areaEffect" value="greenshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element icePercent="20"/>
+		<element firePercent="20"/>
+		<element energyPercent="20"/>
+		<element earthPercent="20"/>
+		<element holyPercent="20"/>
+		<element physicalPercent="20"/>
+		<element deathPercent="20"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	
+	<loot>
+		<item id="13067" chance="100000" /> <!--surprise bag-->
+		<item id="12683" chance="3750" /> <!--falcon circlet-->
+		<item id="12684" chance="3750" /> <!--falcon coif-->
+		<item id="12736" chance="3750" /> <!--falcon plate-->
+		<item id="12764" chance="3750" /> <!--falcon greaves-->
+		<item id="12791" chance="3750" /> <!--falcon shield-->
+		<item id="12792" chance="3750" /> <!--falcon escutcheon-->
+		<item id="12847" chance="3750" /> <!--falcon longsword-->
+		<item id="12884" chance="3750" /> <!--falcon battleaxe-->
+		<item id="12918" chance="3750" /> <!--falcon mace-->
+		<item id="12920" chance="3750" /> <!--energized limb-->
+		<item id="12933" chance="3750" /> <!--triple bolt crossbow-->
+		<item id="12954" chance="3750" /> <!--falcon bow-->
+		<item id="12989" chance="3750" /> <!--falcon rod-->
+		<item id="12999" chance="3750" /> <!--ferumbras' staff-->
+		<item id="13007" chance="3750" /> <!--falcon wand-->
+		<item id="13020" chance="3750" /> <!--boots of homecoming-->
+		<item id="13089" chance="3750" /> <!--amulet of theurgy-->
+	</loot>
+</monster>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Raging Mage" nameDescription="a Raging Mage" race="blood" experience="3250" speed="200">
+	<health now="23500" max="23500"/>
+	<look type="396" corpse="13146"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>		
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="80"/>
+		<flag runonhealth="300"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-50"/>
+		<attack name="ice" interval="2000" chance="5" radius="3" target="0" min="-60" max="-120">
+			<attribute key="areaEffect" value="icetornado"/>
+		</attack>
+		<attack name="manadrain" interval="2000" chance="15" range="7" min="-100" max="-200"/>
+		<attack name="energyfield" interval="2000" chance="15" range="7" radius="2" target="1">
+			<attribute key="shootEffect" value="energy"/>
+		</attack>
+	</attacks>
+	<defenses armor="25" defense="25"/>
+	<elements>
+		<element physicalPercent="-25"/>
+		<element deathPercent="15"/>
+	</elements>
+	<immunities>
+		<immunity energy="1"/>
+		<immunity fire="1"/>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="2000" chance="7">
+		<voice sentence="Behold the all permeating powers I draw from this gate!!"/>
+		<voice sentence="ENERGY!!"/>
+		<voice sentence="I WILL RETURN!! My death will just be a door to await my homecoming, my physical hull will be... my... argh..."/>
+	</voices>
+	
+	<loot>
+		<item id="13067" chance="100000" /> <!--surprise bag-->
+		<item id="12668" chance="750" /> <!--mage's cap-->
+		<item id="12670" chance="750" /> <!--gill gugel-->
+		<item id="12680" chance="750" /> <!--ferumbras' candy hat-->
+		<item id="12704" chance="750" /> <!--calopteryx cape-->
+		<item id="12705" chance="750" /> <!--gill coat-->
+		<item id="12712" chance="750" /> <!--fur armor-->
+		<item id="12740" chance="750" /> <!--embrace of nature-->
+		<item id="12754" chance="750" /> <!--furious frock-->
+		<item id="12758" chance="750" /> <!--gill legs-->
+		<item id="12778" chance="750" /> <!--runic ice shield-->
+		<item id="12837" chance="750" /> <!--cowtana-->
+		<item id="12886" chance="750" /> <!--ice hatchet-->
+		<item id="12930" chance="750" /> <!--thorn spitter-->
+		<item id="12996" chance="750" /> <!--wand of everblazing-->
+		<item id="13017" chance="750" /> <!--oriental shoes-->
+		<item id="13076" chance="750" /> <!--gill necklace-->
+		<item id="13086" chance="750" /> <!--dark moon mirror-->
+		<item id="13128" chance="750" /> <!--ring of secret thoughts (charged)-->
+	</loot>
+</monster>

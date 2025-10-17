@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Werehyaena" nameDescription="a Werehyaena" experience="55000" speed="350" race="blood">
+	<health now="50000" max="50000"/>
+	<look type="409" corpse="13154"/>
+		<targetchange speed="2000" chance="2"/>
+	<flags>		
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="4"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="-1400" max="-1800"/>
+		<attack name="death" interval="2000" chance="20" radius="6" target="0" min="-700" max="-1250">
+			<attribute key="areaEffect" value="mortarea"/>
+		</attack>
+		<attack name="manadrain" interval="2000" chance="20" radius="5" target="1" min="-700" max="-1250">
+			<attribute key="areaEffect" value="icetornado"/>
+		</attack>
+		<attack name="poison" interval="2000" chance="20" range="6" target="1" min="-700" max="-1250">
+			<attribute key="shootEffect" value="arrow"/>
+			<attribute key="areaEffect" value="explosionarea"/>
+		</attack>
+	</attacks>
+	<defenses armor="50" defense="55">
+		<defense name="speed" interval="2000" chance="12" speedchange="1250" duration="10000">
+			<attribute key="areaEffect" value="explosionarea"/>
+		</defense>		
+	</defenses>
+	<elements>
+		<element physicalPercent="30"/>
+		<element deathPercent="30"/>
+		<element icePercent="30"/>
+		<element firePercent="30"/>
+		<element earthPercent="30"/>
+		<element energyPercent="30"/>
+		<element holyPercent="30"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+		<immunity drunk="1"/>
+	</immunities>
+	<loot>
+		<item id="13067" chance="100000" /> <!--surprise bag-->
+		<item id="12675" chance="1750" /> <!--werewolf helmet-->
+		<item id="12699" chance="1750" /> <!--lion spangenhelm-->
+		<item id="12753" chance="1750" /> <!--lion plate-->
+		<item id="12795" chance="1750" /> <!--lion spellbook-->
+		<item id="12796" chance="1750" /> <!--lion shield-->
+		<item id="12852" chance="1750" /> <!--lion longsword-->
+		<item id="12889" chance="1750" /> <!--lion axe-->
+		<item id="12926" chance="1750" /> <!--lion hammer-->
+		<item id="12958" chance="1750" /> <!--lion longbow-->
+		<item id="12991" chance="1750" /> <!--lion rod-->
+		<item id="13011" chance="1750" /> <!--lion wand-->
+		<item id="13022" chance="1750" /> <!--yetislippers-->
+		<item id="13081" chance="1750" /> <!--lion's heart-->
+		<item id="13082" chance="1750" /> <!--enchanted werewolf amulet-->
+		<item id="13083" chance="1750" /> <!--werewolf amulet-->
+		<item id="13093" chance="1750" /> <!--lion amulet-->
+		<item id="13094" chance="1750" /> <!--lion crest-->
+		<item id="13126" chance="1750" /> <!--lion ring-->
+	</loot>
+	
+</monster>

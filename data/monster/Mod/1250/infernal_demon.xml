@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Infernal Demon" nameDescription="a Infernal Demon" race="fire" experience="15000" speed="200">
+	<health now="55000" max="55000"/>
+	<look type="384" corpse="13168"/>
+	<targetchange interval="10000" chance="20"/>
+	<flags>		
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag staticattack="98"/>
+		<flag targetdistance="1"/>
+		<flag runonhealth="100"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-2250"/>
+		<attack name="fire" interval="3000" chance="35" range="7" radius="7" target="1" min="-500" max="-1210">
+			<attribute key="shootEffect" value="fire"/>
+			<attribute key="areaEffect" value="firearea"/>
+		</attack>
+		<attack name="physical" interval="1800" chance="40" range="7" radius="5" target="0" min="0" max="-580">
+			<attribute key="areaEffect" value="blackspark"/>
+		</attack>
+		<attack name="energy" interval="3000" chance="30" length="8" spread="0" min="-300" max="-1450">
+			<attribute key="areaEffect" value="energy"/>
+		</attack>
+		<attack name="physical" interval="2500" chance="20" range="7" radius="5" target="0" min="-200" max="-480">
+			<attribute key="areaEffect" value="greenshimmer"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="15" range="7" radius="13" target="0" min="-250" max="-500">
+			<attribute key="areaEffect" value="rednote"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="20" radius="14" target="0" min="-200" max="-450">
+			<attribute key="areaEffect" value="bluebubble"/>
+		</attack>
+		<attack name="melee" interval="3000" chance="15" range="7" radius="3" target="0" min="-100" max="-200">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</attack>
+		<attack name="speed" interval="2000" chance="15" range="7" speedchange="-400" duration="20000">
+			<attribute key="areaEffect" value="rednote"/>
+		</attack>
+		<attack name="manadrain" interval="2000" chance="15" radius="3" target="1" min="-70" max="-320">
+			<attribute key="areaEffect" value="blackspark"/>
+		</attack>
+		<attack name="dark torturer skill reducer" interval="2000" chance="5"/>
+	</attacks>
+	<defenses armor="55" defense="65">
+		<defense name="healing" interval="3000" chance="35" min="800" max="1100">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="healing" interval="9000" chance="15" min="3800" max="4000">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element holyPercent="-5"/>
+		<element energyPercent="80"/>
+		<element deathPercent="80"/>
+		<element physicalPercent="50"/>
+		<element icePercent="-5"/>
+	</elements>
+	<immunities>
+		<immunity fire="1"/>
+		<immunity earth="1"/>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	
+	<voices interval="5000" chance="30">
+		<voice sentence="I AM MORGAROTH, LORD OF THE TRIANGLE... AND YOU ARE LOST!" yell="1"/>
+		<voice sentence="MY SEED IS FEAR AND MY HARVEST ARE YOUR SOULS!" yell="1"/>
+		<voice sentence="ZATHROTH! LOOK AT THE DESTRUCTION I AM CAUSING IN YOUR NAME!" yell="1"/>
+		<voice sentence="THE TRIANGLE OF TERROR WILL RISE!" yell="1"/>
+	</voices>
+	<loot>
+		<item id="13067" chance="100000" /> <!--surprise bag-->
+		<item id="12794" chance="1750" /> <!--shield of endless search-->
+		<item id="12853" chance="1750" /> <!--blade of destruction-->
+		<item id="12854" chance="1750" /> <!--slayer of destruction-->
+		<item id="12882" chance="1750" /> <!--axe of destruction-->
+		<item id="12883" chance="1750" /> <!--chopper of destruction-->
+		<item id="12903" chance="1750" /> <!--metal bat-->
+		<item id="12905" chance="1750" /> <!--moohtant cudgel-->
+		<item id="12907" chance="1750" /> <!--one hit wonder-->
+		<item id="12916" chance="1750" /> <!--mace of destruction-->
+		<item id="12917" chance="1750" /> <!--hammer of destruction-->
+		<item id="12952" chance="1750" /> <!--bow of destruction-->
+		<item id="12953" chance="1750" /> <!--crossbow of destruction-->
+		<item id="12988" chance="1750" /> <!--rod of destruction-->
+		<item id="13001" chance="1750" /> <!--dream blossom staff-->
+		<item id="13006" chance="1750" /> <!--wand of destruction-->
+		<item id="13024" chance="1750" /> <!--winged boots-->
+		<item id="13091" chance="1750" /> <!--rainbow amulet-->
+
+	</loot>
+</monster>

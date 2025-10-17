@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Animated Snowman" nameDescription="a Animated Snowman" race="energy" experience="40000" speed="215">
+	<health now="45000" max="45000" />
+	<look type="404" corpse="13173"/>
+	<targetchange interval="5000" chance="8" />
+	<flags>		
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="80"/>
+		<flag runonhealth="300"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-50"/>
+		<attack name="ice" interval="2000" chance="5" radius="3" target="0" min="-60" max="-120">
+			<attribute key="areaEffect" value="icetornado"/>
+		</attack>
+		<attack name="manadrain" interval="2000" chance="15" range="7" min="-100" max="-200"/>
+		<attack name="energyfield" interval="2000" chance="15" range="7" radius="2" target="1">
+			<attribute key="shootEffect" value="energy"/>
+		</attack>
+	</attacks>
+	<defenses armor="25" defense="25"/>
+	<elements>
+		<element physicalPercent="-25"/>
+		<element deathPercent="15"/>
+	</elements>
+	<immunities>
+		<immunity energy="1"/>
+		<immunity fire="1"/>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	
+	
+	<loot>
+		<item id="13067" chance="100000" /> <!--surprise bag-->
+		<item id="12840" chance="950" /> <!--plain mayhem blade-->
+		<item id="12841" chance="950" /> <!--plain mayhem slayer-->
+		<item id="12842" chance="950" /> <!--plain remedy blade-->
+		<item id="12843" chance="950" /> <!--plain remedy slayer-->
+		<item id="12844" chance="950" /> <!--plain carving blade-->
+		<item id="12845" chance="950" /> <!--plain carving slayer-->
+		<item id="12876" chance="950" /> <!--plain mayhem axe-->
+		<item id="12877" chance="950" /> <!--plain mayhem chopper-->
+		<item id="12878" chance="950" /> <!--plain remedy axe-->
+		<item id="12879" chance="950" /> <!--plain remedy chopper-->
+		<item id="12880" chance="950" /> <!--plain carving axe-->
+		<item id="12881" chance="950" /> <!--plain carving chopper-->
+		<item id="12910" chance="950" /> <!--plain mayhem mace-->
+		<item id="12911" chance="950" /> <!--plain mayhem hammer-->
+		<item id="12912" chance="950" /> <!--plain remedy mace-->
+		<item id="12913" chance="950" /> <!--plain remedy hammer-->
+		<item id="12914" chance="950" /> <!--plain carving mace-->
+		<item id="12915" chance="950" /> <!--plain carving hammer-->
+		<item id="12946" chance="950" /> <!--plain mayhem bow-->
+		<item id="12947" chance="950" /> <!--plain mayhem crossbow-->
+		<item id="12948" chance="950" /> <!--plain remedy bow-->
+		<item id="12949" chance="950" /> <!--plain remedy crossbow-->
+		<item id="12950" chance="950" /> <!--plain carving bow-->
+		<item id="12951" chance="950" /> <!--plain carving crossbow-->
+		<item id="12985" chance="950" /> <!--plain mayhem rod-->
+		<item id="12986" chance="950" /> <!--plain remedy rod-->
+		<item id="12987" chance="950" /> <!--plain carving rod-->
+		<item id="13003" chance="950" /> <!--plain mayhem wand-->
+		<item id="13004" chance="950" /> <!--plain remedy wand-->
+		<item id="13005" chance="950" /> <!--plain carving wand-->
+	</loot>
+	
+</monster>

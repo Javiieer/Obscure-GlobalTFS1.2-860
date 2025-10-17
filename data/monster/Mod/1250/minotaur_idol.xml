@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Minotaur Idol" nameDescription="a Minotaur Idol" race="undead" experience="0" speed="300">
+	<health now="15200" max="15200"/>
+	<look type="401" corpse="13155"/>
+	<targetchange interval="5000" chance="20"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="0"/>
+		<flag targetdistance="1"/>
+		<flag canwalkonenergy="0"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonpoison="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-300"/>
+		<attack name="physical" interval="2000" chance="20" target="1" range="4" radius="4" min="0" max="-300">
+			<attribute key="shootEffect" value="whirlwindclub"/>
+			<attribute key="areaEffect" value="explosionarea"/>
+		</attack>
+	</attacks>
+	<defenses armor="30" defense="30">
+		<defense name="healing" interval="2000" chance="20" min="50" max="100">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+		<item id="13067" chance="100000" /> <!--surprise bag-->
+		<item id="12673" chance="750" /> <!--rubber cap-->
+		<item id="12689" chance="750" /> <!--gryphon mask-->
+		<item id="12694" chance="750" /> <!--galea mortis-->
+		<item id="12695" chance="750" /> <!--shadow cowl-->
+		<item id="12708" chance="750" /> <!--goo shell-->
+		<item id="12737" chance="750" /> <!--living armor-->
+		<item id="12743" chance="750" /> <!--ghost chestplate-->
+		<item id="12776" chance="750" /> <!--spellbook of vigilance-->
+		<item id="12783" chance="750" /> <!--mino shield-->
+		<item id="12851" chance="750" /> <!--final judgement-->
+		<item id="12871" chance="750" /> <!--mino lance-->
+		<item id="12872" chance="750" /> <!--execowtioner axe-->
+		<item id="12890" chance="750" /> <!--phantasmal axe-->
+		<item id="12955" chance="750" /> <!--living vine bow-->
+		<item id="12982" chance="750" /> <!--muck rod-->
+		<item id="13025" chance="750" /> <!--traditional leather shoes-->
+		<item id="13122" chance="750" /> <!--butterfly ring-->
+	</loot>
+	
+	
+</monster>

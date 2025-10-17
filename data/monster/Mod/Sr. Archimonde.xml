@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Sr. Archimonde" nameDescription="a Sr. Archimonde" race="undead" speed="450" manacost="2000">
+	<health now="8000" max="8000" />
+	<look type="406" corpse="13163"/>
+	<targetchange interval="4000" chance="20" />
+	<flags>		
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	
+	<script>
+        <event name="curar"/>
+    </script>
+		
+	<attacks>
+		<attack name="melee" interval="2000" skill="160" attack="120"/>   
+		<attack name="physical" interval="2000" chance="12" range="7" min="-120" max="-450">
+			<attribute key="shootEffect" value="largerock"/>
+			<attribute key="areaEffect" value="explosionarea"/>
+		</attack>		
+		<attack name="holy" interval="2000" chance="15" skill="153" min="-30" max="-190" />			
+		<attack name="Divine Caldera" interval="2000" chance="15" radius="3" min="-30" max="-200">
+			<attribute key="areaEffect" value="exevo mas san" />
+		</attack>
+	</attacks>
+	<defenses armor="55" defense="95">
+		<defense name="healing" interval="3000" chance="35" min="650" max="800">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="Challenge" interval="2000" chance="50">
+			<attribute key="areaEffect" value="exeta res" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="30" />
+		<element deathPercent="10" />
+		<element energyPercent="10" />
+		<element earthPercent="10" />
+		<element firePercent="10" />
+		<element icePercent="10" />
+		<element holyPercent="10" />
+	</elements>
+	
+	<voices interval="2000" chance="5">
+		<voice sentence="Everything is lost little bug!!" yell="1"/>		
+	</voices>
+	
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+	</immunities>
+</monster>
