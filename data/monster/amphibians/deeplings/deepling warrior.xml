@@ -4,17 +4,17 @@
 	<look type="294" corpse="8133"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
-		<summonable>0</summonable>
-		<attackable>1</attackable>
-		<hostile>1</hostile>
-		<illusionable>0</illusionable>
-		<convinceable>0</convinceable>
-		<pushable>0</pushable>
-		<canpushitems>1</canpushitems>
-		<canpushcreatures>1</canpushcreatures>
-		<targetdistance>1</targetdistance>
-		<staticattack>90</staticattack>
-		<runonhealth>250</runonhealth>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="250"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="75" attack="100"/>
