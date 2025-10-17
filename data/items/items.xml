@@ -22577,7 +22577,11 @@
 		<attribute key="description" value="This fish, and rare ingredient, can only be found in the dirtiest, murkiest and muddiest of waters." />
 		<attribute key="weight" value="999" />
 	</item>
-	<item fromid="13547" toid="13552" name="dirty water" />
+	<item id="13547" article="a" name="shimmer glider">
+		<attribute key="description" value="This fish, and rare ingredient, can only be found in the cleanest, purest waters." />
+		<attribute key="weight" value="888" />
+	</item>
+	<item fromid="13548" toid="13552" name="dirty water" />
 	<item id="13559" name="dread doll">
 		<attribute key="description" value="It is shining with positive energy and was awarded by FunTibia.com." />
 		<attribute key="weight" value="1100" />
@@ -24245,6 +24249,15 @@
 		<attribute key="weight" value="120" />
 		<attribute key="description" value="The substance will dissolve after a while." />
 	</item>
+	<item id="15461" article="a" name="deepling wand">
+		<attribute key="weight" value="2200" />
+		<attribute key="weaponType" value="wand" />
+		<attribute key="range" value="3" />
+		<attribute key="ammoType" value="1" />
+		<attribute key="shootType" value="energy" />
+		<attribute key="attack" value="78" />
+		<attribute key="magiclevelpoints" value="5" />
+	</item>
 	<item id="15463" article="a" name="flask of chitin dissolver">
 		<attribute key="weight" value="155" />
 	</item>
@@ -24321,6 +24334,31 @@
 		<attribute key="weaponType" value="axe" />
 	
 	</item>
+	<item id="15493" article="a" name="deepling club">
+		<attribute key="weight" value="7200" />
+		<attribute key="defense" value="25" />
+		<attribute key="attack" value="41" />
+		<attribute key="weaponType" value="club" />
+	</item>
+	<item id="15494" article="a" name="guild emblem">
+		<attribute key="weight" value="1200" />
+		<attribute key="description" value="A guild emblem that represents the power and prestige of a guild." />
+	</item>
+	<item id="15495" article="a" name="ferumbras' hat">
+		<attribute key="weight" value="800" />
+		<attribute key="armor" value="3" />
+		<attribute key="slotType" value="head" />
+		<attribute key="skillMagicLevel" value="2" />
+		<attribute key="manaShield" value="1" />
+		<attribute key="showattributes" value="1" />
+	</item>
+	<item id="15496" article="a" name="energy field creator">
+		<attribute key="weight" value="250" />
+		<attribute key="charges" value="1" />
+		<attribute key="showcharges" value="1" />
+		<attribute key="transformEquipTo" value="15502" />
+		<attribute key="transformDeEquipTo" value="15496" />
+	</item>
 	<item id="15497" article="a" name="dead deepling worker">
 		<attribute key="containerSize" value="36" />
 		<attribute key="decayTo" value="15498" />
@@ -24346,6 +24384,12 @@
 		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="15501" article="a" name="dragon's nest" />
+	<item id="15502" article="an" name="energy field">
+		<attribute key="weight" value="0" />
+		<attribute key="blockmissiles" value="1" />
+		<attribute key="blockpathfinding" value="1" />
+		<attribute key="field" value="energy" />
+	</item>
 	<item id="15515" article="a" name="bar of gold">
 		<attribute key="weight" value="500" />
 	</item>
