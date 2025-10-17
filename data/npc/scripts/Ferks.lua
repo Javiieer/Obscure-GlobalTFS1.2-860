@@ -5,6 +5,29 @@ NpcSystem.parseParameters(npcHandler)
 local count = {}
 local transfer = {}
 
+-- Helper functions for TFS 1.2 compatibility
+function getMoneyCount(message)
+    local number = tonumber(message:match('%d+'))
+    return number and math.max(0, number) or 0
+end
+
+function isValidMoney(money)
+    return money > 0 and money <= 999999999
+end
+
+function getMoneyWeight(money)
+    return math.ceil(money / 100)
+end
+
+function playerExists(name)
+    local resultId = db.storeQuery('SELECT `id` FROM `players` WHERE `name` = ' .. db.escapeString(name))
+    if resultId then
+        result.free(resultId)
+        return true
+    end
+    return false
+end
+
 function onCreatureAppear(cid)			npcHandler:onCreatureAppear(cid)			end
 function onCreatureDisappear(cid)		npcHandler:onCreatureDisappear(cid)			end
 function onCreatureSay(cid, type, msg)		npcHandler:onCreatureSay(cid, type, msg)		end
