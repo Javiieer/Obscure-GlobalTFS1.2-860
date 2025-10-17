@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Gladiator" nameDescription="a gladiator" race="blood" experience="380" speed="200" manacost="0">
+    <health now="520" max="520"/>
+    <look type="73" corpse="3065"/>
+    <targetchange interval="4000" chance="10"/>
+    <strategy attack="100" defense="5"/>
+    <flags>
+        <flag summonable="0"/>
+        <flag attackable="1"/>
+        <flag hostile="1"/>
+        <flag illusionable="1"/>
+        <flag convinceable="0"/>
+        <flag pushable="0"/>
+        <flag canpushitems="1"/>
+        <flag canpushcreatures="1"/>
+        <flag targetdistance="1"/>
+        <flag staticattackthreat="95"/>
+    </flags>
+    <attacks>
+        <attack name="melee" interval="2000" min="-35" max="-70"/>
+        <attack name="physical" interval="2200" chance="25" range="7" min="-25" max="-50"/>
+    </attacks>
+    <defenses armor="18" defense="25"/>
+    <voices interval="5000" chance="10">
+        <voice sentence="Ave Caesar! Morituri te salutant!"/>
+        <voice sentence="Fight for honor!"/>
+        <voice sentence="Victory or death!"/>
+    </voices>
+    <loot>
+        <item id="2148" countmax="30" chance="60000"/>
+        <item id="2376" chance="30000"/>
+        <item id="2387" chance="20000"/>
+        <item id="2463" chance="15000"/>
+    </loot>
+</monster>

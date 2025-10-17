@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Mutated Bat" nameDescription="a mutated bat" race="blood" experience="150" speed="220" manacost="0">
+    <health now="200" max="200"/>
+    <look type="32" corpse="3065"/>
+    <targetchange interval="4000" chance="10"/>
+    <strategy attack="100" defense="5"/>
+    <flags>
+        <flag summonable="0"/>
+        <flag attackable="1"/>
+        <flag hostile="1"/>
+        <flag illusionable="0"/>
+        <flag convinceable="0"/>
+        <flag pushable="0"/>
+        <flag canpushitems="1"/>
+        <flag canpushcreatures="1"/>
+        <flag targetdistance="1"/>
+        <flag staticattackthreat="95"/>
+    </flags>
+    <attacks>
+        <attack name="melee" interval="2000" min="-15" max="-35"/>
+        <attack name="lifedrain" interval="2500" chance="20" min="-20" max="-40"/>
+    </attacks>
+    <defenses armor="8" defense="10"/>
+    <elements>
+        <element holyDamage="110"/>
+    </elements>
+    <voices interval="5000" chance="10">
+        <voice sentence="*screech*"/>
+        <voice sentence="*flap flap*"/>
+    </voices>
+    <loot>
+        <item id="2148" countmax="10" chance="40000"/>
+        <item id="2666" chance="20000"/>
+    </loot>
+</monster>

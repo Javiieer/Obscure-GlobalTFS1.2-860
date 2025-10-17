@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Sharptooth" nameDescription="a sharptooth" race="blood" experience="200" speed="200" manacost="0">
+    <health now="350" max="350"/>
+    <look type="42" corpse="3065"/>
+    <targetchange interval="4000" chance="10"/>
+    <strategy attack="100" defense="5"/>
+    <flags>
+        <flag summonable="0"/>
+        <flag attackable="1"/>
+        <flag hostile="1"/>
+        <flag illusionable="0"/>
+        <flag convinceable="0"/>
+        <flag pushable="0"/>
+        <flag canpushitems="1"/>
+        <flag canpushcreatures="1"/>
+        <flag targetdistance="1"/>
+        <flag staticattackthreat="95"/>
+    </flags>
+    <attacks>
+        <attack name="melee" interval="2000" min="-20" max="-40"/>
+        <attack name="physical" interval="2200" chance="25" min="-15" max="-35"/>
+    </attacks>
+    <defenses armor="10" defense="15"/>
+    <voices interval="5000" chance="10">
+        <voice sentence="*roar*"/>
+        <voice sentence="*snap*"/>
+    </voices>
+    <loot>
+        <item id="2148" countmax="18" chance="48000"/>
+        <item id="2666" chance="22000"/>
+    </loot>
+</monster>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Diseased Dan" nameDescription="diseased dan" race="undead" experience="85" speed="120" manacost="0">
+    <health now="160" max="160"/>
+    <look type="73" corpse="3066"/>
+    <targetchange interval="4000" chance="10"/>
+    <strategy attack="100" defense="5"/>
+    <flags>
+        <flag summonable="0"/>
+        <flag attackable="1"/>
+        <flag hostile="1"/>
+        <flag illusionable="1"/>
+        <flag convinceable="0"/>
+        <flag pushable="0"/>
+        <flag canpushitems="1"/>
+        <flag canpushcreatures="1"/>
+        <flag targetdistance="1"/>
+        <flag staticattackthreat="95"/>
+    </flags>
+    <attacks>
+        <attack name="melee" interval="2000" min="-12" max="-28"/>
+        <attack name="earth" interval="2500" chance="20" min="-15" max="-30"/>
+    </attacks>
+    <defenses armor="8" defense="12"/>
+    <immunities>
+        <immunity earth="1"/>
+        <immunity lifedrain="1"/>
+    </immunities>
+    <voices interval="5000" chance="10">
+        <voice sentence="*cough* *cough*"/>
+        <voice sentence="The plague spreads..."/>
+        <voice sentence="Stay away from me!"/>
+    </voices>
+    <loot>
+        <item id="2148" countmax="12" chance="45000"/>
+        <item id="2195" chance="20000"/>
+    </loot>
+</monster>

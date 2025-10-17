@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Dragon Lord Hatchling" nameDescription="a dragon lord hatchling" race="blood" experience="645" speed="220" manacost="0">
+    <health now="750" max="750"/>
+    <look type="26" corpse="3103"/>
+    <targetchange interval="4000" chance="10"/>
+    <strategy attack="100" defense="5"/>
+    <flags>
+        <flag summonable="0"/>
+        <flag attackable="1"/>
+        <flag hostile="1"/>
+        <flag illusionable="0"/>
+        <flag convinceable="0"/>
+        <flag pushable="0"/>
+        <flag canpushitems="1"/>
+        <flag canpushcreatures="1"/>
+        <flag targetdistance="1"/>
+        <flag staticattackthreat="95"/>
+    </flags>
+    <attacks>
+        <attack name="melee" interval="2000" min="-35" max="-70"/>
+        <attack name="fire" interval="2500" chance="25" min="-45" max="-85"/>
+        <attack name="fire" interval="3000" chance="20" range="7" radius="3" min="-30" max="-60"/>
+    </attacks>
+    <defenses armor="20" defense="25"/>
+    <immunities>
+        <immunity fire="1"/>
+        <immunity paralyze="1"/>
+        <immunity invisible="1"/>
+    </immunities>
+    <voices interval="5000" chance="10">
+        <voice sentence="ROOOOAAAARRRRR"/>
+        <voice sentence="*roar*"/>
+        <voice sentence="*flap*"/>
+    </voices>
+    <loot>
+        <item id="2148" countmax="45" chance="75000"/>
+        <item id="2399" chance="25000"/>
+        <item id="2430" chance="20000"/>
+        <item id="2146" countmax="2" chance="15000"/>
+    </loot>
+</monster>

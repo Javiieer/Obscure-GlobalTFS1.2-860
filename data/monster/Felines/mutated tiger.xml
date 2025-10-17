@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Mutated Tiger" nameDescription="a mutated tiger" race="blood" experience="300" speed="240" manacost="0">
+    <health now="450" max="450"/>
+    <look type="34" corpse="3065"/>
+    <targetchange interval="4000" chance="10"/>
+    <strategy attack="100" defense="5"/>
+    <flags>
+        <flag summonable="0"/>
+        <flag attackable="1"/>
+        <flag hostile="1"/>
+        <flag illusionable="0"/>
+        <flag convinceable="0"/>
+        <flag pushable="0"/>
+        <flag canpushitems="1"/>
+        <flag canpushcreatures="1"/>
+        <flag targetdistance="1"/>
+        <flag staticattackthreat="95"/>
+    </flags>
+    <attacks>
+        <attack name="melee" interval="2000" min="-25" max="-55"/>
+        <attack name="physical" interval="2200" chance="25" min="-20" max="-45"/>
+        <attack name="lifedrain" interval="2800" chance="15" min="-30" max="-50"/>
+    </attacks>
+    <defenses armor="15" defense="20"/>
+    <voices interval="5000" chance="10">
+        <voice sentence="ROOAAAR!"/>
+        <voice sentence="*growl*"/>
+    </voices>
+    <loot>
+        <item id="2148" countmax="25" chance="55000"/>
+        <item id="2666" chance="25000"/>
+        <item id="2378" chance="12000"/>
+    </loot>
+</monster>

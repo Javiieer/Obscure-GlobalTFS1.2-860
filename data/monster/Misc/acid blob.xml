@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Acid Blob" nameDescription="an acid blob" race="undead" experience="250" speed="160" manacost="0">
+	<health now="300" max="300"/>
+	<look type="24" corpse="3041"/>
+	<targetchange interval="4000" chance="10"/>
+	<strategy attack="100" defense="5"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattackthreat="95"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="-50" max="-120"/>
+		<attack name="earth" interval="1000" chance="15" range="7" radius="1" target="1" min="-45" max="-75">
+			<attribute key="shootEffect" value="poison"/>
+		</attack>
+	</attacks>
+	<defenses armor="15" defense="25"/>
+	<elements>
+		<element earthPercent="100"/>
+		<element firePercent="0"/>
+		<element energyPercent="10"/>
+	</elements>
+	<immunities>
+		<immunity earth="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Blubb"/>
+	</voices>
+	<loot>
+		<item id="2148" countmax="30" chance="50000"/>
+		<item id="2512" chance="2500"/>
+	</loot>
+</monster>

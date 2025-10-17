@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Infernalist" nameDescription="an infernalist" race="blood" experience="400" speed="200" manacost="0">
+    <health now="500" max="500"/>
+    <look type="73" corpse="3065"/>
+    <targetchange interval="4000" chance="10"/>
+    <strategy attack="100" defense="5"/>
+    <flags>
+        <flag summonable="0"/>
+        <flag attackable="1"/>
+        <flag hostile="1"/>
+        <flag illusionable="1"/>
+        <flag convinceable="0"/>
+        <flag pushable="0"/>
+        <flag canpushitems="1"/>
+        <flag canpushcreatures="1"/>
+        <flag targetdistance="4"/>
+        <flag staticattackthreat="95"/>
+    </flags>
+    <attacks>
+        <attack name="melee" interval="2000" min="-20" max="-40"/>
+        <attack name="fire" interval="2500" chance="25" min="-40" max="-80"/>
+        <attack name="fire" interval="3000" chance="20" range="7" radius="3" min="-30" max="-60"/>
+        <attack name="speed" interval="3500" chance="15" speedchange="-200" duration="12000"/>
+    </attacks>
+    <defenses armor="18" defense="25"/>
+    <voices interval="5000" chance="10">
+        <voice sentence="Burn, baby, burn!"/>
+        <voice sentence="Feel the heat of my magic!"/>
+        <voice sentence="Fire be with me!"/>
+    </voices>
+    <loot>
+        <item id="2148" countmax="35" chance="65000"/>
+        <item id="2399" chance="30000"/>
+        <item id="2127" chance="25000"/>
+        <item id="2260" chance="20000"/>
+    </loot>
+</monster>

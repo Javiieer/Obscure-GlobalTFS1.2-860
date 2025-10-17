@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Goblin Scavenger" nameDescription="a goblin scavenger" race="blood" experience="40" speed="180" manacost="0">
+    <health now="85" max="85"/>
+    <look type="61" corpse="3065"/>
+    <targetchange interval="4000" chance="10"/>
+    <strategy attack="100" defense="5"/>
+    <flags>
+        <flag summonable="0"/>
+        <flag attackable="1"/>
+        <flag hostile="1"/>
+        <flag illusionable="1"/>
+        <flag convinceable="0"/>
+        <flag pushable="0"/>
+        <flag canpushitems="1"/>
+        <flag canpushcreatures="1"/>
+        <flag targetdistance="1"/>
+        <flag staticattackthreat="95"/>
+    </flags>
+    <attacks>
+        <attack name="melee" interval="2000" min="-8" max="-18"/>
+    </attacks>
+    <defenses armor="5" defense="8"/>
+    <voices interval="5000" chance="10">
+        <voice sentence="Me find shiny things!"/>
+        <voice sentence="Gimme gimme!"/>
+        <voice sentence="*grunt*"/>
+    </voices>
+    <loot>
+        <item id="2148" countmax="8" chance="40000"/>
+        <item id="2379" chance="20000"/>
+        <item id="2666" chance="15000"/>
+    </loot>
+</monster>

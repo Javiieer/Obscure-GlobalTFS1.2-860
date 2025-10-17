@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Wyrm" nameDescription="a wyrm" race="blood" experience="1550" speed="200" manacost="0">
+    <health now="1825" max="1825"/>
+    <look type="26" corpse="3104"/>
+    <targetchange interval="4000" chance="10"/>
+    <strategy attack="100" defense="5"/>
+    <flags>
+        <flag summonable="0"/>
+        <flag attackable="1"/>
+        <flag hostile="1"/>
+        <flag illusionable="0"/>
+        <flag convinceable="0"/>
+        <flag pushable="0"/>
+        <flag canpushitems="1"/>
+        <flag canpushcreatures="1"/>
+        <flag targetdistance="1"/>
+        <flag staticattackthreat="95"/>
+    </flags>
+    <attacks>
+        <attack name="melee" interval="2000" min="-80" max="-160"/>
+        <attack name="fire" interval="2500" chance="25" min="-90" max="-170"/>
+        <attack name="fire" interval="3000" chance="20" range="7" radius="4" min="-60" max="-120"/>
+        <attack name="energy" interval="2800" chance="15" min="-70" max="-130"/>
+    </attacks>
+    <defenses armor="40" defense="50"/>
+    <immunities>
+        <immunity fire="1"/>
+        <immunity energy="1"/>
+        <immunity paralyze="1"/>
+        <immunity invisible="1"/>
+    </immunities>
+    <voices interval="5000" chance="10">
+        <voice sentence="GRROOOOOAAARRRRR!"/>
+        <voice sentence="FIRE!"/>
+        <voice sentence="*roar*"/>
+    </voices>
+    <loot>
+        <item id="2148" countmax="100" chance="95000"/>
+        <item id="2399" chance="35000"/>
+        <item id="2430" chance="30000"/>
+        <item id="2146" countmax="3" chance="25000"/>
+        <item id="2383" chance="20000"/>
+    </loot>
+</monster>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Hellspawn" nameDescription="a hellspawn" race="fire" experience="340" speed="180" manacost="0">
+    <health now="465" max="465"/>
+    <look type="35" corpse="3066"/>
+    <targetchange interval="4000" chance="10"/>
+    <strategy attack="100" defense="5"/>
+    <flags>
+        <flag summonable="0"/>
+        <flag attackable="1"/>
+        <flag hostile="1"/>
+        <flag illusionable="0"/>
+        <flag convinceable="0"/>
+        <flag pushable="0"/>
+        <flag canpushitems="1"/>
+        <flag canpushcreatures="1"/>
+        <flag targetdistance="1"/>
+        <flag staticattackthreat="95"/>
+    </flags>
+    <attacks>
+        <attack name="melee" interval="2000" min="-25" max="-55"/>
+        <attack name="fire" interval="2500" chance="25" min="-35" max="-70"/>
+        <attack name="fire" interval="3000" chance="20" range="7" radius="2" min="-25" max="-50"/>
+    </attacks>
+    <defenses armor="15" defense="20"/>
+    <immunities>
+        <immunity fire="1"/>
+        <immunity energy="1"/>
+    </immunities>
+    <voices interval="5000" chance="10">
+        <voice sentence="BURN IN HELL!"/>
+        <voice sentence="Feel the heat!"/>
+        <voice sentence="*roar*"/>
+    </voices>
+    <loot>
+        <item id="2148" countmax="30" chance="60000"/>
+        <item id="2399" chance="25000"/>
+        <item id="2168" chance="20000"/>
+        <item id="2127" chance="15000"/>
+    </loot>
+</monster>
