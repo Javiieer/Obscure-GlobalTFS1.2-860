@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Jellyfish" nameDescription="a jellyfish" race="blood" experience="700" speed="250" manacost="0">
+	<health now="800" max="800"/>
+	<look type="286" corpse="8264"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<summonable>0</summonable>
+		<attackable>1</attackable>
+		<hostile>1</hostile>
+		<illusionable>0</illusionable>
+		<convinceable>0</convinceable>
+		<pushable>0</pushable>
+		<canpushitems>1</canpushitems>
+		<canpushcreatures>0</canpushcreatures>
+		<targetdistance>1</targetdistance>
+		<staticattack>90</staticattack>
+		<runonhealth>150</runonhealth>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="40" attack="50"/>
+		<attack name="energy" interval="2000" chance="15" range="7" min="-80" max="-130">
+			<attribute key="shootEffect" value="energy"/>
+		</attack>
+		<attack name="energy" interval="2000" chance="10" range="7" radius="2" min="-70" max="-110">
+			<attribute key="shootEffect" value="energy"/>
+			<attribute key="areaEffect" value="energy"/>
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="10" range="7" min="-60" max="-100">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+		<attack name="drown" interval="2000" chance="8" range="7" min="-50" max="-90">
+			<attribute key="shootEffect" value="smallice"/>
+			<attribute key="areaEffect" value="bluebubble"/>
+		</attack>
+	</attacks>
+	<defenses armor="20" defense="30">
+		<defense name="healing" interval="2000" chance="15" min="50" max="80">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="speed" interval="2000" chance="10" speedchange="320" duration="4000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element energyProtection="20"/>
+		<element drowningProtection="100"/>
+		<element fireProtection="-15"/>
+		<element earthProtection="-10"/>
+	</elements>
+	<immunities>
+		<immunity drown="1"/>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Shhhhh..."/>
+		<voice sentence="Floooosh..."/>
+	</voices>
+	<loot>
+		<item id="2148" countmax="50" chance="100000"/><!-- gold coin -->
+		<item id="7618" chance="20000"/><!-- health potion -->
+		<item id="7588" chance="15000"/><!-- strong mana potion -->
+		<item id="8264" chance="10000"/><!-- jellyfish stinger -->
+		<item id="8265" chance="7000"/><!-- jellyfish slime -->
+		<item id="5895" chance="25000"/><!-- fish -->
+		<item id="2667" chance="4000"/><!-- fish fin -->
+	</loot>
+</monster>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Massive Energy Elemental" nameDescription="a massive energy elemental" race="energy" experience="2500" speed="320" manacost="0">
+	<health now="2800" max="2800"/>
+	<look type="302" corpse="8342"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<summonable>0</summonable>
+		<attackable>1</attackable>
+		<hostile>1</hostile>
+		<illusionable>0</illusionable>
+		<convinceable>0</convinceable>
+		<pushable>0</pushable>
+		<canpushitems>1</canpushitems>
+		<canpushcreatures>1</canpushcreatures>
+		<targetdistance>1</targetdistance>
+		<staticattack>90</staticattack>
+		<runonhealth>800</runonhealth>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="100" attack="120"/>
+		<attack name="energy" interval="2000" chance="15" range="7" min="-180" max="-280">
+			<attribute key="shootEffect" value="energy"/>
+		</attack>
+		<attack name="energy" interval="2000" chance="15" range="7" radius="4" min="-160" max="-250">
+			<attribute key="shootEffect" value="energy"/>
+			<attribute key="areaEffect" value="energy"/>
+		</attack>
+		<attack name="energy" interval="2000" chance="10" length="8" spread="3" min="-200" max="-300">
+			<attribute key="areaEffect" value="energy"/>
+		</attack>
+		<attack name="manadrain" interval="2000" chance="10" range="7" min="-150" max="-250">
+			<attribute key="areaEffect" value="loseenergy"/>
+		</attack>
+		<attack name="energy" interval="2000" chance="8" radius="6" min="-220" max="-320">
+			<attribute key="areaEffect" value="energy"/>
+		</attack>
+	</attacks>
+	<defenses armor="50" defense="65">
+		<defense name="healing" interval="2000" chance="15" min="200" max="280">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="speed" interval="2000" chance="10" speedchange="400" duration="6000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element energyProtection="100"/>
+		<element fireProtection="50"/>
+		<element earthProtection="-30"/>
+		<element iceProtection="-20"/>
+		<element physicalProtection="-10"/>
+	</elements>
+	<immunities>
+		<immunity energy="1"/>
+		<immunity fire="1"/>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="BZZZZT!"/>
+		<voice sentence="ENERGY!"/>
+		<voice sentence="CRACKLE!"/>
+	</voices>
+	<loot>
+		<item id="2148" countmax="200" chance="100000"/><!-- gold coin -->
+		<item id="2152" countmax="7" chance="25000"/><!-- platinum coin -->
+		<item id="2160" countmax="2" chance="8000"/><!-- crystal coin -->
+		<item id="7590" countmax="4" chance="30000"/><!-- great mana potion -->
+		<item id="7591" countmax="2" chance="20000"/><!-- great health potion -->
+		<item id="8342" chance="6000"/><!-- energy core -->
+		<item id="8343" chance="4000"/><!-- energy matter -->
+		<item id="8344" chance="3000"/><!-- massive energy essence -->
+		<item id="8345" chance="1500"/><!-- energy cloak -->
+		<item id="8346" chance="800"/><!-- energy sword -->
+		<item id="2124" chance="2000"/><!-- ring of the sky -->
+		<item id="2472" chance="3500"/><!-- magic plate armor -->
+		<item id="2195" chance="1200"/><!-- boots of haste -->
+	</loot>
+</monster>

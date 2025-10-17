@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Deepling Guard" nameDescription="a deepling guard" race="blood" experience="1600" speed="320" manacost="0">
+	<health now="1800" max="1800"/>
+	<look type="293" corpse="8133"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<summonable>0</summonable>
+		<attackable>1</attackable>
+		<hostile>1</hostile>
+		<illusionable>0</illusionable>
+		<convinceable>0</convinceable>
+		<pushable>0</pushable>
+		<canpushitems>1</canpushitems>
+		<canpushcreatures>1</canpushcreatures>
+		<targetdistance>1</targetdistance>
+		<staticattack>90</staticattack>
+		<runonhealth>200</runonhealth>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="85" attack="120"/>
+		<attack name="physical" interval="2000" chance="15" range="7" min="-120" max="-180">
+			<attribute key="shootEffect" value="spear"/>
+		</attack>
+		<attack name="ice" interval="2000" chance="10" range="7" min="-90" max="-140">
+			<attribute key="shootEffect" value="ice"/>
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="10" length="8" spread="3" min="-100" max="-150">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+	</attacks>
+	<defenses armor="35" defense="55">
+		<defense name="healing" interval="2000" chance="15" min="100" max="150">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element iceProtection="25"/>
+		<element holyProtection="-15"/>
+		<element deathProtection="20"/>
+		<element fireProtection="-20"/>
+	</elements>
+	<immunities>
+		<immunity life="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Gllllrrr!"/>
+		<voice sentence="Huuu haa haa haa!"/>
+		<voice sentence="Mmmmmng!"/>
+	</voices>
+	<loot>
+		<item id="2148" countmax="120" chance="100000"/><!-- gold coin -->
+		<item id="2152" countmax="4" chance="18000"/><!-- platinum coin -->
+		<item id="7618" countmax="2" chance="30000"/><!-- health potion -->
+		<item id="7588" countmax="2" chance="20000"/><!-- strong mana potion -->
+		<item id="8859" chance="6000"/><!-- deepling warts -->
+		<item id="8864" chance="4000"/><!-- deepling scales -->
+		<item id="8865" chance="2000"/><!-- deepling guard belt -->
+		<item id="8868" chance="1200"/><!-- deepling axe -->
+		<item id="2194" chance="1800"/><!-- ring of healing -->
+		<item id="2487" chance="3000"/><!-- crown armor -->
+	</loot>
+</monster>

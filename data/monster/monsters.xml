@@ -4,6 +4,14 @@
 	<monster name="Amazon" file="amazons/amazon.xml"/>
 	<monster name="Valkyrie" file="amazons/valkyrie.xml"/>
 
+	<!-- Amphibians -->
+	<!-- Deeplings -->
+	<monster name="Deepling Spellsinger" file="amphibians/deeplings/deepling spellsinger.xml"/>
+	<monster name="Deepling Guard" file="amphibians/deeplings/deepling guard.xml"/>
+	<monster name="Deepling Warrior" file="amphibians/deeplings/deepling warrior.xml"/>
+	<monster name="Deepling Elite" file="amphibians/deeplings/deepling elite.xml"/>
+	<monster name="Deepling Master" file="amphibians/deeplings/deepling master.xml"/>
+
 	<!-- Annelids -->
 	<monster name="Carrion Worm" file="annelids/carrion worm.xml"/>
 	<monster name="Rotworm" file="annelids/rotworm.xml"/>
@@ -130,6 +138,7 @@
 	<monster name="Tibia Bug" file="bosses/Tibia Bug.xml"/>
 	<monster name="Undead Minion" file="bosses/Undead Minion.xml"/>
 	<monster name="Xenia" file="bosses/Xenia.xml"/>
+	<monster name="Gaz'haragoth" file="bosses/gaz'haragoth.xml"/>
 
 	<!-- Canines -->
 	<monster name="Dog" file="canines/dog.xml"/>
@@ -192,6 +201,10 @@
 	<monster name="Dworc Venomsniper" file="dworcs/dworc venomsniper.xml"/>
 	<monster name="Dworc Voodoomaster" file="dworcs/dworc voodoomaster.xml"/>
 
+	<!-- Electro-Elementals -->
+	<monster name="Massive Energy Elemental" file="electro-elementals/massive energy elemental.xml"/>
+	<monster name="Energy Overlord" file="electro-elementals/energy overlord.xml"/>
+
 	<!-- event creatures-->
 	<monster name="Elf" file="elves/elf.xml"/>
 	<monster name="Elf Arcanist" file="elves/elf arcanist.xml"/>
@@ -210,6 +223,11 @@
 	<monster name="Lion" file="felines/lion.xml"/>
 	<monster name="Tiger" file="felines/tiger.xml"/>
 	<monster name="kitty" file="felines/kitty.xml"/>
+
+	<!-- Fishes -->
+	<monster name="Blubster" file="fishes/blubster.xml"/>
+	<monster name="Jellyfish" file="fishes/jellyfish.xml"/>
+	<monster name="Slugs" file="fishes/slugs.xml"/>
 
 	<!-- Frogs -->
 	<monster name="Azure Frog" file="frogs/azure frog.xml"/>
@@ -280,6 +298,10 @@
 	<monster name="Lizard Sentinel" file="lizards/lizard sentinel.xml"/>
 	<monster name="Lizard Snakecharmer" file="lizards/lizard snakecharmer.xml"/>
 	<monster name="Lizard Templar" file="lizards/lizard templar.xml"/>
+	<monster name="Lizard Chosen" file="lizards/lizard chosen.xml"/>
+	<monster name="Lizard High Guard" file="lizards/lizard high guard.xml"/>
+	<monster name="Lizard Zaogun" file="lizards/lizard zaogun.xml"/>
+	<monster name="Lizard Legionnaire" file="lizards/lizard legionnaire.xml"/>
 	<monster name="Wyvern" file="lizards/wyvern.xml"/>
 
 	<!-- Machines -->

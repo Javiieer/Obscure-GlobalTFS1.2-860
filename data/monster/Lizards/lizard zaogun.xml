@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Lizard Zaogun" nameDescription="a lizard zaogun" race="blood" experience="2500" speed="400" manacost="0">
+	<health now="3200" max="3200"/>
+	<look type="300" corpse="8312"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<summonable>0</summonable>
+		<attackable>1</attackable>
+		<hostile>1</hostile>
+		<illusionable>0</illusionable>
+		<convinceable>0</convinceable>
+		<pushable>0</pushable>
+		<canpushitems>1</canpushitems>
+		<canpushcreatures>1</canpushcreatures>
+		<targetdistance>1</targetdistance>
+		<staticattack>90</staticattack>
+		<runonhealth>700</runonhealth>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="110" attack="180"/>
+		<attack name="fire" interval="2000" chance="15" range="7" min="-160" max="-250">
+			<attribute key="shootEffect" value="fire"/>
+		</attack>
+		<attack name="earth" interval="2000" chance="15" range="7" min="-140" max="-220">
+			<attribute key="shootEffect" value="earth"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="10" range="7" radius="5" min="-150" max="-240">
+			<attribute key="shootEffect" value="fire"/>
+			<attribute key="areaEffect" value="firearea"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="10" length="8" spread="3" min="-180" max="-280">
+			<attribute key="areaEffect" value="groundshaker"/>
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="10" range="7" min="-120" max="-190">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+		<attack name="earth" interval="2000" chance="8" radius="6" min="-160" max="-250">
+			<attribute key="areaEffect" value="poison"/>
+		</attack>
+	</attacks>
+	<defenses armor="55" defense="75">
+		<defense name="healing" interval="2000" chance="15" min="180" max="250">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="speed" interval="2000" chance="10" speedchange="500" duration="7000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element fireProtection="40"/>
+		<element earthProtection="35"/>
+		<element iceProtection="-25"/>
+		<element energyProtection="-20"/>
+		<element physicalProtection="25"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Tssss!"/>
+		<voice sentence="Zao will rule!"/>
+		<voice sentence="Yissss!"/>
+		<voice sentence="Power of Zao!"/>
+		<voice sentence="Surrender to Zao!"/>
+	</voices>
+	<loot>
+		<item id="2148" countmax="220" chance="100000"/><!-- gold coin -->
+		<item id="2152" countmax="8" chance="25000"/><!-- platinum coin -->
+		<item id="2160" countmax="2" chance="8000"/><!-- crystal coin -->
+		<item id="7591" countmax="4" chance="30000"/><!-- great health potion -->
+		<item id="7590" countmax="3" chance="25000"/><!-- great mana potion -->
+		<item id="8312" chance="7000"/><!-- lizard leather -->
+		<item id="8313" chance="5000"/><!-- lizard scale -->
+		<item id="8320" chance="4000"/><!-- zaogun flag -->
+		<item id="8321" chance="2000"/><!-- zaogun shoulderplates -->
+		<item id="8322" chance="1200"/><!-- lizard zaogun club -->
+		<item id="8323" chance="600"/><!-- zaogun armor -->
+		<item id="2393" chance="3500"/><!-- giant sword -->
+		<item id="2472" chance="4000"/><!-- magic plate armor -->
+		<item id="2123" chance="1800"/><!-- ring of the sky -->
+		<item id="2179" chance="1000"/><!-- gold ring -->
+	</loot>
+</monster>

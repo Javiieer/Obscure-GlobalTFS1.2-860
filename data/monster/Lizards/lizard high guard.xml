@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Lizard High Guard" nameDescription="a lizard high guard" race="blood" experience="1900" speed="360" manacost="0">
+	<health now="2200" max="2200"/>
+	<look type="299" corpse="8312"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<summonable>0</summonable>
+		<attackable>1</attackable>
+		<hostile>1</hostile>
+		<illusionable>0</illusionable>
+		<convinceable>0</convinceable>
+		<pushable>0</pushable>
+		<canpushitems>1</canpushitems>
+		<canpushcreatures>1</canpushcreatures>
+		<targetdistance>1</targetdistance>
+		<staticattack>90</staticattack>
+		<runonhealth>400</runonhealth>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="90" attack="130"/>
+		<attack name="physical" interval="2000" chance="20" range="7" min="-120" max="-180">
+			<attribute key="shootEffect" value="spear"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="15" range="7" min="-110" max="-170">
+			<attribute key="shootEffect" value="fire"/>
+		</attack>
+		<attack name="earth" interval="2000" chance="10" range="7" radius="3" min="-100" max="-150">
+			<attribute key="shootEffect" value="earth"/>
+			<attribute key="areaEffect" value="poison"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="10" length="8" spread="3" min="-140" max="-200">
+			<attribute key="areaEffect" value="groundshaker"/>
+		</attack>
+	</attacks>
+	<defenses armor="45" defense="60">
+		<defense name="healing" interval="2000" chance="15" min="120" max="180">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element fireProtection="25"/>
+		<element earthProtection="20"/>
+		<element iceProtection="-15"/>
+		<element energyProtection="-10"/>
+		<element physicalProtection="20"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Tssss!"/>
+		<voice sentence="Guard the temple!"/>
+		<voice sentence="Yissss!"/>
+		<voice sentence="Intruder!"/>
+	</voices>
+	<loot>
+		<item id="2148" countmax="150" chance="100000"/><!-- gold coin -->
+		<item id="2152" countmax="5" chance="20000"/><!-- platinum coin -->
+		<item id="7591" countmax="2" chance="22000"/><!-- great health potion -->
+		<item id="7590" chance="18000"/><!-- great mana potion -->
+		<item id="8312" chance="5500"/><!-- lizard leather -->
+		<item id="8313" chance="3500"/><!-- lizard scale -->
+		<item id="8317" chance="2800"/><!-- high guard flag -->
+		<item id="8318" chance="1800"/><!-- lizard high guard spear -->
+		<item id="8319" chance="1200"/><!-- high guard armor -->
+		<item id="2383" chance="2500"/><!-- spike sword -->
+		<item id="2487" chance="3000"/><!-- crown armor -->
+		<item id="2194" chance="1500"/><!-- ring of healing -->
+	</loot>
+</monster>

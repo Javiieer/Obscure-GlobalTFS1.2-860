@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Deepling Elite" nameDescription="a deepling elite" race="blood" experience="2100" speed="360" manacost="0">
+	<health now="2000" max="2000"/>
+	<look type="295" corpse="8133"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<summonable>0</summonable>
+		<attackable>1</attackable>
+		<hostile>1</hostile>
+		<illusionable>0</illusionable>
+		<convinceable>0</convinceable>
+		<pushable>0</pushable>
+		<canpushitems>1</canpushitems>
+		<canpushcreatures>1</canpushcreatures>
+		<targetdistance>1</targetdistance>
+		<staticattack>90</staticattack>
+		<runonhealth>400</runonhealth>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="90" attack="140"/>
+		<attack name="ice" interval="2000" chance="15" range="7" min="-130" max="-210">
+			<attribute key="shootEffect" value="ice"/>
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="15" range="7" min="-100" max="-160">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+		<attack name="ice" interval="2000" chance="10" range="7" radius="4" min="-120" max="-180">
+			<attribute key="shootEffect" value="ice"/>
+			<attribute key="areaEffect" value="icearea"/>
+		</attack>
+		<attack name="manadrain" interval="2000" chance="10" range="7" min="-120" max="-200">
+			<attribute key="areaEffect" value="loseenergy"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="10" length="8" spread="3" min="-150" max="-220">
+			<attribute key="areaEffect" value="groundshaker"/>
+		</attack>
+	</attacks>
+	<defenses armor="40" defense="60">
+		<defense name="healing" interval="2000" chance="15" min="120" max="180">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="speed" interval="2000" chance="10" speedchange="450" duration="6000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element iceProtection="30"/>
+		<element holyProtection="-20"/>
+		<element deathProtection="25"/>
+		<element fireProtection="-25"/>
+		<element physicalProtection="15"/>
+	</elements>
+	<immunities>
+		<immunity life="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Gaaaaaahhhhhrrr!"/>
+		<voice sentence="Wuuuoooohhhhh!"/>
+		<voice sentence="Mmmmmmmng huuuuu!"/>
+	</voices>
+	<loot>
+		<item id="2148" countmax="150" chance="100000"/><!-- gold coin -->
+		<item id="2152" countmax="5" chance="20000"/><!-- platinum coin -->
+		<item id="7590" countmax="3" chance="25000"/><!-- great mana potion -->
+		<item id="7591" countmax="2" chance="20000"/><!-- great health potion -->
+		<item id="8859" chance="7000"/><!-- deepling warts -->
+		<item id="8864" chance="5000"/><!-- deepling scales -->
+		<item id="8871" chance="2500"/><!-- deepling elite outfit -->
+		<item id="8872" chance="1500"/><!-- deepling fork -->
+		<item id="8873" chance="800"/><!-- elite deepling scales -->
+		<item id="2393" chance="2000"/><!-- giant sword -->
+		<item id="2472" chance="3000"/><!-- magic plate armor -->
+		<item id="2123" chance="1000"/><!-- ring of the sky -->
+	</loot>
+</monster>

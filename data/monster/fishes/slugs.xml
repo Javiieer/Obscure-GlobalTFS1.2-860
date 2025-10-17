@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Slugs" nameDescription="slugs" race="blood" experience="400" speed="200" manacost="0">
+	<health now="650" max="650"/>
+	<look type="287" corpse="8266"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<summonable>0</summonable>
+		<attackable>1</attackable>
+		<hostile>1</hostile>
+		<illusionable>0</illusionable>
+		<convinceable>0</convinceable>
+		<pushable>0</pushable>
+		<canpushitems>1</canpushitems>
+		<canpushcreatures>0</canpushcreatures>
+		<targetdistance>1</targetdistance>
+		<staticattack>90</staticattack>
+		<runonhealth>100</runonhealth>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="35" attack="40"/>
+		<attack name="earth" interval="2000" chance="15" range="7" min="-60" max="-100">
+			<attribute key="shootEffect" value="earth"/>
+		</attack>
+		<attack name="earth" interval="2000" chance="10" range="7" radius="2" min="-50" max="-80">
+			<attribute key="shootEffect" value="earth"/>
+			<attribute key="areaEffect" value="poison"/>
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="10" range="7" min="-40" max="-70">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+		<attack name="drown" interval="2000" chance="8" range="7" min="-30" max="-60">
+			<attribute key="shootEffect" value="smallearth"/>
+			<attribute key="areaEffect" value="bluebubble"/>
+		</attack>
+	</attacks>
+	<defenses armor="15" defense="25">
+		<defense name="healing" interval="2000" chance="15" min="40" max="60">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element earthProtection="30"/>
+		<element drowningProtection="100"/>
+		<element fireProtection="-20"/>
+		<element iceProtection="-15"/>
+	</elements>
+	<immunities>
+		<immunity drown="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Sluuurp..."/>
+		<voice sentence="Glibb glibb..."/>
+	</voices>
+	<loot>
+		<item id="2148" countmax="30" chance="100000"/><!-- gold coin -->
+		<item id="7618" chance="15000"/><!-- health potion -->
+		<item id="8266" chance="12000"/><!-- slug slime -->
+		<item id="8267" chance="8000"/><!-- slug drug -->
+		<item id="5895" chance="20000"/><!-- fish -->
+		<item id="2667" chance="3000"/><!-- fish fin -->
+	</loot>
+</monster>
