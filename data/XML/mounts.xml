@@ -246,4 +246,16 @@
 	<mount id="230" clientid="1827" name="Alpha Demonosaur" speed="20" premium="no" />
 	<mount id="231" clientid="1810" name="Primal Demonosaur" speed="20" premium="no" />
 	<mount id="232" clientid="1826" name="Demonosaur" speed="20" premium="no" />
+
+	<mount id="233" clientid="1833" name="Night Locust" speed="20" premium="no" />
+	<mount id="234" clientid="1834" name="Leaf Locust" speed="20" premium="no" />
+	<mount id="235" clientid="1835" name="Pearl Locust" speed="20" premium="no" />
+
+	<mount id="236" clientid="1842" name="walker skull of the night" speed="20" premium="no" />
+	<mount id="237" clientid="1843" name="walker skull of the fire" speed="20" premium="no" />
+	<mount id="238" clientid="1843" name="walker skull of the moon" speed="20" premium="no" />
+
+	<mount id="239" clientid="1866" name="Gloom Maw" speed="20" premium="no" />
+
+	<mount id="240" clientid="1873" name="Mutated Wolf" speed="20" premium="no" />
 </mounts>
