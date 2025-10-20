@@ -4783,7 +4783,11 @@
 		<attribute key="weight" value="10" />
 	</item>
 	<item id="2742" article="a" name="white flower" />
-	<item id="2743" article="a" name="heaven blossom" />
+	<!-- beggar Quest outfit -->
+	<item id="2743" article="a" name="heaven blossom">
+		<attribute key="weight" value="10" />
+	</item>
+	<!-- end beggar outfit quest-->
 	<item id="2744" article="a" name="red rose">
 		<attribute key="weight" value="80" />
 	</item>
