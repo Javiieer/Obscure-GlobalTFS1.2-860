@@ -197,7 +197,53 @@
 	<mount id="195" clientid="1491" name="Topaz Shrine" speed="20" premium="no" />
 	<mount id="196" clientid="1492" name="Jade Shrine" speed="20" premium="no" />
 	<mount id="197" clientid="1493" name="Obsidian Shrine" speed="20" premium="no" />
+	<!-- news mounts -->
 	<mount id="198" clientid="1526" name="Poppy Ibex" speed="20" premium="no" />
 	<mount id="199" clientid="1527" name="Mint Ibex" speed="20" premium="no" />
 	<mount id="200" clientid="1528" name="Cinnamon Ibex" speed="20" premium="no" />
+	<mount id="201" clientid="1536" name="Giant Beaver" speed="20" premium="no" />
+	<mount id="202" clientid="1577" name="Ripptor" speed="20" premium="no" />
+
+	<mount id="203" clientid="1578" name="Parade Horse" speed="20" premium="no" />
+	<mount id="204" clientid="1579" name="Jousting Horse" speed="20" premium="no" />
+	<mount id="205" clientid="1580" name="Tourney Horse" speed="20" premium="no" />
+
+	<mount id="206" clientid="1599" name="Mutated Abomination" speed="20" premium="no" />
+
+	<mount id="207" clientid="1608" name="Tangerine Flecked Koi" speed="20" premium="no" />
+	<mount id="208" clientid="1609" name="Brass Speckled Koi" speed="20" premium="no" />
+	<mount id="209" clientid="1610" name="Ink Spotted Koi" speed="20" premium="no" />
+
+	<mount id="210" clientid="1615" name="Frostbringer" speed="20" premium="no" />
+	<mount id="211" clientid="1616" name="Winterstride" speed="20" premium="no" />
+	<mount id="212" clientid="1617" name="Icebreacher" speed="20" premium="no" />
+
+	<mount id="213" clientid="1672" name="Boisterous Bull" speed="20" premium="no" />
+	<mount id="214" clientid="1673" name="Surly Steer" speed="20" premium="no" />
+	<mount id="215" clientid="1674" name="Obstinate Ox" speed="20" premium="no" />
+
+	<mount id="216" clientid="1682" name="Spirit of Purity" speed="20" premium="no" />
+
+	<mount id="217" clientid="1685" name="Doom Skull" speed="20" premium="no" />
+	<mount id="218" clientid="1686" name="Magma Skull" speed="20" premium="no" />
+	<mount id="219" clientid="1687" name="Corpsefire Skull" speed="20" premium="no" />
+
+	<mount id="220" clientid="1721" name="Mystic Jaguar" speed="20" premium="no" />
+
+	<mount id="221" clientid="1724" name="Gorgon Hydra" speed="20" premium="no" />
+
+	<mount id="222" clientid="1727" name="Dawnbringer Pegasus" speed="20" premium="no" />
+	<mount id="223" clientid="1728" name="Wrathfire Pegasus" speed="20" premium="no" />
+	<mount id="224" clientid="1729" name="Skybreaker Pegasus" speed="20" premium="no" />
+	<mount id="225" clientid="1730" name="Pegasus" speed="20" premium="no" />
+
+	<mount id="226" clientid="1742" name="Glacier Wyrm" speed="20" premium="no" />
+	<mount id="227" clientid="1743" name="Bog Tyrant" speed="20" premium="no" />
+	<mount id="228" clientid="1744" name="Crimson Fang" speed="20" premium="no" />
+
+	<mount id="229" clientid="1778" name="Bumblebee" speed="20" premium="no" />
+
+	<mount id="230" clientid="1827" name="Alpha Demonosaur" speed="20" premium="no" />
+	<mount id="231" clientid="1810" name="Primal Demonosaur" speed="20" premium="no" />
+	<mount id="232" clientid="1826" name="Demonosaur" speed="20" premium="no" />
 </mounts>
