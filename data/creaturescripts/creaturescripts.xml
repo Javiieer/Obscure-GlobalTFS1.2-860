@@ -67,6 +67,9 @@
     
     <!-- Zombie Event -->
     <event type="death" name="ZombieEventDeath" script="zombie_event_death.lua"/>
+    
+    <!-- GM Login Broadcast -->
+    <event type="login" name="GMLoginBroadcast" script="gm_login_broadcast.lua"/>
 		
 	
 </creaturescripts>
