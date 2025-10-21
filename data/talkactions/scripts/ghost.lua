@@ -62,13 +62,13 @@ function onSay(player, words, param)
 		if gmGroups[groupId] then
 			-- Custom reconnect messages
 			local reconnectMessages = {
-				["[GOD] Bruno"] = "¡El Administrador Bruno se ha reconectado al servidor! ¡Bienvenido de vuelta!",
+				["[GOD] Bruno"] = "El Administrador Bruno se ha reconectado al servidor! Bienvenido de vuelta!",
 				-- Add more custom messages for specific players
 				-- ["PlayerName"] = "Custom reconnect message",
 			}
 			
 			-- Default reconnect message if no custom message is set
-			local defaultMessage = string.format("¡%s %s se ha reconectado al servidor!", gmGroups[groupId], playerName)
+			local defaultMessage = string.format("%s %s se ha reconectado al servidor!", gmGroups[groupId], playerName)
 			
 			-- Get the message (custom or default)
 			local message = reconnectMessages[playerName] or defaultMessage
