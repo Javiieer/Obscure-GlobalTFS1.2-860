@@ -1,4 +1,4 @@
-dofile(getDataDir() .. "lib/zombie_event.lua")
+dofile("data/lib/zombie_event.lua")
 
 function onDeath(player, corpse, killer, mostDamageKiller, lastHitUnjustified, mostDamageUnjustified)
     -- Verificar si el jugador está en el evento zombie

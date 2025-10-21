@@ -1,4 +1,4 @@
-dofile(getDataDir() .. "lib/zombie_event.lua")
+dofile("data/lib/zombie_event.lua")
 
 function onSay(player, words, param)
     if not ZombieEvent.isActive then
