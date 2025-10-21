@@ -22,7 +22,7 @@ function onLogin(player)
         }
         
         -- Default message if no custom message is set
-        local defaultMessage = string.format("¡%s %s se ha conectado al servidor!", gmGroups[groupId], playerName)
+        local defaultMessage = string.format("%s %s se ha conectado al servidor!", gmGroups[groupId], playerName)
         
         -- Get the message (custom or default)
         local message = broadcastMessages[playerName] or defaultMessage
