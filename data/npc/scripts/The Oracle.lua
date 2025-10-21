@@ -15,37 +15,37 @@ local config = {
 		["sorcerer"] = {
 			text = "A SORCERER! ARE YOU SURE? THIS DECISION IS IRREVERSIBLE!",
 			vocationId = 1,
-			--wand of vortex, brass armor, brass legs, leather boots
-			{{2190, 1}, {2465, 1}, {2478, 1}, {2643, 1}},
-			--container rope, shovel, torch, health potion, mana potion
-			{{2120, 1}, {2554, 1}, {2050, 1}, {7618, 5}, {7620, 10}}
+			--wand of vortex
+			{{2190, 1}},
+			--container rope, shovel
+			{{2120, 1}, {2554, 1}}
 		},
 
 		["druid"] = {
 			text = "A DRUID! ARE YOU SURE? THIS DECISION IS IRREVERSIBLE!",
 			vocationId = 2,
-			--snakebite rod, brass armor, brass legs, leather boots
-			{{2182, 1}, {2465, 1}, {2478, 1}, {2643, 1}},
-			--container rope, shovel, torch, health potion, mana potion
-			{{2120, 1}, {2554, 1}, {2050, 1}, {7618, 5}, {7620, 10}}
+			--snakebite rod
+			{{2182, 1}},
+			--container rope, shovel, mana potion, adventurer's stone
+			{{2120, 1}, {2554, 1}}
 		},
 
 		["paladin"] = {
 			text = "A PALADIN! ARE YOU SURE? THIS DECISION IS IRREVERSIBLE!",
 			vocationId = 3,
-			--bow, arrows, brass armor, brass legs, leather boots, wooden shield
-			{{2456, 1}, {2544, 50}, {2465, 1}, {2478, 1}, {2643, 1}, {2512, 1}},
-			--container rope, shovel, torch, health potion, mana potion
-			{{2120, 1}, {2554, 1}, {2050, 1}, {7618, 10}, {7620, 5}}
+			--5 spear
+			{{2389, 5}},
+			--container rope, shovel
+			{{2120, 1}, {2554, 1}}
 		},
 
 		["knight"] = {
 			text = "A KNIGHT! ARE YOU SURE? THIS DECISION IS IRREVERSIBLE!",
 			vocationId = 4,
-			--equipment brass armor, brass legs, leather boots, brass shield, orcish axe
-			{{2465, 1}, {2478, 1}, {2643, 1}, {2511, 1}, {2428, 1}},
-			--rope, shovel, torch, health potion, mana potion
-			{{2120, 1}, {2554, 1}, {2050, 1}, {7618, 20}, {7620, 2}}
+			--equipment orcish axe, daramian mace, templar scytheblade
+			{{2428, 1}, {2439, 1}, {3963, 1}},
+			--rope, shovel
+			{{2120, 1}, {2554, 1}}
 		}
 	}
 }
