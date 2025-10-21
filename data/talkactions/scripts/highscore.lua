@@ -85,17 +85,17 @@ function onSay(player, words, param)
         
     else
         local helpText = "Available highscore types:\n"
-        helpText = helpText .. "• !highscore level - Level rankings\n"
-        helpText = helpText .. "• !highscore exp - Experience rankings\n"
-        helpText = helpText .. "• !highscore magic - Magic level rankings\n"
-        helpText = helpText .. "• !highscore fist - Fist fighting rankings\n"
-        helpText = helpText .. "• !highscore club - Club fighting rankings\n"
-        helpText = helpText .. "• !highscore sword - Sword fighting rankings\n"
-        helpText = helpText .. "• !highscore axe - Axe fighting rankings\n"
-        helpText = helpText .. "• !highscore distance - Distance fighting rankings\n"
-        helpText = helpText .. "• !highscore shielding - Shielding rankings\n"
-        helpText = helpText .. "• !highscore fishing - Fishing rankings\n"
-        helpText = helpText .. "• !highscore frags - Frags rankings"
+        helpText = helpText .. "> !highscore level - Level rankings\n"
+        helpText = helpText .. "> !highscore exp - Experience rankings\n"
+        helpText = helpText .. "> !highscore magic - Magic level rankings\n"
+        helpText = helpText .. "> !highscore fist - Fist fighting rankings\n"
+        helpText = helpText .. "> !highscore club - Club fighting rankings\n"
+        helpText = helpText .. "> !highscore sword - Sword fighting rankings\n"
+        helpText = helpText .. "> !highscore axe - Axe fighting rankings\n"
+        helpText = helpText .. "> !highscore distance - Distance fighting rankings\n"
+        helpText = helpText .. "> !highscore shielding - Shielding rankings\n"
+        helpText = helpText .. "> !highscore fishing - Fishing rankings\n"
+        helpText = helpText .. "> !highscore frags - Frags rankings"
         
         player:popupFYI(helpText)
         return false
