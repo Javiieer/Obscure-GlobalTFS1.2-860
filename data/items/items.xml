@@ -25241,7 +25241,7 @@
 		<attribute key="ammoType" value="bolt" />
 		<attribute key="shootType" value="vortexbolt" />
 		<attribute key="maxHitChance" value="89" />
-		<!-- <!-- <attribute key="supply" value="true" /> --> -->
+		<!-- <attribute key="supply" value="true" /> -->
 	</item>
 	<item id="15650" article="a" name="swarmer drum">
 		<attribute key="weight" value="3200" />
@@ -26065,7 +26065,7 @@
 		<attribute key="ammoType" value="arrow" />
 		<attribute key="shootType" value="crystallinearrow" />
 		<attribute key="maxHitChance" value="95" />
-		<!-- <!-- <attribute key="supply" value="true" /> --> -->
+		<!--<attribute key="supply" value="true" /> -->
 	</item>
 	<item id="18305" article="a" name="fresh mushroom beer">
 		<attribute key="weight" value="200" />
@@ -26332,7 +26332,7 @@
 		<attribute key="absorbPercentPhysical" value="15" />
 		<attribute key="absorbPercentEarth" value="10" />
 		<attribute key="showattributes" value="true" />
-		<!-- <!-- <attribute key="supply" value="true" /> --> -->
+		<!-- <attribute key="supply" value="true" /> -->
 	</item>
 	<item id="18403" article="a" name="prismatic helmet">
 		<attribute key="weight" value="5600" />
@@ -26371,7 +26371,7 @@
 		<attribute key="absorbPercentPhysical" value="10" />
 		<attribute key="absorbPercentEnergy" value="15" />
 		<attribute key="showattributes" value="true" />
-		<!-- <!-- <attribute key="supply" value="true" /> --> -->
+		<!-- <attribute key="supply" value="true" />-->
 	</item>
 	<item id="18408" article="a" name="prismatic ring">
 		<attribute key="weight" value="105" />
@@ -26382,7 +26382,7 @@
 		<attribute key="stopduration" value="true" />
 		<attribute key="showduration" value="true" />
 		<attribute key="showattributes" value="true" />
-		<!-- <!-- <attribute key="supply" value="true" /> --> -->
+		<!--<attribute key="supply" value="true" /> -->
 	</item>
 	<item id="18409" article="a" name="wand of everblazing">
 		<attribute key="description" value="It contains the everblazing fire." />
@@ -26490,7 +26490,7 @@
 		<attribute key="ammoType" value="bolt" />
 		<attribute key="shootType" value="prismaticbolt" />
 		<attribute key="maxHitChance" value="90" />
-		<!-- <!-- <attribute key="supply" value="true" /> --> -->
+		<!-- <attribute key="supply" value="true" /> -->
 	</item>
 	<item id="18436" article="a" name="drill bolt">
 		<attribute key="weight" value="80" />
@@ -26500,7 +26500,7 @@
 		<attribute key="ammoType" value="bolt" />
 		<attribute key="shootType" value="drillbolt" />
 		<attribute key="maxHitChance" value="90" />
-		<!-- <!-- <attribute key="supply" value="true" /> --> -->
+		<!-- <attribute key="supply" value="true" /> -->
 	</item>
 	<item id="18437" article="an" name="envenomed arrow">
 		<attribute key="weight" value="70" />
@@ -26511,7 +26511,7 @@
 		<attribute key="ammoType" value="arrow" />
 		<attribute key="shootType" value="envenomedarrow" />
 		<attribute key="maxHitChance" value="93" />
-		<!-- <!-- <attribute key="supply" value="true" /> --> -->
+		<!-- <attribute key="supply" value="true" /> -->
 	</item>
 	<item id="18438" article="a" name="dead dragonling">
 		<attribute key="containerSize" value="25" />
@@ -27019,14 +27019,14 @@
 	</item>
 	<item id="19392" article="a" name="sorc and druid attack rune">
 		<attribute key="type" value="rune" />
-		<!-- <!-- <attribute key="supply" value="true" /> --> -->
+		<!-- <attribute key="supply" value="true" /> -->
 		<attribute key="runeSpellName" value="adori dis min vis" />
 		<attribute key="weight" value="210" />
 		<attribute key="charges" value="10" />
 	</item>
 	<item id="19393" article="a" name="healing rune for druids">
 		<attribute key="type" value="rune" />
-		<!-- <!-- <attribute key="supply" value="true" /> --> -->
+		<!-- <attribute key="supply" value="true" /> -->
 		<attribute key="weight" value="210" />
 	</item>
 	<item fromid="19395" toid="19400" article="a" name="stone alcove" />
