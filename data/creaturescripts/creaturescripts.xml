@@ -64,6 +64,9 @@
     <event type="preparedeath" name="statPVE" script="others/stats.lua"/>
     <event type="kill" name="statLoot" script="others/stats.lua"/>
     <event type="death" name="statDeath" script="others/stats.lua"/>
+    
+    <!-- Zombie Event -->
+    <event type="death" name="ZombieEventDeath" script="zombie_event_death.lua"/>
 		
 	
 </creaturescripts>

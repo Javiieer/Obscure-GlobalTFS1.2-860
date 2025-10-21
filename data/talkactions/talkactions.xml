@@ -38,9 +38,11 @@
 	<talkaction words="/save" script="serversave.lua" />
 	<talkaction words="/mount" separator=" " script="add_mount.lua" />
 	<talkaction words="/mounts" script="list_mounts.lua" />
+	<talkaction words="/zombieevent" separator=" " script="zombie_event.lua" />
 
 	<!-- player talkactions -->
 	<talkaction words="!outfit" script="guild_outfit.lua"/>
+	<talkaction words="!joinzombie" script="join_zombie.lua" />
 	<talkaction words="!buypremium" script="buyprem.lua" />
 	<talkaction words="!buyhouse" script="buyhouse.lua" />
 	<talkaction words="!leavehouse" script="leavehouse.lua" />
