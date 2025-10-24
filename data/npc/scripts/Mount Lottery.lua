@@ -92,13 +92,27 @@ local function getRandomMount()
 	return mountPool[1] -- Fallback
 end
 
--- Get mount name from mount.xml
+-- Mount names table (from mounts.xml)
+local mountNames = {
+	[1] = "Widow Queen", [2] = "Racing Bird", [3] = "War Bear", [4] = "Black Sheep",
+	[5] = "Midnight Panther", [6] = "Draptor", [7] = "Titanica", [8] = "Tin Lizzard",
+	[9] = "Blazebringer", [10] = "Rapid Boar", [11] = "Stampor", [12] = "Undead Cavebear",
+	[13] = "Donkey", [14] = "Tiger Slug", [15] = "Uniwheel", [16] = "Crystal Wolf",
+	[17] = "War Horse", [18] = "Kingly Deer", [19] = "Tamed Panda", [20] = "Dromedary",
+	[21] = "Scorpion King", [22] = "Rented Horse", [23] = "Armoured War Horse", [24] = "Shadow Draptor",
+	[27] = "Lady Bug", [28] = "Manta Ray", [29] = "Ironblight", [30] = "Magma Crawler",
+	[31] = "Dragonling", [32] = "Gnarlhound", [35] = "Water Buffalo", [38] = "Ursagrodon",
+	[39] = "The Hellgrip", [40] = "Noble Lion", [42] = "Shock Head", [43] = "Walker",
+	[71] = "Glooth Glider", [87] = "Rift Runner", [94] = "Sparkion", [98] = "Neon Sparkid",
+	[99] = "Vortexion", [130] = "Lacewing Moth", [131] = "Hibernal Moth", [132] = "Cold Percht Sleigh",
+	[133] = "Bright Percht Sleigh", [134] = "Dark Percht Sleigh", [144] = "Gryphon", [146] = "Cerberus Champion",
+	[162] = "Haze", [167] = "Spectral Horse", [174] = "White Lion", [175] = "Krakoloss",
+	[182] = "Phant", [183] = "Shellodon", [194] = "Gloothomotive"
+}
+
+-- Get mount name
 local function getMountName(mountId)
-	local mount = Mount(mountId)
-	if mount then
-		return mount:getName()
-	end
-	return "Unknown Mount"
+	return mountNames[mountId] or "Rare Mount"
 end
 
 local function creatureSayCallback(cid, type, msg)
