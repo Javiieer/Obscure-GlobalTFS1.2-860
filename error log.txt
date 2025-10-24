@@ -1,0 +1,274 @@
+
+The TFS 1.2 by Brunowots Global - Version: (1.2 . PROD) - Codename: (  )
+Compiled with: GNU C++ version 13.1.0
+Compiled on Sep 26 2025 04:53:02 for platform unknown
+
+Matt, NvSo, and The Forgotten Server Developers.
+https://github.com/Brunowots/RealMap-Global-8.0-With-Mount-Market-TFS-1.2.
+
+>> Loading config: config.lua
+>> Loading RSA key 
+>> Establishing database connection...WARNING: MYSQL_OPT_RECONNECT is deprecated and will be removed in a future version.
+ MySQL 8.0.43
+>> Running database manager
+WARNING: MYSQL_OPT_RECONNECT is deprecated and will be removed in a future version.
+> Optimizing table players_online... [success]
+> Optimizing table tile_store... [success]
+>> Loading vocations
+>> Loading items
+>> Loading script systems
+>> Loading lua libs
+>> Loading lua scripts
+>> Loading monsters
+>> Loading outfits
+>> Checking world type... PVP
+>> Loading map
+> Map size: 33568x33111.
+Duplicate unique id: 7001
+> Map loading time: 17.766 seconds.
+[Spawn::addMonster] Can not find Arthei
+[Error - Monsters::deserializeSpell] - Mutated Bat - Unknown spell name: mutated bat curse
+[Warning - Monsters::loadMonster] Cant load spell. data/monster/mutated/mutated_bat.xml
+[Error - Monsters::deserializeSpell] - Death Blob - Unknown spell name: death blob curse
+[Warning - Monsters::loadMonster] Cant load spell. data/monster/blobs/death_blob.xml
+[Warning - Monsters::loadMonster] Unknown loot item "concentrated demonic blood". 
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Spawn::addMonster] Can not find Elder Beholder
+[Spawn::addMonster] Can not find Elder Beholder
+[Spawn::addMonster] Can not find Elder Beholder
+[Spawn::addMonster] Can not find Elder Beholder
+[Spawn::addMonster] Can not find Elder Beholder
+[Warning - NpcScript::NpcScript] Can not load script: ferks.lua
+cannot open data/npc/scripts/ferks.lua: No such file or directory
+[Error - Monsters::deserializeSpell] - Undead Dragon - Unknown spell name: undead dragon curse
+[Warning - Monsters::loadMonster] Cant load spell. data/monster/dragons/undead_dragon.xml
+[Warning - Monsters::loadMonster] Unknown loot item "concentrated demonic blood". 
+[Warning - NpcScript::NpcScript] Can not load script: jessica.lua
+cannot open data/npc/scripts/jessica.lua: No such file or directory
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::loadMonster] Failed to load data/monster/outlaws/gladiator.xml: File was not found
+[Spawn::addMonster] Can not find Gladiator
+[Error - Monsters::deserializeSpell] - Quara Constrictor - Unknown spell name: quara constrictor freeze
+[Warning - Monsters::loadMonster] Cant load spell. data/monster/quaras/quara_constrictor.xml
+[Warning - Monsters::loadMonster] Unknown loot item "concentrated demonic blood". 
+[Warning - Monsters::loadMonster] Unknown loot item "concentrated demonic blood". 
+[Warning - Monsters::loadMonster] Unknown loot item "concentrated demonic blood". 
+[Spawn::addMonster] Can not find Elder Beholder
+[Spawn::addMonster] Can not find Elder Beholder
+[Spawn::addMonster] Can not find Elder Beholder
+[Spawn::addMonster] Can not find Elder Beholder
+[Spawn::addMonster] Can not find Elder Beholder
+[Spawn::addMonster] Can not find Elder Beholder
+[Spawn::addMonster] Can not find Elder Beholder
+[Spawn::addMonster] Can not find Elder Beholder
+[Spawn::addMonster] Can not find Elder Beholder
+[Spawn::addMonster] Can not find a carved stone tile
+[Spawn::addMonster] Can not find a carved stone tile
+[Spawn::addMonster] Can not find a carved stone tile
+[Error - Monsters::deserializeSpell] - Blightwalker - Unknown spell name: blightwalker curse
+[Warning - Monsters::loadMonster] Cant load spell. data/monster/undead_humanoids/blightwalker.xml
+[Spawn::addMonster] Can not find Elder Beholder
+[Spawn::addMonster] Can not find Elder Beholder
+[Spawn::addMonster] Can not find Elder Beholder
+[Spawn::addMonster] Can not find Elder Beholder
+[Spawn::addMonster] Can not find Elder Beholder
+[Spawn::addMonster] Can not find Elder Beholder
+[Spawn::addMonster] Can not find Elder Beholder
+[Spawn::addMonster] Can not find Elder Beholder
+[Spawn::addMonster] Can not find Elder Beholder
+[Spawn::addMonster] Can not find Elder Beholder
+[Warning - Monsters::loadMonster] Unknown loot item "concentrated demonic blood". 
+[Warning - Monsters::loadMonster] Unknown loot item "concentrated demonic blood". 
+[Warning - Monsters::loadMonster] Unknown loot item "concentrated demonic blood". 
+[Spawn::addMonster] Can not find Elder Beholder
+[Spawn::addMonster] Can not find Elder Beholder
+[Spawn::addMonster] Can not find Elder Beholder
+[Spawn::addMonster] Can not find Elder Beholder
+[Spawn::addMonster] Can not find Elder Beholder
+[Spawn::addMonster] Can not find Elder Beholder
+[Spawn::addMonster] Can not find Demon (Goblin)
+[Spawn::addMonster] Can not find Demon (Goblin)
+[Spawn::addMonster] Can not find Demon (Goblin)
+[Spawn::addMonster] Can not find Demon (Goblin)
+[Spawn::addMonster] Can not find Demon (Goblin)
+[Spawn::addMonster] Can not find Demon (Goblin)
+[Spawn::addMonster] Can not find Demon (Goblin)
+[Spawn::addMonster] Can not find Demon (Goblin)
+[Spawn::addMonster] Can not find Demon (Goblin)
+[Spawn::addMonster] Can not find Demon (Goblin)
+[Spawn::addMonster] Can not find Elder Beholder
+[Spawn::addMonster] Can not find Elder Beholder
+[Spawn::addMonster] Can not find Elder Beholder
+[Spawn::addMonster] Can not find Elder Beholder
+[Spawn::addMonster] Can not find Elder Beholder
+[Spawn::addMonster] Can not find Demon (DCQ)
+[Spawn::addMonster] Can not find Demon (DCQ)
+[Spawn::addMonster] Can not find Demon (DCQ)
+[Spawn::addMonster] Can not find Demon (Goblin)
+[Spawn::addMonster] Can not find Demon (Goblin)
+[Spawn::addMonster] Can not find Demon (Goblin)
+[Spawn::addMonster] Can not find Demon (Goblin)
+[Spawn::addMonster] Can not find Demon (Goblin)
+[Spawn::addMonster] Can not find Demon (Goblin)
+[Spawn::addMonster] Can not find Demon (Goblin)
+[Spawn::addMonster] Can not find Demon (Goblin)
+[Spawn::addMonster] Can not find Demon (Goblin)
+[Spawn::addMonster] Can not find Demon (Goblin)
+[Spawn::addMonster] Can not find Demon (Goblin)
+[Spawn::addMonster] Can not find Demon (Goblin)
+[Spawn::addMonster] Can not find Demon (Goblin)
+[Spawn::addMonster] Can not find Demon (Goblin)
+[Spawn::addMonster] Can not find Demon (Goblin)
+[Spawn::addMonster] Can not find Demon (Goblin)
+[Spawn::addMonster] Can not find Demon (Goblin)
+[Spawn::addMonster] Can not find Demon (Goblin)
+[Spawn::addMonster] Can not find Demon (Goblin)
+[Spawn::addMonster] Can not find Demon (Goblin)
+[Spawn::addMonster] Can not find Demon (Goblin)
+[Spawn::addMonster] Can not find Demon (Goblin)
+[Spawn::addMonster] Can not find Demon (Goblin)
+[Spawn::addMonster] Can not find Demon (Goblin)
+> Loaded house items in: 0.028 s
+>> Initializing gamestate
+[Error - Raid::loadFromXml] Failed to load data/raids/libertybay/piratess.xml: File was not found
+[Error - Raids::loadFromXml] Failed to load raid: Piratess
+>> Loaded all modules, server starting up...
+> Warning: TFS 1.2 by Brunowots has been executed as root user, please consider running it as a normal user.
+>> Dark Tibia Server Online!
+
+[GOD] Javi has logged in.
+[Error - Npc::loadFromXml] Failed to load data/npc/mount lottery.xml: File was not found
