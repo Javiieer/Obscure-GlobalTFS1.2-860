@@ -1,0 +1,182 @@
+local keywordHandler = KeywordHandler:new()
+local npcHandler = NpcHandler:new(keywordHandler)
+NpcSystem.parseParameters(npcHandler)
+
+function onCreatureAppear(cid)			npcHandler:onCreatureAppear(cid)			end
+function onCreatureDisappear(cid)		npcHandler:onCreatureDisappear(cid)			end
+function onCreatureSay(cid, type, msg)		npcHandler:onCreatureSay(cid, type, msg)		end
+function onThink()				npcHandler:onThink()					end
+
+-- Mount Lottery NPC Configuration
+local config = {
+	-- Storage to track if player already received mount (set to -1 to allow multiple tries)
+	storage = 45001,
+	
+	-- Cooldown in seconds (86400 = 24 hours, set to -1 for no cooldown)
+	cooldown = 86400,
+	
+	-- Cost to try mount lottery (set to 0 for free)
+	cost = 0,
+	costItemId = 0, -- Use 0 for gold, or specific item ID
+	
+	-- Available mounts (mount ID and rarity weight)
+	-- Higher weight = more common
+	mounts = {
+		-- Common mounts (weight 30)
+		{id = 1, name = "Widow Queen", weight = 30},
+		{id = 2, name = "Racing Bird", weight = 30},
+		{id = 3, name = "War Bear", weight = 30},
+		{id = 4, name = "Black Sheep", weight = 30},
+		{id = 5, name = "Midnight Panther", weight = 30},
+		
+		-- Uncommon mounts (weight 20)
+		{id = 6, name = "Draptor", weight = 20},
+		{id = 7, name = "Titanica", weight = 20},
+		{id = 8, name = "Tin Lizzard", weight = 20},
+		{id = 9, name = "Blazebringer", weight = 20},
+		{id = 10, name = "Rapid Boar", weight = 20},
+		
+		-- Rare mounts (weight 10)
+		{id = 11, name = "Stampor", weight = 10},
+		{id = 12, name = "Undead Cavebear", weight = 10},
+		{id = 13, name = "Donkey", weight = 10},
+		{id = 14, name = "Tiger Slug", weight = 10},
+		{id = 15, name = "Uniwheel", weight = 10},
+		
+		-- Very Rare mounts (weight 5)
+		{id = 16, name = "Crystal Wolf", weight = 5},
+		{id = 17, name = "Brown War Horse", weight = 5},
+		{id = 18, name = "Kingly Deer", weight = 5},
+		{id = 19, name = "Tamed Panda", weight = 5},
+		{id = 20, name = "Dromedary", weight = 5}
+	}
+}
+
+-- Calculate total weight for probability
+local totalWeight = 0
+for _, mount in ipairs(config.mounts) do
+	totalWeight = totalWeight + mount.weight
+end
+
+-- Get random mount based on weight
+local function getRandomMount()
+	local rand = math.random(1, totalWeight)
+	local currentWeight = 0
+	
+	for _, mount in ipairs(config.mounts) do
+		currentWeight = currentWeight + mount.weight
+		if rand <= currentWeight then
+			return mount
+		end
+	end
+	
+	return config.mounts[1] -- Fallback
+end
+
+-- Get rarity text based on weight
+local function getRarityText(weight)
+	if weight >= 30 then
+		return "Common"
+	elseif weight >= 20 then
+		return "Uncommon"
+	elseif weight >= 10 then
+		return "Rare"
+	else
+		return "Very Rare"
+	end
+end
+
+local function creatureSayCallback(cid, type, msg)
+	if not npcHandler:isFocused(cid) then
+		return false
+	end
+	
+	local player = Player(cid)
+	
+	if msgcontains(msg, "mount") or msgcontains(msg, "lottery") then
+		npcHandler:say("I can give you a random mount! Would you like to {try your luck}?", cid)
+		
+	elseif msgcontains(msg, "try") or msgcontains(msg, "luck") or msgcontains(msg, "yes") then
+		-- Check cooldown
+		if config.cooldown > 0 then
+			local lastUse = player:getStorageValue(config.storage)
+			if lastUse > 0 then
+				local timeLeft = (lastUse + config.cooldown) - os.time()
+				if timeLeft > 0 then
+					local hours = math.floor(timeLeft / 3600)
+					local minutes = math.floor((timeLeft % 3600) / 60)
+					npcHandler:say(string.format("You already received a mount today! Come back in %d hours and %d minutes.", hours, minutes), cid)
+					return true
+				end
+			end
+		end
+		
+		-- Check cost
+		if config.cost > 0 then
+			if config.costItemId == 0 then
+				-- Gold cost
+				if not player:removeMoney(config.cost) then
+					npcHandler:say("You need " .. config.cost .. " gold coins to try the mount lottery!", cid)
+					return true
+				end
+			else
+				-- Item cost
+				if player:getItemCount(config.costItemId) < config.cost then
+					npcHandler:say("You need " .. config.cost .. " of the required items to try the mount lottery!", cid)
+					return true
+				end
+				player:removeItem(config.costItemId, config.cost)
+			end
+		end
+		
+		-- Get random mount
+		local selectedMount = getRandomMount()
+		
+		-- Check if player already has this mount
+		if player:hasMount(selectedMount.id) then
+			npcHandler:say("The lottery chose the " .. selectedMount.name .. " mount, but you already have it! Better luck next time!", cid)
+			if config.cooldown > 0 then
+				player:setStorageValue(config.storage, os.time())
+			end
+			return true
+		end
+		
+		-- Give mount to player
+		player:addMount(selectedMount.id)
+		
+		-- Announce rare mounts
+		local rarity = getRarityText(selectedMount.weight)
+		if selectedMount.weight <= 10 then
+			Game.broadcastMessage(player:getName() .. " has won a " .. rarity .. " mount: " .. selectedMount.name .. "! Congratulations!", MESSAGE_EVENT_ADVANCE)
+		end
+		
+		-- Send message to player
+		npcHandler:say("Congratulations! You won a " .. rarity .. " mount: " .. selectedMount.name .. "! It has been added to your mount list.", cid)
+		player:getPosition():sendMagicEffect(CONST_ME_FIREWORK_YELLOW)
+		
+		-- Set cooldown
+		if config.cooldown > 0 then
+			player:setStorageValue(config.storage, os.time())
+		end
+		
+	elseif msgcontains(msg, "info") or msgcontains(msg, "mounts") then
+		local response = "Available mount rarities:\n"
+		response = response .. "Common (30%): Widow Queen, Racing Bird, War Bear, Black Sheep, Midnight Panther\n"
+		response = response .. "Uncommon (20%): Draptor, Titanica, Tin Lizzard, Blazebringer, Rapid Boar\n"
+		response = response .. "Rare (10%): Stampor, Undead Cavebear, Donkey, Tiger Slug, Uniwheel\n"
+		response = response .. "Very Rare (5%): Crystal Wolf, Brown War Horse, Kingly Deer, Tamed Panda, Dromedary"
+		npcHandler:say(response, cid)
+		
+	else
+		npcHandler:say("I can give you a random {mount}! Say {try your luck} to participate, or {info} to see available mounts.", cid)
+	end
+	
+	return true
+end
+
+npcHandler:setMessage(MESSAGE_GREET, "Hello |PLAYERNAME|! I'm the Mount Lottery master! I can give you a random {mount} for free! Interested?")
+npcHandler:setMessage(MESSAGE_FAREWELL, "Good luck on your adventures!")
+npcHandler:setMessage(MESSAGE_WALKAWAY, "Come back when you want a mount!")
+
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+npcHandler:addModule(FocusModule:new())

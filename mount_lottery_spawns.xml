@@ -1,0 +1,70 @@
+<!-- Mount Lottery NPC Spawns - Copy and paste into data/world/global-spawn.xml -->
+<!-- Place Mount Lottery NPCs in major city temples for easy player access -->
+
+<!-- Thais (Temple, main floor) -->
+<spawn centerx="32369" centery="32241" centerz="7" radius="1">
+    <npc name="Mount Lottery" x="0" y="0" z="0" spawntime="60" />
+</spawn>
+
+<!-- Carlin (Temple, main floor) -->
+<spawn centerx="32360" centery="31782" centerz="7" radius="1">
+    <npc name="Mount Lottery" x="0" y="0" z="0" spawntime="60" />
+</spawn>
+
+<!-- Venore (Temple, main floor) -->
+<spawn centerx="32957" centery="32076" centerz="7" radius="1">
+    <npc name="Mount Lottery" x="0" y="0" z="0" spawntime="60" />
+</spawn>
+
+<!-- Ab'Dendriel (Temple, main floor) -->
+<spawn centerx="32732" centery="31634" centerz="7" radius="1">
+    <npc name="Mount Lottery" x="0" y="0" z="0" spawntime="60" />
+</spawn>
+
+<!-- Edron (Temple, main floor) -->
+<spawn centerx="33217" centery="31814" centerz="8" radius="1">
+    <npc name="Mount Lottery" x="0" y="0" z="0" spawntime="60" />
+</spawn>
+
+<!-- Ankrahmun (Temple, main floor) -->
+<spawn centerx="33194" centery="32853" centerz="8" radius="1">
+    <npc name="Mount Lottery" x="0" y="0" z="0" spawntime="60" />
+</spawn>
+
+<!-- Darashia (Temple, main floor) -->
+<spawn centerx="33213" centery="32454" centerz="1" radius="1">
+    <npc name="Mount Lottery" x="0" y="0" z="0" spawntime="60" />
+</spawn>
+
+<!-- Port Hope (Temple, main floor) -->
+<spawn centerx="32594" centery="32745" centerz="7" radius="1">
+    <npc name="Mount Lottery" x="0" y="0" z="0" spawntime="60" />
+</spawn>
+
+<!-- Liberty Bay (Temple, main floor) -->
+<spawn centerx="32317" centery="32826" centerz="7" radius="1">
+    <npc name="Mount Lottery" x="0" y="0" z="0" spawntime="60" />
+</spawn>
+
+<!-- Kazordoon (Temple, main floor) -->
+<spawn centerx="32649" centery="31904" centerz="11" radius="1">
+    <npc name="Mount Lottery" x="0" y="0" z="0" spawntime="60" />
+</spawn>
+
+<!-- Yalahar (Temple) -->
+<spawn centerx="32816" centery="31272" centerz="6" radius="1">
+    <npc name="Mount Lottery" x="0" y="0" z="0" spawntime="60" />
+</spawn>
+
+<!-- ALTERNATIVE LOCATIONS (Depot centers for even easier access) -->
+<!-- Uncomment if you prefer depot placement -->
+
+<!--
+<spawn centerx="32370" centery="32244" centerz="7" radius="1">
+    <npc name="Mount Lottery" x="0" y="0" z="0" spawntime="60" />
+</spawn>
+
+<spawn centerx="32350" centery="31782" centerz="6" radius="1">
+    <npc name="Mount Lottery" x="0" y="0" z="0" spawntime="60" />
+</spawn>
+-->
