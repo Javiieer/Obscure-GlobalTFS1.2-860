@@ -520,7 +520,7 @@
  <monster name="Black Knight" file="outlaws/black_knight.xml"/>
  <monster name="Crazed Beggar" file="outlaws/crazed_beggar.xml"/>
  <monster name="Gang Member" file="outlaws/gang_member.xml"/>
- <monster name="Gladiator" file="outlaws/gladiator.xml"/>
+ <monster name="Gladiator" file="outlaws/Gladiator.xml"/>
  <monster name="Hero" file="outlaws/hero.xml"/>
  <monster name="Hunter" file="outlaws/hunter.xml"/>
  <monster name="Nomad" file="outlaws/nomad.xml"/>
