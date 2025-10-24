@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Mount Lottery" script="Mount_Lottery.lua" walkinterval="2000" floorchange="0">
+<npc name="MountLottery" script="Mount_Lottery.lua" walkinterval="2000" floorchange="0">
 	<health now="100" max="100"/>
 	<look type="128" head="95" body="116" legs="121" feet="115" addons="3"/>
 	<parameters>
-		<parameter key="message_greet" value="Hello |PLAYERNAME|! I'm the Mount Lottery master! I can give you a random {mount} for free! Interested?" />
+		<parameter key="message_greet" value="Hello |PLAYERNAME|! I'm the Mount Lottery master! I can give you a random {mount} in exchange for special items! Interested?" />
 	</parameters>
 </npc>
