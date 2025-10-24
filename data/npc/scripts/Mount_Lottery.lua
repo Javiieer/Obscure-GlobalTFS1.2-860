@@ -94,7 +94,7 @@ end
 
 -- Get mount name from mount.xml
 local function getMountName(mountId)
-	local mount = Game.getMountIdByLookType(mountId)
+	local mount = Mount(mountId)
 	if mount then
 		return mount:getName()
 	end
