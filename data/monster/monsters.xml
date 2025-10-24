@@ -126,7 +126,6 @@
  <monster name="Beholder" file="bonelords/beholder.xml"/>
  <monster name="Bonelord" file="bonelords/bonelord.xml"/>
  <monster name="Braindeath" file="bonelords/braindeath.xml"/>
- <monster name="Elder Beholder" file="bonelords/elder_beholder.xml"/>
  <monster name="Elder Bonelord" file="bonelords/elder_bonelord.xml"/>
  <monster name="Eye of the Seven" file="bonelords/eye_of_the_seven.xml"/>
  <monster name="Gazer" file="bonelords/gazer.xml"/>
@@ -137,7 +136,6 @@
  <monster name="Apprentice Sheng" file="bosses/apprentice_sheng.xml"/>
  <monster name="Arachir the Ancient One" file="bosses/arachir_the_ancient_one.xml"/>
  <monster name="Armenius" file="bosses/armenius.xml"/>
- <monster name="Arthei" file="bosses/arthei.xml"/>
  <monster name="Azerus" file="bosses/azerus.xml"/>
  <monster name="Azerus2" file="bosses/azerus2.xml"/>
  <monster name="Barbaria" file="bosses/barbaria.xml"/>
@@ -282,8 +280,6 @@
  <!-- Demons -->
  <monster name="Dark Torturer" file="demons/dark_torturer.xml"/>
  <monster name="Demon" file="demons/demon.xml"/>
- <monster name="Demon (Goblin)" file="demons/demon.xml"/>
- <monster name="Demon (DCQ)" file="demons/demon.xml"/>
  <monster name="Destroyer" file="demons/destroyer.xml"/>
  <monster name="Diabolic Imp" file="demons/diabolic_imp.xml"/>
  <monster name="Fire Devil" file="demons/fire_devil.xml"/>

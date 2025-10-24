@@ -70,8 +70,6 @@
 		<item id="2231" chance="900"/> <!-- big bone -->
 		<item id="2144" countmax="4" chance="9200"/> <!-- black pearl -->
 		<item id="18425" chance="12500"/> <!-- blazing bone -->
-		<item id="6558" chance="20000"/> <!-- concentrated demonic blood -->
-		<item id="6558" chance="20000"/> <!-- concentrated demonic blood -->
 		<item id="6500" chance="20000"/> <!-- demonic essence -->
 		<item id="4873" chance="400"/> <!-- explorer brooch -->
 		<item id="10553" chance="10000"/> <!-- fiery heart -->

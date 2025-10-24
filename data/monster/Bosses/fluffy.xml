@@ -49,6 +49,5 @@
 		<item id="6500" chance="7200" /><!-- demonic essence -->
 		<item id="2430" chance="2857" /><!-- knight axe -->
 		<item id="2383" chance="2500" /><!-- spike sword -->
-		<item id="6558" chance="8888" /><!-- concentrated demonic blood -->
 	</loot>
 </monster>

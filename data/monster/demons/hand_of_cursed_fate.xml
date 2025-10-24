@@ -72,7 +72,6 @@
 		<item name="soul orb" chance="31111"/>
 		<item id="6300" chance="1750"/><!-- death ring -->
 		<item name="demonic essence" chance="12000"/>
-		<item id="6558" <!-- concentrated demonic blood --> countmax="4" chance="30000"/>
 		<item name="assassin star" countmax="5" chance="7692"/>
 		<item name="abyss hammer" chance="495"/>
 		<item name="great mana potion" countmax="2" chance="19990"/>
