@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Arthei" nameDescription="Arthei" race="fire" experience="10000" speed="290" manacost="0">
+	<health now="20000" max="20000"/>
+	<look type="35" corpse="6068"/>
+	<targetchange interval="5000" chance="8"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="150" attack="100"/>
+		<attack name="manadrain" interval="2000" chance="10" range="7" min="-100" max="-250">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="20" range="7" radius="7" target="1" min="-150" max="-350">
+			<attribute key="shootEffect" value="fire"/>
+			<attribute key="areaEffect" value="firearea"/>
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="10" range="7" min="-200" max="-400">
+			<attribute key="areaEffect" value="poff"/>
+		</attack>
+		<attack name="speed" interval="2000" chance="15" range="7" speedchange="-800" duration="30000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+	</attacks>
+	<defenses armor="55" defense="55">
+		<defense name="healing" interval="1000" chance="15" min="500" max="1000">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="speed" interval="2000" chance="15" speedchange="440" duration="5000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element firePercent="100"/>
+		<element energyPercent="80"/>
+		<element icePercent="-10"/>
+		<element holyPercent="-10"/>
+	</elements>
+	<immunities>
+		<immunity death="1"/>
+		<immunity fire="1"/>
+		<immunity lifedrain="1"/>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="You shall burn!"/>
+		<voice sentence="Feel my wrath!"/>
+		<voice sentence="Arthei's power is absolute!"/>
+	</voices>
+	<loot>
+		<item id="2148" countmax="100" chance="100000"/>
+		<item id="2152" countmax="20" chance="50000"/>
+		<item id="2462" chance="15000"/>
+		<item id="2520" chance="12000"/>
+		<item id="2476" chance="8000"/>
+		<item id="2514" chance="7000"/>
+		<item id="2393" chance="5000"/>
+		<item id="2472" chance="4000"/>
+		<item id="2195" chance="2000"/>
+		<item id="2470" chance="1500"/>
+	</loot>
+</monster>
