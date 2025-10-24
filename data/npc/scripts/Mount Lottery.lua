@@ -176,6 +176,10 @@ local function creatureSayCallback(cid, type, msg)
 			if player:removeItem(config.itemRequired, config.itemCount) then
 				npcHandler:say("The lottery wheel spins...", cid)
 				
+				-- Visual effect at player position
+				local playerPos = player:getPosition()
+				playerPos:sendMagicEffect(CONST_ME_GIFT_WRAPS)
+				
 				-- Small delay for dramatic effect
 				addEvent(function(playerId)
 					local p = Player(playerId)
@@ -185,6 +189,8 @@ local function creatureSayCallback(cid, type, msg)
 						
 						-- Check if player already has this mount
 						if p:hasMount(selectedMount.id) then
+							local pos = p:getPosition()
+							pos:sendMagicEffect(CONST_ME_POFF)
 							npcHandler:say("You received a mount you already have! Better luck next time.", playerId)
 							p:setStorageValue(config.storage, os.time())
 							return
@@ -195,6 +201,34 @@ local function creatureSayCallback(cid, type, msg)
 						
 						-- Get mount name
 						local mountName = getMountName(selectedMount.id)
+						
+						-- Victory effects based on rarity
+						local pos = p:getPosition()
+						if selectedMount.weight == 2 then
+							-- Ultra Rare - Epic effects
+							pos:sendMagicEffect(CONST_ME_FIREWORK_RED)
+							addEvent(function()
+								local newPos = p:getPosition()
+								newPos:sendMagicEffect(CONST_ME_FIREWORK_YELLOW)
+							end, 300)
+							addEvent(function()
+								local newPos = p:getPosition()
+								newPos:sendMagicEffect(CONST_ME_FIREWORK_BLUE)
+							end, 600)
+						elseif selectedMount.weight == 5 then
+							-- Very Rare - Double effect
+							pos:sendMagicEffect(CONST_ME_FIREWORK_YELLOW)
+							addEvent(function()
+								local newPos = p:getPosition()
+								newPos:sendMagicEffect(CONST_ME_MAGIC_BLUE)
+							end, 300)
+						elseif selectedMount.weight == 10 then
+							-- Rare - Single firework
+							pos:sendMagicEffect(CONST_ME_FIREWORK_BLUE)
+						else
+							-- Common/Uncommon - Simple effect
+							pos:sendMagicEffect(CONST_ME_MAGIC_GREEN)
+						end
 						
 						-- Announce to player
 						npcHandler:say("Congratulations! You won: " .. mountName .. "!", playerId)
@@ -209,6 +243,8 @@ local function creatureSayCallback(cid, type, msg)
 					end
 				end, 2000, player:getId())
 				
+				-- Reset topic to prevent double execution
+				npcHandler.topic[cid] = 0
 				npcHandler:resetNpc(cid)
 				return true
 			else
