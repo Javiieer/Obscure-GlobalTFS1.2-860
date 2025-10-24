@@ -5,6 +5,10 @@
 	<globalevent name="Server Save" time="05:55:00" script="serversave.lua" />
 	<globalevent name="shop" interval="10" event="script" value="shop.lua"/>
 	<!--globalevent name="gesior-shop-system" interval="30000" script="gesior-shop-system.lua" /-->
+	
+	<!-- Double Experience Event - Checks every minute if event should be active -->
+	<globalevent name="DoubleExpEvent" interval="60000" script="double_exp_event.lua" />
+	
 	<!--
 	<globalevent name="timer_example" time="12:00:00" script="my_script.lua" />
 	-->
