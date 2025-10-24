@@ -43,7 +43,7 @@ function onLogin(player)
         player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
         
         -- Optional: Send a private message to the GM
-        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "¡Bienvenido de vuelta, " .. playerName .. "!")
+        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Bienvenido de vuelta, " .. playerName .. "!")
     end
     
     return true
