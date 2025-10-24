@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="The Last Lore Keeper" nameDescription="a Last Lore Keeper" race="undead" experience="45000" speed="450">
 	<health now="75000" max="75000"/>
 	<look type="400" corpse="6068"/>

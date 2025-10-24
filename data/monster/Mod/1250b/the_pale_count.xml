@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="The Pale Count" nameDescription="The Pale Count" race="blood" experience="28000" speed="500">
 	<health now="50000" max="50000"/>
 	<look type="485" corpse="13252"/>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+﻿<?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Green Giant Spider" nameDescription="a green giant spider" race="venom" experience="900" speed="220">
 	<health now="1300" max="1300" />
 	<look type="422" corpse="13211" />

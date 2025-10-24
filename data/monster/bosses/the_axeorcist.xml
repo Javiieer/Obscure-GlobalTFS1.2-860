@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="The Axeorcist" nameDescription="the Axeorcist" race="blood" experience="3000" speed="250">
 	<health now="5100" max="5100"/>
 	<look type="8" corpse="5980"/>

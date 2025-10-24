@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Sr. Archimonde" nameDescription="a Sr. Archimonde" race="undead" speed="450" manacost="2000">
 	<health now="8000" max="8000" />
 	<look type="406" corpse="13163"/>

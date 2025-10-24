@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Spite Of The Emperor" nameDescription="a spite of the emperor" race="undead" experience="500" speed="410">
 	<health now="48000" max="48000"/>
 	<look type="351" corpse="12317"/>

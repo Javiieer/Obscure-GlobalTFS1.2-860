@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+﻿<?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Fahim the Wise" nameDescription="a fahim the wise" race="blood" experience="1500" speed="180">
 	<health now="2000" max="2000" />
 	<look type="104" corpse="6033" />

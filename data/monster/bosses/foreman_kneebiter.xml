@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Foreman Kneebiter" nameDescription="Foreman Kneebiter" race="blood" experience="445" speed="200">
 	<health now="570" max="570"/>
 	<look type="70" corpse="6013"/>

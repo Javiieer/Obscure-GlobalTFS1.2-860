@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+﻿<?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Enslaved Dwarf" nameDescription="an enslaved dwarf" race="blood" experience="2700" speed="270">
 	<health now="3800" max="3800"/>
 	<look type="433" corpse="13225"/>

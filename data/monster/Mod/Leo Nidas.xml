@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Leo Nidas" nameDescription="a Leo Nidas" race="undead" speed="300" manacost="2000">
 	<health now="2800" max="2800" />
 	<look type="73" corpse="6080"/>

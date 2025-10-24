@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Ancient Spawn of Morgathla" nameDescription="a Ancient Spawn of Morgathla" race="blood" experience="2400" speed="270">
 	<health now="50000" max="50000" />
 	<look type="387" corpse="6021"/>

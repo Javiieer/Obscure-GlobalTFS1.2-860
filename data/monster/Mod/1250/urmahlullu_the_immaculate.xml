@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Urmahlullu The Immaculate" nameDescription="a Urmahlullu The Immaculate" race="undead" speed="190">
 	<health now="120000" max="120000" />
 	<look type="405" corpse="13162"/>

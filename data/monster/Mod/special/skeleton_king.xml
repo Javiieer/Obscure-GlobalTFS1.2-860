@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+﻿<?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Skeleton King" nameDescription="an skeleton king" race="undead" experience="7200" speed="330">
 	<health now="8350" max="8350"/>
 	<look type="438" corpse="5972"/>

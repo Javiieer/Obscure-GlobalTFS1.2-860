@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Inky" nameDescription="Inky" race="blood" experience="250" speed="340">
 	<health now="750" max="750"/>
 	<look type="46" corpse="6065"/>

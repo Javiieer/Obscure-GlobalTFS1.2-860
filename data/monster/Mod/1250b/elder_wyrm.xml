@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+﻿<?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Elder Wyrm" nameDescription="an elder wyrm" race="blood" experience="2500" speed="300">
 	<health now="2700" max="2700"/>
 	<look type="486" corpse="13254"/>

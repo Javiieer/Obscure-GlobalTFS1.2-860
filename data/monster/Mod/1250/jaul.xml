@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Jaul" nameDescription="a Jaul" race="blood" experience="30000" speed="220">
 	<health now="19000" max="19000"/>
 	<look type="397" corpse="13147"/>

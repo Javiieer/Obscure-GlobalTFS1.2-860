@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="The Welter" nameDescription="a Welter" race="blood" experience="11000" speed="256">
 	<health now="25000" max="25000"/>
 	<look type="395" corpse="13151"/>

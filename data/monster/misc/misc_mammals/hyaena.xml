@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+﻿<?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Hyaena" nameDescription="a hyaena" race="blood" experience="20" speed="200" manacost="275">
 	<health now="60" max="60" />
 	<look type="94" corpse="6026" />

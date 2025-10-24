@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+﻿<?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Corym Vanguard" nameDescription="a corym vanguard" race="blood" experience="490" speed="250">
 	<health now="700" max="700"/>
 	<look type="426" head="101" legs="101" corpse="13217"/>

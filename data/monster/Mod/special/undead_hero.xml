@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+﻿<?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Undead Hero" nameDescription="a undead hero" race="blood" experience="3200" speed="280">
 	<health now="3400" max="3400"/>
 	<look type="476" corpse="6080"/>

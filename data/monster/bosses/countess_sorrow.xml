@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Countess Sorrow" nameDescription="Countess Sorrow" race="undead" experience="13000" speed="400">
 	<health now="6500" max="6500"/>
 	<look type="241" head="20" corpse="6344"/>

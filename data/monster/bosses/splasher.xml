@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Splasher" nameDescription="Splasher" race="blood" experience="500" speed="520">
 	<health now="1700" max="1700"/>
 	<look type="72" corpse="6064"/>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Emberwing" nameDescription="a Emberwing" race="undead" speed="500" manacost="2000">
 	<health now="15000" max="15000" />
 	<look type="73" corpse="6080"/>

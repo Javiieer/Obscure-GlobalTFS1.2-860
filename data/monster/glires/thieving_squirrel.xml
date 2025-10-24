@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Thieving Squirrel" nameDescription="a thieving squirrel" race="blood" experience="15" speed="1000" manacost="220">
 	<health now="55" max="55"/>
 	<look type="274" corpse="7628"/>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Scorn Of The Emperor" nameDescription="a scorn of the emperor" race="undead" experience="450" speed="410">
 	<health now="45000" max="45000"/>
 	<look type="351" corpse="12317"/>

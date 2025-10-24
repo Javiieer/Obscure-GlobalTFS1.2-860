@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+﻿<?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Mutated Rat" nameDescription="a mutated rat" race="blood" experience="450" speed="230">
 	<health now="550" max="550"/>
 	<look type="305" corpse="9871"/>

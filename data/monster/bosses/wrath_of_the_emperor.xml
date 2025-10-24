@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Wrath Of The Emperor" nameDescription="Wrath Of The Emperor" race="undead" experience="600" speed="410">
 	<health now="55000" max="55000" />
 	<look type="351" corpse="12317" />

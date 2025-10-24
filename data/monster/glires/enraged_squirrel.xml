@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Enraged Squirrel" nameDescription="an enraged squirrel" race="blood" experience="15" speed="300" manacost="220">
 	<health now="35" max="35"/>
 	<look type="274" corpse="7628"/>

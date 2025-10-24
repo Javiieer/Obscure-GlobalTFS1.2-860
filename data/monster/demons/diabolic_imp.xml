@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+﻿<?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Diabolic Imp" nameDescription="a diabolic imp" race="fire" experience="2900" speed="210">
 	<health now="1950" max="1950"/>
 	<look type="237" corpse="6364"/>
@@ -72,7 +72,7 @@
 		<item name="soul orb" chance="7230"/>
 		<item id="6300" chance="120"/><!-- death ring -->
 		<item name="demonic essence" chance="8000"/>
-		<item name="concentrated demonic blood" countmax="2" chance="25000"/>
+		<item id="6558" <!-- concentrated demonic blood --> countmax="2" chance="25000"/>
 		<item name="magma coat" chance="250"/>
 		<item name="magma monocle" chance="430"/>
 	</loot>

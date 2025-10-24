@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+﻿<?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Vampire Pig" nameDescription="a vampire pig" race="blood" experience="165" speed="110">
 	<health now="305" max="305"/>
 	<look type="60" corpse="6000"/>

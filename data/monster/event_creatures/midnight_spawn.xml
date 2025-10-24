@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+﻿<?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Midnight Spawn" nameDescription="a midnight spawn" race="undead" experience="900" speed="340">
 	<health now="2000" max="2000"/>
 	<look type="315" corpse="9960"/>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Warrior Specter" nameDescription="a warrior specter" race="fire" experience="5000" speed="266">
 	<health now="6500" max="6500"/>
 	<look type="439" corpse="13258"/>
@@ -64,7 +64,7 @@
 		<item name="orichalcum pearl" countmax="4" chance="1400"/>
 		<item id="6300" chance="330"/><!-- death ring -->
 		<item name="demonic essence" chance="10600"/>
-		<item name="concentrated demonic blood" chance="35000"/>
+		<item id="6558" <!-- concentrated demonic blood --> chance="35000"/>
 		<item name="nightmare blade" chance="880"/>
 		<item name="great mana potion" chance="10000"/>
 		<item name="glacier kilt" chance="330"/>

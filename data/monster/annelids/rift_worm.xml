@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Rift Worm" nameDescription="a rift worm" race="blood" experience="1195" speed="200">
 	<health now="2800" max="2800"/>
 	<look type="295" corpse="0"/>

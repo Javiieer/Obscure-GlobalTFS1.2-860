@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Distorted Phantom" nameDescription="a Distorted Phantom" race="fire" experience="15000" speed="266">
 	<health now="46500" max="46500"/>
 	<look type="408" corpse="13166"/>

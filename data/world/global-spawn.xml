@@ -57394,9 +57394,6 @@
 	<spawn centerx="33307" centery="31709" centerz="11" radius="1">
 		<monster name="Fire Elemental" x="-1" y="-1" z="11" spawntime="60" />
 	</spawn>
-	<spawn centerx="33104" centery="31717" centerz="11" radius="1">
-		<monster name="a carved stone tile" x="0" y="0" z="11" spawntime="60" />
-	</spawn>
 	<spawn centerx="32404" centery="31722" centerz="11" radius="2">
 		<monster name="Dwarf Guard" x="1" y="-1" z="11" spawntime="60" />
 	</spawn>
@@ -57404,12 +57401,6 @@
 		<monster name="Cyclops" x="-2" y="-1" z="11" spawntime="60" />
 		<monster name="Orc Berserker" x="3" y="-1" z="11" spawntime="60" />
 		<monster name="Minotaur archer" x="0" y="1" z="11" spawntime="60" />
-	</spawn>
-	<spawn centerx="33095" centery="31726" centerz="11" radius="1">
-		<monster name="a carved stone tile" x="0" y="0" z="11" spawntime="60" />
-	</spawn>
-	<spawn centerx="33113" centery="31726" centerz="11" radius="1">
-		<monster name="a carved stone tile" x="0" y="0" z="11" spawntime="60" />
 	</spawn>
 	<spawn centerx="32517" centery="31727" centerz="11" radius="2">
 		<monster name="spider" x="1" y="0" z="11" spawntime="60" />

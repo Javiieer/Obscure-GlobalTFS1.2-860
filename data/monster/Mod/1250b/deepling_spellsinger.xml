@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+﻿<?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Deepling Spellsinger" nameDescription="a deepling spellsinger" race="blood" experience="1000" speed="250">
 	<health now="850" max="850"/>
 	<look type="430" corpse="13222"/>

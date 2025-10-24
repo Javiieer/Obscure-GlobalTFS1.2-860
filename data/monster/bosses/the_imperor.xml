@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="The Imperor" nameDescription="The Imperor" race="blood" experience="8000" speed="310">
 	<health now="15000" max="15000"/>
 	<look type="237" corpse="6364"/>

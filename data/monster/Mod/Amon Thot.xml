@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Amon Thot" nameDescription="a Amon Thot" race="undead" speed="300" manacost="3000">
 	<health now="2800" max="2800" />
 	<look type="149" head="94" body="77" legs="96" feet="0" addons="3" corpse="6081"/>

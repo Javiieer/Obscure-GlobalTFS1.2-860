@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Mawhawk" nameDescription="Mawhawk" race="blood" experience="14000" speed="270">
 	<health now="45000" max="45000"/>
 	<look type="442" corpse="13231"/>

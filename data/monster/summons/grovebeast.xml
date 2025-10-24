@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Grovebeast" nameDescription="Grovebeast" race="undead" speed="500" manacost="3000">
 	<health now="20000" max="20000"/>
 	<look type="149" head="0" body="47" legs="105" feet="105" addons="0" corpse="6081"/>

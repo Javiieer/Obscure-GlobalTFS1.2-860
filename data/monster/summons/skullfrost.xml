@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Skullfrost" nameDescription="a Skullfrost" race="undead" speed="500" manacost="1000">
 	<health now="10000" max="10000" />
 	<look type="300" corpse="8955"/>

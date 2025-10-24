@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+﻿<?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Doom Deer" nameDescription="a doom deer" race="blood" experience="200" speed="182">
 	<health now="405" max="405"/>
 	<look type="31" corpse="5970"/>

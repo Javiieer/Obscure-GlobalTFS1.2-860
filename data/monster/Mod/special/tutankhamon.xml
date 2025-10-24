@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+﻿<?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Tutankhamon" nameDescription="Tutankhamon" race="undead" experience="3050" speed="340">
 	<health now="19000" max="19000" />
 	<look type="480" corpse="6025" />

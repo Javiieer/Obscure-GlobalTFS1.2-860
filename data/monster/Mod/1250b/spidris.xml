@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+﻿<?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Spidris" nameDescription="a spidris" race="venom" experience="2600" speed="295">
 	<health now="3700" max="3700"/>
 	<look type="446" corpse="13237"/>

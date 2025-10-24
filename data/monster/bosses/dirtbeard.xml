@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Dirtbeard" nameDescription="Dirtbeard" race="blood" experience="375" speed="300">
 	<health now="630" max="630" />
 	<look type="98" corpse="6080" />

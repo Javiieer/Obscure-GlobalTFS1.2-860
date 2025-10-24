@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Elm Inster" nameDescription="a Elm Inster" race="undead" speed="300" manacost="3000">
 	<health now="2800" max="2800" />
 	<look type="149" head="0" body="47" legs="105" feet="105" addons="0" corpse="6081"/>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Tyrn" nameDescription="Tyrn" race="blood" experience="6900" speed="300">
 	<health now="12000" max="12000"/>
 	<look type="487" corpse="13255"/>

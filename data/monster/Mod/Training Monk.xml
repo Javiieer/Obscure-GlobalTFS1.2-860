@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Training Monk" nameDescription="a training monk" race="blood" experience="0" speed="0" manacost="0">
 	<health now="200000" max="200000"/>
 	<look type="57" corpse="6080"/>

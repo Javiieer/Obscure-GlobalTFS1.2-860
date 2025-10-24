@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Werehyaena" nameDescription="a Werehyaena" experience="55000" speed="350" race="blood">
 	<health now="50000" max="50000"/>
 	<look type="409" corpse="13154"/>

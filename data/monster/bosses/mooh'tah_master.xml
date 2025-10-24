@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Mooh'Tah Master" nameDescription="a mooh'tah master" race="blood" experience="0" speed="250">
 	<health now="185" max="185"/>
 	<look type="29" corpse="5983"/>

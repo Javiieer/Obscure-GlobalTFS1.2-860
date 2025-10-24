@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+﻿<?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Frazzlemaw" nameDescription="a frazzlemaw" race="blood" experience="3400" speed="230">
 	<health now="4100" max="4100"/>
 	<look type="441" corpse="13230"/>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Essence of Darkness" nameDescription="an essence of darkness" race="undead" experience="30" speed="230">
 	<health now="1000" max="1000" />
 	<look type="315" corpse="9960" />

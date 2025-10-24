@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Mutated Zalamon" nameDescription="Mutated Zalamon" race="venom" experience="10980" speed="238">
 	<health now="155000" max="155000"/>
 	<look type="356" corpse="12385"/>

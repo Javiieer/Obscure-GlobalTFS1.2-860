@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+﻿<?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Pirate Cutthroat" nameDescription="a pirate cutthroat" race="blood" experience="175" speed="214" manacost="495">
 	<health now="325" max="325"/>
 	<look type="96" corpse="6080"/>

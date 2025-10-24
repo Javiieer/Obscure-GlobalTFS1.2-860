@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Humongous Fungus" nameDescription="a Humongous Fungus" race="blood" experience="2600" speed="130">
 	<health now="23400" max="23400" />
 	<look type="398" corpse="13148"/>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Abyssador" nameDescription="Abyssador" race="blood" experience="50000" speed="230">
 	<health now="34000" max="34000"/>
 	<look type="451" corpse="13241"/>

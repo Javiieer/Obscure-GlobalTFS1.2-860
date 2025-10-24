@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+ï»¿<?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Old Bonelord" nameDescription="a Beholder" race="venom" experience="170" speed="170">
 	<health now="260" max="260" />
 	<look type="924" corpse="5992" />
@@ -57,9 +57,9 @@
 	</summons>
 	<voices interval="5000" chance="10">
 		<voice sentence="Olho por Olho!" />
-		<voice sentence="Estou olhando para você!" />
-		<voice sentence="Deixe-me dar uma olhada em você!" />
-		<voice sentence="Você tem o olhar!" />
+		<voice sentence="Estou olhando para vocÃª!" />
+		<voice sentence="Deixe-me dar uma olhada em vocÃª!" />
+		<voice sentence="VocÃª tem o olhar!" />
 	</voices>
 	<loot>
 		<item name="gold coin" countmax="82" chance="65000" />

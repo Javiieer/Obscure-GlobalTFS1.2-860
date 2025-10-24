@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Execowtioner" nameDescription="a Execowtioner" race="blood" experience="2400" speed="235">
 	<health now="13500" max="13500"/>
 	<look type="394" corpse="13153"/>

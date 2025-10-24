@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="The Abomination" nameDescription="the Abomination" race="venom" experience="25000" speed="340">
 	<health now="38050" max="38050" />
 	<look type="238" corpse="6532" />

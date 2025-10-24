@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Pythius The Rotten" nameDescription="Pythius The Rotten" race="undead" experience="7000" speed="350">
 	<health now="9000" max="9000" />
 	<look type="231" corpse="7349" />

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Arthei" nameDescription="Arthei" race="fire" experience="10000" speed="290" manacost="0">
 	<health now="20000" max="20000"/>
 	<look type="35" corpse="6068"/>

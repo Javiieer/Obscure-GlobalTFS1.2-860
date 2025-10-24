@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="The Blightfather" nameDescription="the Blightfather" race="venom" experience="400" speed="290">
 	<health now="400" max="400"/>
 	<look type="348" corpse="11375"/>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Minotaur Idol" nameDescription="a Minotaur Idol" race="undead" experience="0" speed="300">
 	<health now="15200" max="15200"/>
 	<look type="401" corpse="13155"/>

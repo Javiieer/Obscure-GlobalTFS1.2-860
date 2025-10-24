@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+﻿<?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Pirate Ghost" nameDescription="a pirate ghost" race="undead" experience="250" speed="210">
 	<health now="275" max="275"/>
 	<look type="196" corpse="5566"/>

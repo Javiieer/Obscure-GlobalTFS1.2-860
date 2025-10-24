@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Madareth" nameDescription="Madareth" race="fire" experience="10000" speed="365">
 	<health now="75000" max="75000"/>
 	<look type="12" head="77" body="116" legs="82" feet="79" corpse="8721"/>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+ï»¿<?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Frost Giant" nameDescription="a frost giant" race="blood" experience="150" speed="190" manacost="490">
 	<health now="270" max="270"/>
 	<look type="257" corpse="7330"/>
@@ -38,8 +38,8 @@
 		<voice sentence="Hmm Humansoup!"/>
 		<voice sentence="Stand still ya tasy snack!"/>
 		<voice sentence="Joh Thun!"/>
-		<voice sentence="Bröre Smöde!"/>
-		<voice sentence="Hörre Sjan Flan!"/>
+		<voice sentence="BrÃ¶re SmÃ¶de!"/>
+		<voice sentence="HÃ¶rre Sjan Flan!"/>
 		<voice sentence="Forle Bramma"/>
 	</voices>
 	<loot>

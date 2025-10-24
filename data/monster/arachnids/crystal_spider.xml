@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+﻿<?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Crystal Spider" nameDescription="a crystal spider" race="venom" experience="900" speed="230">
 	<health now="1250" max="1250" />
 	<look type="263" corpse="7344" />

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Goshnar's Megalomania" nameDescription="a Goshnar's Megalomania" race="venom" experience="12000" speed="320">
 	<health now="50000" max="50000"/>
 	<look type="410" corpse="13167"/>

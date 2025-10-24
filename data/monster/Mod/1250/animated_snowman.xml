@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Animated Snowman" nameDescription="a Animated Snowman" race="energy" experience="40000" speed="215">
 	<health now="45000" max="45000" />
 	<look type="404" corpse="13173"/>

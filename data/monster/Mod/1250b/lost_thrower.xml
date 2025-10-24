@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+﻿<?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Lost Thrower" nameDescription="a lost thrower" race="blood" experience="1200" speed="240">
 	<health now="1700" max="1700"/>
 	<look type="437" corpse="13229"/>

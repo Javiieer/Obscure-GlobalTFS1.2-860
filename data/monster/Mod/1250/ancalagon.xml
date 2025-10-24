@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Ancalagon" nameDescription="a Ancalagon" race="undead" experience="11000" speed="185">
 	<health now="16200" max="16200"/>
 	<look type="386" corpse="13156"/>

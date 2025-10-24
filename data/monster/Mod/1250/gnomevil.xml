@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Gnomevil" nameDescription="a Gnomevil" race="blood" experience="45000" speed="470">
 	<health now="25000" max="25000" />
 	<look type="399" corpse="13150"/>

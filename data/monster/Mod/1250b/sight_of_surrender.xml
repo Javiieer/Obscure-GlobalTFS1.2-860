@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+﻿<?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Sight of Surrender" nameDescription="a sight of surrender" race="undead" experience="17000" speed="250">
 	<health now="28000" max="28000"/>
 	<look type="482" corpse="13250"/>

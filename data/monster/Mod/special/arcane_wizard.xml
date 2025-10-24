@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+﻿<?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Arcane Wizard" nameDescription="an arcane wizard" race="blood" experience="14000" speed="330">
 	<health now="13650" max="13650"/>
 	<look type="477" corpse="6080"/>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Faceless Bane" nameDescription="a Faceless Bane" race="blood" experience="14000" speed="250">
 	<health now="20000" max="20000" />
 	<look type="402" corpse="13158"/>

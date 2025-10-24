@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="The Voice of Ruin" nameDescription="a the voice of ruin" race="blood" experience="3500" speed="460">
 	<health now="5500" max="5500"/>
 	<look type="344" corpse="11288"/>

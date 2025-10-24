@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Elder Beholder" nameDescription="an elder beholder" race="blood" experience="280" speed="180" manacost="0">
 	<health now="500" max="500"/>
 	<look type="108" corpse="6037"/>

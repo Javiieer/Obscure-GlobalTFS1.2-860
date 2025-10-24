@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+﻿<?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Juggernaut" nameDescription="a juggernaut" race="blood" experience="4900" speed="340">
 	<health now="20000" max="20000"/>
 	<look type="244" corpse="6336"/>
@@ -71,7 +71,7 @@
 		<item name="ham" countmax="8" chance="60000"/>
 		<item name="soul orb" chance="33333"/>
 		<item name="demonic essence" chance="45333"/>
-		<item name="concentrated demonic blood" countmax="4" chance="25000"/>
+		<item id="6558" <!-- concentrated demonic blood --> countmax="4" chance="25000"/>
 		<item name="onyx arrow" countmax="15" chance="11111"/>
 		<item name="assassin star" countmax="10" chance="25000"/>
 		<item name="titan axe" chance="4430"/>

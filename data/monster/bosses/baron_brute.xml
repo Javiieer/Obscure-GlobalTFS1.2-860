@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Baron Brute" nameDescription="Baron Brute" race="blood" experience="3000" speed="290">
 	<health now="5025" max="5025"/>
 	<look type="2" corpse="6008"/>

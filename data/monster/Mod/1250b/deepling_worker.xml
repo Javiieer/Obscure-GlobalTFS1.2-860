@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+﻿<?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Deepling Worker" nameDescription="a deepling worker" race="blood" experience="130" speed="200">
 	<health now="190" max="190"/>
 	<look type="431" corpse="13223"/>

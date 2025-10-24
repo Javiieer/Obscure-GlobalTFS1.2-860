@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Infernal Demon" nameDescription="a Infernal Demon" race="fire" experience="15000" speed="200">
 	<health now="55000" max="55000"/>
 	<look type="384" corpse="13168"/>

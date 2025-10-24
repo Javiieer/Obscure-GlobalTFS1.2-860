@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+﻿<?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Kollos" nameDescription="a kollos" race="venom" experience="2400" speed="215">
 	<health now="3800" max="3800"/>
 	<look type="447" corpse="13238"/>

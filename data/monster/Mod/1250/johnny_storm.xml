@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Johnny Storm" nameDescription="a Johnny Storm" race="blood" experience="6000" speed="230">
 	<health now="14500" max="14500"/>
 	<look type="403" corpse="8964"/>

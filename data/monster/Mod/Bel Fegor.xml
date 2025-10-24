@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Bel Fegor" nameDescription="a Bel Fegor" race="undead" speed="300" manacost="1000">
 	<health now="2800" max="2800" />
 	<look type="300" corpse="8955"/>

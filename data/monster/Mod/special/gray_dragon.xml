@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Gray Dragon" nameDescription="a gray dragon" race="fire" experience="5000" speed="230">
 	<health now="8000" max="8000" />
 	<look type="478" corpse="13172"/>
