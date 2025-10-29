@@ -39,12 +39,6 @@
 	<talkaction words="/mount" separator=" " script="add_mount.lua" />
 	<talkaction words="/mounts" script="list_mounts.lua" />
 	<talkaction words="/zombieevent" separator=" " script="zombie_event.lua" />
-	
-	<!-- VIP System Commands -->
-	<talkaction words="/addvip" separator=" " script="vip_add.lua" />
-	<talkaction words="/removevip" separator=" " script="vip_remove.lua" />
-	<talkaction words="/checkvip" separator=" " script="vip_check.lua" />
-	<talkaction words="/addpoints" separator=" " script="addpoints.lua" />
 
 	<!-- player talkactions -->
 	<talkaction words="!outfit" script="guild_outfit.lua"/>
@@ -55,7 +49,6 @@
 	<talkaction words="!changesex" script="changesex.lua" />
 	<talkaction words="!uptime" script="uptime.lua" />
 	<talkaction words="!frags" script="kills.lua" />
-	<talkaction words="!checkvip" script="check_vip.lua" />
 	<talkaction words="!highscore" separator=" " script="highscore.lua" />
 	<talkaction words="!serverinfo" script="serverinfo.lua" />
 	<talkaction words="!exp" script="expmana.lua"/>

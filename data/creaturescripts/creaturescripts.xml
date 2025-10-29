@@ -70,10 +70,6 @@
     
     <!-- GM Login Broadcast -->
     <event type="login" name="GMLoginBroadcast" script="gm_login_broadcast.lua"/>
-    
-    <!-- VIP System -->
-    <event type="login" name="VIPLogin" script="vip_login.lua"/>
-    <event type="kill" name="VIPBonus" script="vip_bonus.lua"/>
 		
 	
 </creaturescripts>
