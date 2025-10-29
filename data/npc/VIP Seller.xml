@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="VIP Seller" script="vip_seller.lua" walkinterval="2000" floorchange="0">
+	<health now="100" max="100"/>
+	<look type="131" head="114" body="119" legs="114" feet="114" addons="3"/>
+	<parameters>
+		<parameter key="message_greet" value="Hello |PLAYERNAME|! I sell VIP access to exclusive zones. Say {benefits} to learn more!"/>
+		<parameter key="message_farewell" value="Come back anytime to renew your VIP!"/>
+		<parameter key="message_walkaway" value="See you later!"/>
+	</parameters>
+</npc>
