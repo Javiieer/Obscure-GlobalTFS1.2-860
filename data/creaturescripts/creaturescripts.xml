@@ -70,6 +70,9 @@
     
     <!-- GM Login Broadcast -->
     <event type="login" name="GMLoginBroadcast" script="gm_login_broadcast.lua"/>
+    
+    <!-- AutoLoot System -->
+    <event type="kill" name="AutoLoot" script="autoloot.lua"/>
 		
 	
 </creaturescripts>
