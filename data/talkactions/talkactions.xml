@@ -49,7 +49,6 @@
 	<talkaction words="!changesex" script="changesex.lua" />
 	<talkaction words="!uptime" script="uptime.lua" />
 	<talkaction words="!frags" script="kills.lua" />
-	<talkaction words="!autoloot" separator=" " script="autoloot.lua" />
 	<talkaction words="!highscore" separator=" " script="highscore.lua" />
 	<talkaction words="!serverinfo" script="serverinfo.lua" />
 	<talkaction words="!exp" script="expmana.lua"/>
