@@ -80,7 +80,10 @@ function Player.setVipLevel(self, level)
     if level < 0 or level > 3 then
         return false
     end
-    db.query("UPDATE `players` SET `vip_level` = " .. level .. " WHERE `id` = " .. self:getId())
+    local playerId = self:getId()
+    local query = "UPDATE `players` SET `vip_level` = " .. level .. " WHERE `id` = " .. playerId
+    print("[VIP System] Executing: " .. query)
+    db.query(query)
     return true
 end
 
@@ -95,7 +98,10 @@ function Player.getVipDays(self)
 end
 
 function Player.setVipDays(self, days)
-    db.query("UPDATE `players` SET `vip_days` = " .. days .. " WHERE `id` = " .. self:getId())
+    local playerId = self:getId()
+    local query = "UPDATE `players` SET `vip_days` = " .. days .. " WHERE `id` = " .. playerId
+    print("[VIP System] Executing: " .. query)
+    db.query(query)
     return true
 end
 

@@ -37,6 +37,9 @@ function onSay(player, words, param)
 
     target:addVip(vipLevel, days)
     
+    -- Force save player to database
+    target:save()
+    
     local vipName = VIP_CONFIG.benefits[vipLevel].name
     player:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, "You have added " .. vipName .. " for " .. days .. " days to " .. targetName .. ".")
     target:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have received " .. vipName .. " for " .. days .. " days from a Game Master!")

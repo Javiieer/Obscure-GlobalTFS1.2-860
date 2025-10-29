@@ -9,9 +9,6 @@
 	<!-- Double Experience Event - Checks every minute if event should be active -->
 	<globalevent name="DoubleExpEvent" interval="60000" script="double_exp_event.lua" />
 	
-	<!-- VIP Gold Visual Effects - Shows [VIP] text and fireworks every 30 seconds -->
-	<globalevent name="VIPGoldEffects" interval="30000" script="vip_gold_effects.lua" />
-	
 	<!--
 	<globalevent name="timer_example" time="12:00:00" script="my_script.lua" />
 	-->
