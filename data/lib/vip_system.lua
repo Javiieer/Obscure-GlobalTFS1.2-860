@@ -67,23 +67,35 @@ VIP_CONFIG = {
 -- Library Functions
 
 function Player.getVipLevel(self)
-    return self:getStorageValue(VIP_CONFIG.storage.vipLevel) > 0 and self:getStorageValue(VIP_CONFIG.storage.vipLevel) or 0
+    local resultId = db.storeQuery("SELECT `vip_level` FROM `players` WHERE `id` = " .. self:getId())
+    if resultId then
+        local level = result.getNumber(resultId, "vip_level")
+        result.free(resultId)
+        return level
+    end
+    return 0
 end
 
 function Player.setVipLevel(self, level)
     if level < 0 or level > 3 then
         return false
     end
-    self:setStorageValue(VIP_CONFIG.storage.vipLevel, level)
+    db.query("UPDATE `players` SET `vip_level` = " .. level .. " WHERE `id` = " .. self:getId())
     return true
 end
 
 function Player.getVipDays(self)
-    return self:getStorageValue(VIP_CONFIG.storage.vipDays) > 0 and self:getStorageValue(VIP_CONFIG.storage.vipDays) or 0
+    local resultId = db.storeQuery("SELECT `vip_days` FROM `players` WHERE `id` = " .. self:getId())
+    if resultId then
+        local days = result.getNumber(resultId, "vip_days")
+        result.free(resultId)
+        return days
+    end
+    return 0
 end
 
 function Player.setVipDays(self, days)
-    self:setStorageValue(VIP_CONFIG.storage.vipDays, days)
+    db.query("UPDATE `players` SET `vip_days` = " .. days .. " WHERE `id` = " .. self:getId())
     return true
 end
 
@@ -165,14 +177,14 @@ function Player.addVip(self, level, days)
         self:setVipDays(days)
     end
     
-    self:setStorageValue(VIP_CONFIG.storage.vipLastCheck, os.time())
+    db.query("UPDATE `players` SET `vip_lastday` = " .. os.time() .. " WHERE `id` = " .. self:getId())
     return true
 end
 
 function Player.removeVip(self)
     self:setVipLevel(0)
     self:setVipDays(0)
-    self:setStorageValue(VIP_CONFIG.storage.vipLastCheck, 0)
+    db.query("UPDATE `players` SET `vip_lastday` = 0 WHERE `id` = " .. self:getId())
     return true
 end
 

@@ -6,7 +6,15 @@ function onLogin(player)
     
     if vipLevel > 0 then
         local vipDays = player:getVipDays()
-        local lastCheck = player:getStorageValue(VIP_CONFIG.storage.vipLastCheck)
+        
+        -- Get last check from database
+        local resultId = db.storeQuery("SELECT `vip_lastday` FROM `players` WHERE `id` = " .. player:getId())
+        local lastCheck = 0
+        if resultId then
+            lastCheck = result.getNumber(resultId, "vip_lastday")
+            result.free(resultId)
+        end
+        
         local currentTime = os.time()
         
         -- Calculate days passed since last login
@@ -29,7 +37,7 @@ function onLogin(player)
         end
         
         -- Update last check time
-        player:setStorageValue(VIP_CONFIG.storage.vipLastCheck, currentTime)
+        db.query("UPDATE `players` SET `vip_lastday` = " .. currentTime .. " WHERE `id` = " .. player:getId())
         
         -- Send welcome message
         local vipName = player:getVipName()
