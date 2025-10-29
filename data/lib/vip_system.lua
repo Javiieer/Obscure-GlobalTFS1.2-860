@@ -107,6 +107,20 @@ end
 
 function Player.addVipDays(self, days)
     local currentDays = self:getVipDays()
+    local newDays = currentDays + days
+    self:setVipDays(newDays)
+    return true
+end
+
+function Player.removeVipDays(self, days)
+    local currentDays = self:getVipDays()
+    local newDays = math.max(0, currentDays - days)
+    self:setVipDays(newDays)
+    return true
+end
+
+function Player.addVipDays(self, days)
+    local currentDays = self:getVipDays()
     self:setVipDays(currentDays + days)
     return true
 end
@@ -165,25 +179,41 @@ end
 
 function Player.addVip(self, level, days)
     if level < 1 or level > 3 then
+        print("[VIP System] ERROR: Invalid VIP level: " .. level)
         return false
     end
     
+    print("[VIP System] Adding VIP to player ID: " .. self:getId())
+    print("[VIP System] Level: " .. level .. ", Days: " .. days)
+    
     local currentLevel = self:getVipLevel()
+    local currentDays = self:getVipDays()
+    
+    print("[VIP System] Current Level: " .. currentLevel .. ", Current Days: " .. currentDays)
     
     -- If upgrading level, reset days
     if level > currentLevel then
+        print("[VIP System] Upgrading VIP level")
         self:setVipLevel(level)
         self:setVipDays(days)
     -- If same level, add days
     elseif level == currentLevel then
-        self:addVipDays(days)
-    -- If downgrading, set new level and days
+        print("[VIP System] Adding days to existing VIP")
+        local newDays = currentDays + days
+        self:setVipDays(newDays)
+    -- If downgrading or setting first time, set new level and days
     else
+        print("[VIP System] Setting new VIP level")
         self:setVipLevel(level)
         self:setVipDays(days)
     end
     
-    db.query("UPDATE `players` SET `vip_lastday` = " .. os.time() .. " WHERE `id` = " .. self:getId())
+    -- Update last check time
+    local updateTime = "UPDATE `players` SET `vip_lastday` = " .. os.time() .. " WHERE `id` = " .. self:getId()
+    print("[VIP System] Executing: " .. updateTime)
+    db.query(updateTime)
+    
+    print("[VIP System] VIP successfully added!")
     return true
 end
 
