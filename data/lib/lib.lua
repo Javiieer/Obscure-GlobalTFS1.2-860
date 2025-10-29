@@ -4,6 +4,8 @@ dofile('data/lib/core/core.lua')
 -- Compatibility library for our old Lua API
 dofile('data/lib/compat/compat.lua')
 
+-- VIP System Library
+dofile('data/lib/vip_system.lua')
 
 -- Quests library
 dofile('data/lib/quests/quest.lua')
