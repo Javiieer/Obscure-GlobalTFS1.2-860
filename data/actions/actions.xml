@@ -305,16 +305,8 @@
 	<action itemid="3900" script="Other/tools/watch.lua" />
 	<action itemid="2036" script="Other/tools/watch.lua" />
 	<action fromid="1728" toid="1731" script="Other/tools/watch.lua" />
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<!-----------------------------------------------------------------------------------------------------------------------------MAP--->
+
+	<!--MAP-->
 	<!-- Edron -->
 	<action uniqueid="9192" script="Map/edron/orcEdronLever.lua" />
 	<!-- Farmine -->
@@ -332,9 +324,9 @@
 	
 	
 	
-	<!-----------------------------------------------------------------------------------------------------------------------------QUEST--->
+	<!--QUEST-->
 		
-	<!----  SYSTEM	-->	
+	<!--  SYSTEM	-->	
 	<action actionid="2000" script="Quest/systems/system.lua" />
 	<action actionid="2001" script="Quest/systems/system2.lua" />
 	<action actionid="2016" script="Quest/systems/system.lua" />
@@ -346,7 +338,7 @@
 	<action actionid="27300" script="Quest/systems/system.lua" />
 	<action actionid="28300" script="Quest/systems/system.lua" />
 	
-	<!----  secret library??-->	
+	<!--secret library??-->	
 		
 	<!-- Ab'Dendriel-->	
 	<!-- Draconia Quest-->	
@@ -408,7 +400,7 @@
 	<action uniqueid="2005" script="Quest/Edron/demon helmet/lever.lua" />
 	
 	<!-- Elemental Spheres -->
-	<!--<action uniqueid="9024" script="Quest/Edron/elemental spheres/lever.lua" />
+	<action uniqueid="9024" script="Quest/Edron/elemental spheres/lever.lua" />
 	<action fromid="7911" toid="7912" script="Quest/Edron/elemental spheres/machine.lua" />
 	<action fromid="7913" toid="7914" script="Quest/Edron/elemental spheres/machine2.lua" />
 	<action fromid="7915" toid="7916" script="Quest/Edron/elemental spheres/machine.lua" />
@@ -417,7 +409,7 @@
 	<action fromid="8298" toid="8299" script="Quest/Edron/elemental spheres/soils.lua" />
 	<action fromid="8302" toid="8303" script="Quest/Edron/elemental spheres/soils.lua" />	
 	<action fromid="8304" toid="8306" script="Quest/Edron/elemental spheres/soils2.lua" />
-	<action itemid="8300" script="Quest/Edron/elemental spheres/soils2.lua" />-->
+	<action itemid="8300" script="Quest/Edron/elemental spheres/soils2.lua" />-->-->
 	
 	<!-- Sea of Light Quest -->
 	<action itemid="10614" script="Quest/Edron/sea of light/rareCrystal.lua" />
@@ -476,7 +468,7 @@
 	<!-- beggar outfit quest?? -->
 	<!-- Druid Outfit Quest -->
 	<action itemid="5938" script="Quest/Outfits/druid outfit/waterskin.lua" />
-	<!----Hay otro archivo -->
+	<!--Hay otro archivo -->
 	<!-- Hunter Outfits Quest -->
 	<action fromid="6087" toid="6090" script="Quest/Outfits/hunter outfit/MusicSheet.lua" />
 	<action actionid="33216" script="Quest/Outfits/hunter outfit/allHymnPianoTeleport.lua" />
@@ -604,7 +596,7 @@
 	<action itemid="10531" script="Quest/Tibia/TheLightbearer/midnight_shard.lua"/>
 	
 	<!-- ToolQuest --> 
-	<!----Posible mover de carpeta a MAP o a TOOLS--> 
+	<!--Posible mover de carpeta a MAP o a TOOLS--> 
 	<action itemid="4863" script="Quest/ToolQuest/ectoplasmContainer.lua" />
 	<action itemid="5468" script="Quest/ToolQuest/fireBug.lua" />
 	<action actionid="50027" script="Quest/ToolQuest/hellGateLever.lua" />
@@ -645,6 +637,6 @@
 
 	<!-- Spike Sword Quest Rook, 7000 -->
 	<action actionid="7000" script="rook/quest.lua" /> <!-- Action id of quests, id is Uid and start from 1001 -->
-    7000 - 7999 Reserved for Quest storages in Rook (All new ids must be registered in the quest file!)
+    <!--7000 - 7999 Reserved for Quest storages in Rook (All new ids must be registered in the quest file!)-->
 
 </actions>
