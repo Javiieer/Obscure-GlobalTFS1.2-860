@@ -10,10 +10,11 @@ function onThink()				npcHandler:onThink()					end
 -- Mount Lottery NPC Configuration
 local config = {
 	storage = 45001, -- Storage to track last lottery time
-	cooldown = 60, -- 1 minute in seconds (60 = 1min, 3600 = 1h, 86400 = 24h, set to -1 for no cooldown)
+	cooldown = 30, -- Reduced cooldown - 30 seconds (60 = 1min, 3600 = 1h, 86400 = 24h, set to -1 for no cooldown)
 	cost = 0, -- Gold cost (set to 0 for free)
 	itemRequired = 6527, -- CHANGE THIS: Item ID required for lottery (6527 = demonic essence, 0 = no item)
 	itemCount = 1, -- How many items are required
+	compensationGold = 10000, -- Gold given when player has most mounts
 	
 	-- Mount tiers with probability weights
 	-- IDs reference mount IDs from data/XML/mounts.xml
@@ -196,12 +197,23 @@ local function creatureSayCallback(cid, type, msg)
 			-- Get random mount
 			local selectedMount = getRandomMount()
 			
-			-- Check if player already has this mount
+			-- Check if player already has this mount - if so, try to find another one
+			local attempts = 0
+			local maxAttempts = 20 -- Prevent infinite loop
+			
+			while p:hasMount(selectedMount.id) and attempts < maxAttempts do
+				selectedMount = getRandomMount()
+				attempts = attempts + 1
+			end
+			
+			-- If all attempts failed (player has most mounts), give compensation
 			if p:hasMount(selectedMount.id) then
 				local pos = p:getPosition()
-				pos:sendMagicEffect(CONST_ME_POFF)
-				p:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You received a mount you already have! Better luck next time.")
-				p:setStorageValue(config.storage, os.time())
+				pos:sendMagicEffect(CONST_ME_MAGIC_GREEN)
+				p:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You already have most available mounts! Here's " .. config.compensationGold .. " gold pieces as compensation.")
+				p:addMoney(config.compensationGold)
+				-- Set reduced cooldown for compensation cases (half the normal cooldown)
+				p:setStorageValue(config.storage, os.time() + (config.cooldown / 2))
 				return
 			end
 			
@@ -270,6 +282,23 @@ local function creatureSayCallback(cid, type, msg)
 		return true
 	end
 	
+	if msgcontains(msg, "info") or msgcontains(msg, "available") or msgcontains(msg, "list") then
+		local totalMounts = 0
+		local playerMounts = 0
+		
+		for _, mount in ipairs(mountPool) do
+			totalMounts = totalMounts + 1
+			if player:hasMount(mount.id) then
+				playerMounts = playerMounts + 1
+			end
+		end
+		
+		local percentage = math.floor((playerMounts / totalMounts) * 100)
+		npcHandler:say("You currently have " .. playerMounts .. " out of " .. totalMounts .. " available mounts (" .. percentage .. "%). The lottery offers mounts from common to ultra rare tiers!", cid)
+		npcHandler:resetNpc(cid)
+		return true
+	end
+	
 	return true
 end
 
@@ -279,4 +308,7 @@ npcHandler:addModule(FocusModule:new())
 -- Keywords
 keywordHandler:addKeyword({'lottery'}, StdModule.say, {npcHandler = npcHandler, text = 'Would you like to try your luck at the {mount} lottery?'})
 keywordHandler:addKeyword({'mount'}, StdModule.say, {npcHandler = npcHandler, text = 'I can give you a chance to win a random mount! Just say {lottery} to try your luck!'})
-keywordHandler:addKeyword({'help'}, StdModule.say, {npcHandler = npcHandler, text = 'Say {lottery} or {mount} to participate in the mount lottery! You can win rare and legendary mounts!'})
+keywordHandler:addKeyword({'help'}, StdModule.say, {npcHandler = npcHandler, text = 'Say {lottery} or {mount} to participate in the mount lottery! Say {info} to check your progress. You can win rare and legendary mounts!'})
+keywordHandler:addKeyword({'info'}, StdModule.say, {npcHandler = npcHandler, text = 'Let me check your mount collection...'})
+keywordHandler:addKeyword({'available'}, StdModule.say, {npcHandler = npcHandler, text = 'Let me check your mount collection...'})
+keywordHandler:addKeyword({'list'}, StdModule.say, {npcHandler = npcHandler, text = 'Let me check your mount collection...'})
