@@ -9,6 +9,10 @@
 	<!-- Double Experience Event - Checks every minute if event should be active -->
 	<globalevent name="DoubleExpEvent" interval="60000" script="double_exp_event.lua" />
 	
+	<!-- Mount Lottery NPC Auto Spawn System - Checks every minute for spawn times -->
+	<globalevent name="MountLotterySpawn" interval="60000" script="mount_lottery_spawn.lua" />
+	<globalevent type="startup" name="MountLotteryStartup" script="mount_lottery_spawn.lua" />
+	
 	<!--
 	<globalevent name="timer_example" time="12:00:00" script="my_script.lua" />
 	-->

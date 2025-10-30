@@ -39,6 +39,7 @@
 	<talkaction words="/mount" separator=" " script="add_mount.lua" />
 	<talkaction words="/mounts" script="list_mounts.lua" />
 	<talkaction words="/zombieevent" separator=" " script="zombie_event.lua" />
+	<talkaction words="/mountlottery" separator=" " script="mount_lottery_gm.lua" />
 
 	<!-- player talkactions -->
 	<talkaction words="!outfit" script="guild_outfit.lua"/>
@@ -56,6 +57,7 @@
 	<talkaction words="!share" script="partyShareExp.lua"/>
 	<talkaction words="/share" script="partyShareExp.lua"/>
 	<talkaction words="!deathlist" script="deathlist.lua" />
+	<talkaction words="!mountlottery" script="mount_lottery_info.lua" />
 
 	<!-- test talkactions -->
 	<talkaction words="!z" separator=" " script="magiceffect.lua" />
