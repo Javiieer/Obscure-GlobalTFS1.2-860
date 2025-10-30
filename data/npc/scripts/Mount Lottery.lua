@@ -10,7 +10,7 @@ function onThink()				npcHandler:onThink()					end
 -- Mount Lottery NPC Configuration
 local config = {
 	storage = 45001, -- Storage to track last lottery time
-	cooldown = 86400, -- 24 hours in seconds (86400 = 24h, set to -1 for no cooldown)
+	cooldown = 60, -- 1 minute in seconds (60 = 1min, 3600 = 1h, 86400 = 24h, set to -1 for no cooldown)
 	cost = 0, -- Gold cost (set to 0 for free)
 	itemRequired = 6527, -- CHANGE THIS: Item ID required for lottery (6527 = demonic essence, 0 = no item)
 	itemCount = 1, -- How many items are required
@@ -132,9 +132,9 @@ local function creatureSayCallback(cid, type, msg)
 			if lastTime > 0 then
 				local timeLeft = (lastTime + config.cooldown) - os.time()
 				if timeLeft > 0 then
-					local hours = math.floor(timeLeft / 3600)
-					local minutes = math.floor((timeLeft % 3600) / 60)
-					npcHandler:say("You've already tried the mount lottery recently! Come back in " .. hours .. " hours and " .. minutes .. " minutes.", cid)
+					local minutes = math.floor(timeLeft / 60)
+					local seconds = timeLeft % 60
+					npcHandler:say("You've already tried the mount lottery recently! Come back in " .. minutes .. " minutes and " .. seconds .. " seconds.", cid)
 					npcHandler:resetNpc(cid)
 					return true
 				end
@@ -173,86 +173,94 @@ local function creatureSayCallback(cid, type, msg)
 	if msgcontains(msg, "yes") and npcHandler.topic[cid] == 1 then
 		-- Remove required item
 		if config.itemRequired > 0 then
-			if player:removeItem(config.itemRequired, config.itemCount) then
-				npcHandler:say("The lottery wheel spins...", cid)
-				
-				-- Visual effect at player position
-				local playerPos = player:getPosition()
-				playerPos:sendMagicEffect(CONST_ME_GIFT_WRAPS)
-				
-				-- Small delay for dramatic effect
-				addEvent(function(playerId)
-					local p = Player(playerId)
-					if p then
-						-- Get random mount
-						local selectedMount = getRandomMount()
-						
-						-- Check if player already has this mount
-						if p:hasMount(selectedMount.id) then
-							local pos = p:getPosition()
-							pos:sendMagicEffect(CONST_ME_POFF)
-							npcHandler:say("You received a mount you already have! Better luck next time.", playerId)
-							p:setStorageValue(config.storage, os.time())
-							return
-						end
-						
-						-- Grant mount
-						p:addMount(selectedMount.id)
-						
-						-- Get mount name
-						local mountName = getMountName(selectedMount.id)
-						
-						-- Victory effects based on rarity
-						local pos = p:getPosition()
-						if selectedMount.weight == 2 then
-							-- Ultra Rare - Epic effects
-							pos:sendMagicEffect(CONST_ME_FIREWORK_RED)
-							addEvent(function()
-								local newPos = p:getPosition()
-								newPos:sendMagicEffect(CONST_ME_FIREWORK_YELLOW)
-							end, 300)
-							addEvent(function()
-								local newPos = p:getPosition()
-								newPos:sendMagicEffect(CONST_ME_FIREWORK_BLUE)
-							end, 600)
-						elseif selectedMount.weight == 5 then
-							-- Very Rare - Double effect
-							pos:sendMagicEffect(CONST_ME_FIREWORK_YELLOW)
-							addEvent(function()
-								local newPos = p:getPosition()
-								newPos:sendMagicEffect(CONST_ME_MAGIC_BLUE)
-							end, 300)
-						elseif selectedMount.weight == 10 then
-							-- Rare - Single firework
-							pos:sendMagicEffect(CONST_ME_FIREWORK_BLUE)
-						else
-							-- Common/Uncommon - Simple effect
-							pos:sendMagicEffect(CONST_ME_MAGIC_GREEN)
-						end
-						
-						-- Announce to player
-						npcHandler:say("Congratulations! You won: " .. mountName .. "!", playerId)
-						
-						-- Broadcast rare mounts
-						if selectedMount.broadcast then
-							Game.broadcastMessage(p:getName() .. " has won " .. mountName .. " from the Mount Lottery!", MESSAGE_EVENT_ADVANCE)
-						end
-						
-						-- Set cooldown
-						p:setStorageValue(config.storage, os.time())
-					end
-				end, 2000, player:getId())
-				
-				-- Reset topic to prevent double execution
-				npcHandler.topic[cid] = 0
-				npcHandler:resetNpc(cid)
-				return true
-			else
+			if not player:removeItem(config.itemRequired, config.itemCount) then
 				npcHandler:say("Something went wrong! Make sure you have the required items.", cid)
 				npcHandler:resetNpc(cid)
 				return true
 			end
 		end
+		
+		npcHandler:say("The lottery wheel spins...", cid)
+		
+		-- Visual effect at player position
+		local playerPos = player:getPosition()
+		playerPos:sendMagicEffect(CONST_ME_GIFT_WRAPS)
+		
+		-- Small delay for dramatic effect
+		addEvent(function(playerId)
+			local p = Player(playerId)
+			if not p then
+				return
+			end
+			
+			-- Get random mount
+			local selectedMount = getRandomMount()
+			
+			-- Check if player already has this mount
+			if p:hasMount(selectedMount.id) then
+				local pos = p:getPosition()
+				pos:sendMagicEffect(CONST_ME_POFF)
+				p:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You received a mount you already have! Better luck next time.")
+				p:setStorageValue(config.storage, os.time())
+				return
+			end
+			
+			-- Grant mount
+			p:addMount(selectedMount.id)
+			
+			-- Get mount name
+			local mountName = getMountName(selectedMount.id)
+			
+			-- Victory effects based on rarity
+			local pos = p:getPosition()
+			if selectedMount.weight == 2 then
+				-- Ultra Rare - Epic effects
+				pos:sendMagicEffect(CONST_ME_FIREWORK_RED)
+				addEvent(function()
+					local newPos = p:getPosition()
+					if newPos then
+						newPos:sendMagicEffect(CONST_ME_FIREWORK_YELLOW)
+					end
+				end, 300)
+				addEvent(function()
+					local newPos = p:getPosition()
+					if newPos then
+						newPos:sendMagicEffect(CONST_ME_FIREWORK_BLUE)
+					end
+				end, 600)
+			elseif selectedMount.weight == 5 then
+				-- Very Rare - Double effect
+				pos:sendMagicEffect(CONST_ME_FIREWORK_YELLOW)
+				addEvent(function()
+					local newPos = p:getPosition()
+					if newPos then
+						newPos:sendMagicEffect(CONST_ME_MAGIC_BLUE)
+					end
+				end, 300)
+			elseif selectedMount.weight == 10 then
+				-- Rare - Single firework
+				pos:sendMagicEffect(CONST_ME_FIREWORK_BLUE)
+			else
+				-- Common/Uncommon - Simple effect
+				pos:sendMagicEffect(CONST_ME_MAGIC_GREEN)
+			end
+			
+			-- Announce to player
+			p:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Congratulations! You won: " .. mountName .. "!")
+			
+			-- Broadcast rare mounts
+			if selectedMount.broadcast then
+				Game.broadcastMessage(p:getName() .. " has won " .. mountName .. " from the Mount Lottery!", MESSAGE_EVENT_ADVANCE)
+			end
+			
+			-- Set cooldown
+			p:setStorageValue(config.storage, os.time())
+		end, 2000, player:getId())
+		
+		-- Reset topic to prevent double execution
+		npcHandler.topic[cid] = 0
+		npcHandler:resetNpc(cid)
+		return true
 	end
 	
 	if msgcontains(msg, "no") then
