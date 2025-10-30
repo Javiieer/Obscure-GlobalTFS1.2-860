@@ -34,9 +34,12 @@ local config = {
     -- Storage to track current spawned NPC
     storage = 45002,
     
-    -- Broadcast messages
-    spawnMessage = "The Mount Lottery NPC has appeared in %s! Visit him for a chance to win rare mounts!",
-    despawnMessage = "The Mount Lottery NPC has left %s. He will return later in another city!",
+    -- Broadcast messages - more eye-catching
+    spawnMessage = "*** MOUNT LOTTERY *** The Mount Lottery NPC has appeared in %s! Get rare mounts now! ***",
+    despawnMessage = "*** MOUNT LOTTERY *** The NPC has left %s! Next location coming soon! ***",
+    
+    -- Pre-spawn warning (5 minutes before)
+    preSpawnMessage = "*** MOUNT LOTTERY *** The NPC will appear in %s in 5 minutes! Get ready! ***",
     
     -- Area around spawn position to clear (radius)
     clearRadius = 2
@@ -66,12 +69,22 @@ local function spawnMountLotteryNPC(scheduleEntry)
         -- Store NPC ID for later removal
         Game.setStorageValue(config.storage, npc:getId())
         
-        -- Broadcast spawn message
+        -- Multiple broadcast announcements for visibility
         local message = string.format(config.spawnMessage, scheduleEntry.city)
+        
+        -- Send broadcast message multiple times with effects
         Game.broadcastMessage(message, MESSAGE_EVENT_ADVANCE)
         
-        -- Add special effects at spawn location
+        -- Delayed second announcement for emphasis
+        addEvent(function()
+            Game.broadcastMessage(message, MESSAGE_EVENT_ADVANCE)
+        end, 3000)
+        
+        -- Add spectacular effects at spawn location
         scheduleEntry.pos:sendMagicEffect(CONST_ME_TELEPORT)
+        addEvent(function()
+            scheduleEntry.pos:sendMagicEffect(CONST_ME_FIREWORK_YELLOW)
+        end, 1000)
         
         -- Schedule despawn
         addEvent(function()
@@ -82,12 +95,27 @@ local function spawnMountLotteryNPC(scheduleEntry)
                 local npcPos = currentNpc:getPosition()
                 currentNpc:remove()
                 
-                -- Effects at despawn location
+                -- Spectacular effects at despawn location
                 npcPos:sendMagicEffect(CONST_ME_POFF)
+                addEvent(function()
+                    npcPos:sendMagicEffect(CONST_ME_MAGIC_BLUE)
+                end, 500)
                 
-                -- Broadcast despawn message
+                -- Multiple broadcast despawn messages
                 local despawnMsg = string.format(config.despawnMessage, scheduleEntry.city)
                 Game.broadcastMessage(despawnMsg, MESSAGE_EVENT_ADVANCE)
+                
+                -- Second despawn announcement with next location info
+                addEvent(function()
+                    local nextSpawn, minutesUntil = getNextSpawnInfo()
+                    if nextSpawn then
+                        local hours = math.floor(minutesUntil / 60)
+                        local minutes = minutesUntil % 60
+                        local nextMessage = string.format("*** MOUNT LOTTERY *** Next appearance: %s in %dh %dm! ***", 
+                                                        nextSpawn.city, hours, minutes)
+                        Game.broadcastMessage(nextMessage, MESSAGE_EVENT_ADVANCE)
+                    end
+                end, 2000)
             end
             
             -- Clear storage
@@ -102,7 +130,7 @@ local function spawnMountLotteryNPC(scheduleEntry)
     end
 end
 
--- Function to check if it's time to spawn
+-- Function to check if it's time to spawn or send warnings
 local function checkSpawnTime()
     local currentTime = os.date("*t")
     local currentHour = currentTime.hour
@@ -110,8 +138,33 @@ local function checkSpawnTime()
     
     -- Check each schedule entry
     for _, entry in ipairs(config.schedule) do
+        -- Check for exact spawn time
         if currentHour == entry.hour and currentMinute == entry.minute then
             spawnMountLotteryNPC(entry)
+            break
+        end
+        
+        -- Check for 5-minute warning
+        local warningHour = entry.hour
+        local warningMinute = entry.minute - 5
+        
+        -- Handle minute underflow
+        if warningMinute < 0 then
+            warningMinute = warningMinute + 60
+            warningHour = warningHour - 1
+            if warningHour < 0 then
+                warningHour = 23
+            end
+        end
+        
+        if currentHour == warningHour and currentMinute == warningMinute then
+            local preMessage = string.format(config.preSpawnMessage, entry.city)
+            Game.broadcastMessage(preMessage, MESSAGE_EVENT_ADVANCE)
+            
+            -- Second warning message
+            addEvent(function()
+                Game.broadcastMessage(preMessage, MESSAGE_EVENT_ADVANCE)
+            end, 3000)
             break
         end
     end
@@ -148,7 +201,13 @@ local function getNextSpawnInfo()
     return nextSpawn, minDifference
 end
 
--- Main globalevent function
+-- Main globalevent function for interval-based checking
+function onThink(interval)
+    checkSpawnTime()
+    return true
+end
+
+-- Alternative function name for time-based events
 function onTime(interval)
     checkSpawnTime()
     return true

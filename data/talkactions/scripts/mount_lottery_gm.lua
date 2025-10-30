@@ -57,9 +57,14 @@ function onSay(player, words, param)
             Game.setStorageValue(config.storage, npc:getId())
             cityData.pos:sendMagicEffect(CONST_ME_TELEPORT)
             
-            -- Broadcast message
-            local message = "GM has spawned the Mount Lottery NPC in " .. cityData.name .. "!"
+            -- Enhanced broadcast message
+            local message = "*** MOUNT LOTTERY *** GM has spawned the NPC in " .. cityData.name .. "! Limited time! ***"
             Game.broadcastMessage(message, MESSAGE_EVENT_ADVANCE)
+            
+            -- Second announcement for visibility
+            addEvent(function()
+                Game.broadcastMessage(message, MESSAGE_EVENT_ADVANCE)
+            end, 3000)
             
             -- Schedule auto-removal
             addEvent(function()
@@ -108,7 +113,7 @@ function onSay(player, words, param)
     elseif action == "remove" then
         if clearExistingNPC() then
             player:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, "Mount Lottery NPC removed.")
-            Game.broadcastMessage("GM has removed the Mount Lottery NPC.", MESSAGE_EVENT_ADVANCE)
+            Game.broadcastMessage("*** MOUNT LOTTERY *** GM has removed the NPC. Check !mountlottery for next schedule! ***", MESSAGE_EVENT_ADVANCE)
         else
             player:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, "No Mount Lottery NPC found to remove.")
         end
