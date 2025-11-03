@@ -601,6 +601,7 @@
  
 
  <!-- Traps -->
+ <monster name="a carved stone tile" file="traps/a carved stone tile.xml"/>
  <monster name="Deathslicer" file="traps/deathslicer.xml"/>
  <monster name="Flamethrower" file="traps/flamethrower.xml"/>
  <monster name="Lavahole" file="traps/lavahole.xml"/>
@@ -679,6 +680,7 @@
  <monster name="Renegade Orc" file="Mod/renegade orc.xml"/>
  <monster name="Training Monk" file="Mod/Training Monk.xml"/>
  <monster name="Dwarf Henchman" file="Mod/dwarf henchman.xml"/>
+ <monster name="Target Dummy" file="Mod/Target Dummy.xml"/>
  
  <!-- Mod -->
  <monster name="Grandfather Tridian" file="bosses/grandfather_tridian.xml"/>

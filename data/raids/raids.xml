@@ -27,12 +27,12 @@
 	<raid name="Rats" file="rookgaard/rats.xml" interval2="500" margin="70" />
 	<raid name="Munster" file="rookgaard/munster.xml" interval2="500" margin="40" />
 
-	<!-- Raids Ankrahmun -->
+	<!-- Raids Ankrahmun
 	<raid name="Nomad" file="ankrahmun/Nomad.xml" interval2="500" margin="70" />
 	<raid name="Scarab" file="ankrahmun/Scarab.xml" interval2="500" margin="60" />
 	<raid name="Cobra" file="ankrahmun/Cobra.xml" interval2="500" margin="70" />
 	<raid name="Bonebeast" file="ankrahmun/Bonebeast.xml" interval2="500" margin="70" />
-	<raid name="Gargoyle" file="ankrahmun/Gargoyle.xml" interval2="500" margin="70" />
+	<raid name="Gargoyle" file="ankrahmun/Gargoyle.xml" interval2="500" margin="70" /> -->
 
 	<!-- Raids Darashia -->
 	<raid name="Undead Darashia" file="darashia/undead_darashia.xml" interval2="500" margin="70" />

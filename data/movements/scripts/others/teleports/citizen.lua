@@ -1,20 +1,20 @@
 local config = {
-	[9056] = 4,
-	[9057] = 2,
-	[9058] = 1,
-	[9059] = 5,
-	[9060] = 3,
-	[9061] = 10,
-	[9062] = 9,
-	[9063] = 11,
-	[9064] = 7,
-	[9065] = 8,
-	[9066] = 12,
-	[9067] = 13,
-	[9068] = 14,
-	[9240] = 28,
-	[9500] = 29,
-	[9510] = 33
+	[9056] = 4, -- Kazordoon
+	[9057] = 1, -- Thais
+	[9058] = 2, -- Carlin
+	[9059] = 5, -- Ab´Dendriel
+	[9060] = 3, -- Rookgard
+	[9061] = 10, -- Port Hope
+	[9062] = 9, -- Ankrahmun
+	[9063] = 11, -- Liberty Bay
+	[9064] = 7, -- Darashia
+	[9065] = 8, -- Venore
+	[9066] = 12, -- Svargrond
+	[9067] = 13, -- Yalahar
+	[9068] = 14, -- Farmine
+	[9240] = 28, -- Nothing
+	[9500] = 29, -- Nothing
+	[9510] = 33  -- Nothing
 }
 
 function onStepIn(creature, item, position, fromPosition)
@@ -23,7 +23,7 @@ function onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 
-	local townId = config[item.uid]
+	local townId = config[item.actionid]
 	if not townId then
 		return true
 	end
